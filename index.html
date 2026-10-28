@@ -1,0 +1,426 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Locbike | Aluguel de bicicletas</title>
+  <meta name="description" content="Locbike — aluguel de bicicletas. [Descrição curta do negócio]">
+
+  <!-- Open Graph (link previews on WhatsApp, Instagram, etc.) -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Locbike | Aluguel de bicicletas">
+  <meta property="og:description" content="[Descrição curta do negócio]">
+  <meta property="og:image" content="assets/img/og-image.jpg">
+  <meta property="og:locale" content="pt_BR">
+
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <script src="assets/js/main.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Pular para o conteúdo</a>
+
+  <!-- ===================== HEADER ===================== -->
+  <header class="site-header" data-header>
+    <div class="container site-header__inner">
+      <a class="logo" href="#inicio" aria-label="Locbike — início">Locbike</a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-nav-toggle>
+        <span class="nav-toggle__bar" aria-hidden="true"></span>
+        <span class="visually-hidden">Abrir menu</span>
+      </button>
+
+      <nav class="site-nav" id="site-nav" aria-label="Principal" data-nav>
+        <ul class="site-nav__list">
+          <li><a href="#bikes">Bikes</a></li>
+          <li><a href="#como-funciona">Como funciona</a></li>
+          <li><a href="#precos">Preços</a></li>
+          <li><a href="#roteiros">Roteiros</a></li>
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+        <a class="btn btn--primary" href="#contato">Reservar</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ===================== HERO ===================== -->
+    <section class="hero" id="inicio" aria-labelledby="hero-title">
+      <div class="container hero__inner">
+        <h1 class="hero__title" id="hero-title">[Título principal]</h1>
+        <p class="hero__subtitle">[Subtítulo / proposta de valor]</p>
+        <div class="hero__actions">
+          <a class="btn btn--primary" href="#contato">[CTA principal]</a>
+          <a class="btn btn--ghost" href="#bikes">[CTA secundário]</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== TRUST STRIP ===================== -->
+    <section class="trust" aria-label="Credenciais">
+      <div class="container">
+        <ul class="trust__list">
+          <li class="trust__item">[Avaliações]</li>
+          <li class="trust__item">[Desde 20XX]</li>
+          <li class="trust__item">[Selo / prêmio]</li>
+          <li class="trust__item">[Nº de clientes]</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================== FEATURED / PROMO ===================== -->
+    <section class="section featured" id="destaque" aria-labelledby="featured-title">
+      <div class="container featured__inner">
+        <div class="featured__media placeholder-media" aria-hidden="true"></div>
+        <div class="featured__body">
+          <span class="badge">[Selo]</span>
+          <h2 id="featured-title">[Destaque / promoção]</h2>
+          <p>[Descrição do destaque]</p>
+          <a class="btn btn--primary" href="#contato">[CTA]</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== BIKES (FLEET) ===================== -->
+    <section class="section" id="bikes" aria-labelledby="bikes-title">
+      <div class="container">
+        <header class="section__header">
+          <h2 id="bikes-title">[Nossas bikes]</h2>
+          <p>[Introdução da frota]</p>
+        </header>
+
+        <div class="grid grid--3">
+          <!-- Repeatable bike card -->
+          <article class="card bike-card">
+            <div class="card__media placeholder-media" aria-hidden="true"></div>
+            <div class="card__body">
+              <h3 class="card__title">[Modelo da bike]</h3>
+              <p>[Descrição curta]</p>
+              <ul class="card__specs">
+                <li>[Especificação]</li>
+                <li>[Especificação]</li>
+                <li>[Especificação]</li>
+              </ul>
+              <a class="btn btn--primary" href="#contato">[Reservar]</a>
+            </div>
+          </article>
+
+          <article class="card bike-card">
+            <div class="card__media placeholder-media" aria-hidden="true"></div>
+            <div class="card__body">
+              <h3 class="card__title">[Modelo da bike]</h3>
+              <p>[Descrição curta]</p>
+              <ul class="card__specs">
+                <li>[Especificação]</li>
+                <li>[Especificação]</li>
+                <li>[Especificação]</li>
+              </ul>
+              <a class="btn btn--primary" href="#contato">[Reservar]</a>
+            </div>
+          </article>
+
+          <article class="card bike-card">
+            <div class="card__media placeholder-media" aria-hidden="true"></div>
+            <div class="card__body">
+              <h3 class="card__title">[Modelo da bike]</h3>
+              <p>[Descrição curta]</p>
+              <ul class="card__specs">
+                <li>[Especificação]</li>
+                <li>[Especificação]</li>
+                <li>[Especificação]</li>
+              </ul>
+              <a class="btn btn--primary" href="#contato">[Reservar]</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== HOW IT WORKS ===================== -->
+    <section class="section section--alt" id="como-funciona" aria-labelledby="how-title">
+      <div class="container">
+        <header class="section__header">
+          <h2 id="how-title">[Como funciona]</h2>
+        </header>
+
+        <ol class="grid grid--4 steps">
+          <li class="step">
+            <h3 class="step__title">[Passo 1]</h3>
+            <p>[Descrição]</p>
+          </li>
+          <li class="step">
+            <h3 class="step__title">[Passo 2]</h3>
+            <p>[Descrição]</p>
+          </li>
+          <li class="step">
+            <h3 class="step__title">[Passo 3]</h3>
+            <p>[Descrição]</p>
+          </li>
+          <li class="step">
+            <h3 class="step__title">[Passo 4]</h3>
+            <p>[Descrição]</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ===================== PRICING ===================== -->
+    <section class="section" id="precos" aria-labelledby="pricing-title">
+      <div class="container">
+        <header class="section__header">
+          <h2 id="pricing-title">[Preços]</h2>
+          <p>[Introdução dos planos]</p>
+        </header>
+
+        <div class="grid grid--3">
+          <article class="card plan">
+            <div class="card__body">
+              <h3 class="card__title">[Plano — ex.: Hora]</h3>
+              <p class="plan__price">[R$ 00]</p>
+              <ul class="plan__features">
+                <li>[Item incluso]</li>
+                <li>[Item incluso]</li>
+              </ul>
+              <a class="btn btn--ghost" href="#contato">[Escolher]</a>
+            </div>
+          </article>
+
+          <article class="card plan plan--highlight">
+            <div class="card__body">
+              <span class="badge">[Mais popular]</span>
+              <h3 class="card__title">[Plano — ex.: Diária]</h3>
+              <p class="plan__price">[R$ 00]</p>
+              <ul class="plan__features">
+                <li>[Item incluso]</li>
+                <li>[Item incluso]</li>
+              </ul>
+              <a class="btn btn--primary" href="#contato">[Escolher]</a>
+            </div>
+          </article>
+
+          <article class="card plan">
+            <div class="card__body">
+              <h3 class="card__title">[Plano — ex.: Semanal]</h3>
+              <p class="plan__price">[R$ 00]</p>
+              <ul class="plan__features">
+                <li>[Item incluso]</li>
+                <li>[Item incluso]</li>
+              </ul>
+              <a class="btn btn--ghost" href="#contato">[Escolher]</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== GIFT VOUCHER ===================== -->
+    <section class="section section--alt" id="vale-presente" aria-labelledby="voucher-title">
+      <div class="container voucher">
+        <div class="voucher__body">
+          <h2 id="voucher-title">[Vale-presente]</h2>
+          <p>[Descrição do vale-presente]</p>
+        </div>
+        <a class="btn btn--primary" href="#contato">[Comprar vale]</a>
+      </div>
+    </section>
+
+    <!-- ===================== ROUTES / TOURS ===================== -->
+    <section class="section" id="roteiros" aria-labelledby="routes-title">
+      <div class="container">
+        <header class="section__header">
+          <h2 id="routes-title">[Roteiros sugeridos]</h2>
+          <p>[Introdução dos roteiros]</p>
+        </header>
+
+        <div class="grid grid--3">
+          <article class="card route-card">
+            <div class="card__media placeholder-media" aria-hidden="true"></div>
+            <div class="card__body">
+              <h3 class="card__title">[Nome do roteiro]</h3>
+              <p>[Descrição]</p>
+              <ul class="card__meta">
+                <li>[Distância]</li>
+                <li>[Duração]</li>
+                <li>[Nível]</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="card route-card">
+            <div class="card__media placeholder-media" aria-hidden="true"></div>
+            <div class="card__body">
+              <h3 class="card__title">[Nome do roteiro]</h3>
+              <p>[Descrição]</p>
+              <ul class="card__meta">
+                <li>[Distância]</li>
+                <li>[Duração]</li>
+                <li>[Nível]</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="card route-card">
+            <div class="card__media placeholder-media" aria-hidden="true"></div>
+            <div class="card__body">
+              <h3 class="card__title">[Nome do roteiro]</h3>
+              <p>[Descrição]</p>
+              <ul class="card__meta">
+                <li>[Distância]</li>
+                <li>[Duração]</li>
+                <li>[Nível]</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== ABOUT ===================== -->
+    <section class="section section--alt" id="sobre" aria-labelledby="about-title">
+      <div class="container about">
+        <div class="about__media placeholder-media" aria-hidden="true"></div>
+        <div class="about__body">
+          <h2 id="about-title">[Sobre a Locbike]</h2>
+          <p>[História da empresa]</p>
+          <p>[Sobre o fundador]</p>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="grid grid--3 values">
+          <div class="value">
+            <h3>[Missão]</h3>
+            <p>[Texto]</p>
+          </div>
+          <div class="value">
+            <h3>[Visão]</h3>
+            <p>[Texto]</p>
+          </div>
+          <div class="value">
+            <h3>[Valores]</h3>
+            <p>[Texto]</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== TESTIMONIALS ===================== -->
+    <section class="section" id="depoimentos" aria-labelledby="testimonials-title">
+      <div class="container">
+        <header class="section__header">
+          <h2 id="testimonials-title">[Depoimentos]</h2>
+        </header>
+
+        <div class="grid grid--3">
+          <figure class="card testimonial">
+            <blockquote class="testimonial__quote">[Depoimento do cliente]</blockquote>
+            <figcaption class="testimonial__author">[Nome — origem]</figcaption>
+          </figure>
+          <figure class="card testimonial">
+            <blockquote class="testimonial__quote">[Depoimento do cliente]</blockquote>
+            <figcaption class="testimonial__author">[Nome — origem]</figcaption>
+          </figure>
+          <figure class="card testimonial">
+            <blockquote class="testimonial__quote">[Depoimento do cliente]</blockquote>
+            <figcaption class="testimonial__author">[Nome — origem]</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== FAQ ===================== -->
+    <section class="section section--alt" id="faq" aria-labelledby="faq-title">
+      <div class="container container--narrow">
+        <header class="section__header">
+          <h2 id="faq-title">[Perguntas frequentes]</h2>
+        </header>
+
+        <div class="faq">
+          <details class="faq__item">
+            <summary>[Pergunta]</summary>
+            <p>[Resposta]</p>
+          </details>
+          <details class="faq__item">
+            <summary>[Pergunta]</summary>
+            <p>[Resposta]</p>
+          </details>
+          <details class="faq__item">
+            <summary>[Pergunta]</summary>
+            <p>[Resposta]</p>
+          </details>
+          <details class="faq__item">
+            <summary>[Pergunta]</summary>
+            <p>[Resposta]</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== CONTACT ===================== -->
+    <section class="section" id="contato" aria-labelledby="contact-title">
+      <div class="container contact">
+        <div class="contact__body">
+          <h2 id="contact-title">[Fale com a gente / Reserve]</h2>
+          <p>[Texto de apoio]</p>
+          <ul class="contact__list">
+            <!-- TODO: replace 55XXXXXXXXXXX with the real number (country + area code + number, digits only) -->
+            <li><a href="https://wa.me/55XXXXXXXXXXX" target="_blank" rel="noopener" data-whatsapp>WhatsApp: [(XX) XXXXX-XXXX]</a></li>
+            <li><a href="mailto:contato@locbike.com.br">[contato@locbike.com.br]</a></li>
+            <li>[Endereço]</li>
+            <li>[Horário de funcionamento]</li>
+          </ul>
+          <a class="btn btn--primary" href="https://wa.me/55XXXXXXXXXXX" target="_blank" rel="noopener" data-whatsapp>[Reservar pelo WhatsApp]</a>
+        </div>
+        <div class="contact__map placeholder-media" aria-label="[Mapa]">
+          <!-- TODO: Google Maps embed iframe -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="site-footer">
+    <div class="container site-footer__grid">
+      <div>
+        <a class="logo" href="#inicio">Locbike</a>
+        <p>[Frase curta sobre a empresa]</p>
+        <ul class="social">
+          <li><a href="#" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="#" target="_blank" rel="noopener">Facebook</a></li>
+          <li><a href="#" target="_blank" rel="noopener">Google</a></li>
+        </ul>
+      </div>
+
+      <nav aria-label="Rodapé">
+        <h2 class="site-footer__heading">Navegação</h2>
+        <ul>
+          <li><a href="#bikes">Bikes</a></li>
+          <li><a href="#como-funciona">Como funciona</a></li>
+          <li><a href="#precos">Preços</a></li>
+          <li><a href="#roteiros">Roteiros</a></li>
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </nav>
+
+      <div>
+        <h2 class="site-footer__heading">Contato</h2>
+        <ul>
+          <li>[Endereço]</li>
+          <li>[Telefone]</li>
+          <li>[E-mail]</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container site-footer__bottom">
+      <p>&copy; <span data-year></span> Locbike. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp button -->
+  <a class="whatsapp-float" href="https://wa.me/55XXXXXXXXXXX" target="_blank" rel="noopener" aria-label="Falar no WhatsApp" data-whatsapp>WA</a>
+</body>
+</html>
