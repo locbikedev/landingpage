@@ -1,4 +1,4 @@
-// Locbike — motion: scroll-driven riders, reveals, link/click effects.
+// LocBike — motion: scroll-driven riders, reveals, link/click effects.
 // Everything here is decorative; the page works without it.
 
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -88,7 +88,63 @@ function wheelDegrees(distancePx, riderWidthPx) {
   return (distancePx / radiusPx) * (180 / Math.PI);
 }
 
-/* ---------- Road rider: rides along the strip under the header with page progress ---------- */
+/* ---------- Pages: every `main > section` is a full-screen page (CSS snaps to them) ---------- */
+
+function initPages() {
+  const header = document.querySelector("[data-header]");
+  const sections = [...document.querySelectorAll("main > section")];
+  // Top-level nav links only (sub-menu links point at cards, not pages)
+  const navLinks = new Map(
+    [...document.querySelectorAll('.site-nav__list > li > a[href^="#"]')].map((a) => [a.getAttribute("href").slice(1), a])
+  );
+
+  let tops = []; // scroll position where each page snaps in
+  let maxScroll = 1;
+  let lastY = -1;
+  let active = null;
+
+  function measure() {
+    const chrome = header ? header.offsetHeight : 0;
+    maxScroll = Math.max(document.documentElement.scrollHeight - window.innerHeight, 1);
+    tops = sections.map((s) => Math.max(s.offsetTop - chrome, 0));
+    lastY = -1;
+  }
+
+  // Each page's position along the road, 0→1
+  function stops() {
+    return tops.map((top) => Math.min(top / maxScroll, 1));
+  }
+
+  // Highlight the nav link of the page in view
+  function step() {
+    const y = window.scrollY;
+    if (y === lastY) return;
+    lastY = y;
+
+    const probe = y + window.innerHeight * 0.4;
+    let link = null;
+    for (let i = 0; i < sections.length && tops[i] <= probe; i++) {
+      link = navLinks.get(sections[i].id) ?? link;
+    }
+    if (link !== active) {
+      active?.classList.remove("is-active");
+      link?.classList.add("is-active");
+      active = link;
+    }
+  }
+
+  // Short name for a page: its data-label, else its nav link text, else its heading
+  function label(i) {
+    const section = sections[i];
+    const text = section.dataset.label ?? navLinks.get(section.id)?.textContent ?? section.querySelector("h1, h2")?.textContent;
+    return (text ?? "").trim();
+  }
+
+  measure();
+  return { measure, step, stops, label, sections, maxScroll: () => maxScroll };
+}
+
+/* ---------- Road rider: rides along the strip under the header, from page stop to page stop ---------- */
 
 function initRoad() {
   const road = document.querySelector("[data-road]");
@@ -97,10 +153,11 @@ function initRoad() {
   const wrap = road.querySelector("[data-road-rider]");
   const trail = road.querySelector("[data-road-trail]");
   const rider = createRider(wrap.querySelector("svg"));
+  let stopEls = [];
+  let stopAt = [];
 
   let roadWidth = 0;
   let riderWidth = 0;
-  let maxScroll = 1;
   let x = 0;
   let distance = 0;
   let facing = 1;
@@ -108,11 +165,31 @@ function initRoad() {
   function measure() {
     roadWidth = road.clientWidth;
     riderWidth = wrap.offsetWidth;
-    maxScroll = Math.max(document.documentElement.scrollHeight - window.innerHeight, 1);
+
+    stopAt = pages ? pages.stops() : [];
+    // Each stop links to its page. The road is aria-hidden and the nav has the same links,
+    // so stops stay out of the tab order.
+    while (stopEls.length < stopAt.length) {
+      const i = stopEls.length;
+      const el = document.createElement("a");
+      el.className = "road__stop";
+      el.href = `#${pages.sections[i].id}`;
+      el.tabIndex = -1;
+      el.dataset.label = pages.label(i);
+      road.insertBefore(el, wrap);
+      stopEls.push(el);
+    }
+    stopEls.forEach((el, i) => {
+      const left = stopAt[i] * (roadWidth - riderWidth) + riderWidth / 2;
+      el.style.left = `${left}px`;
+      // Keep the hover label on screen near the edges
+      el.dataset.align = left < 80 ? "start" : left > roadWidth - 80 ? "end" : "center";
+    });
   }
 
   function target() {
-    const progress = Math.min(Math.max(window.scrollY / maxScroll, 0), 1);
+    const max = pages ? pages.maxScroll() : 1;
+    const progress = Math.min(Math.max(window.scrollY / max, 0), 1);
     return { progress, x: progress * (roadWidth - riderWidth) };
   }
 
@@ -131,6 +208,9 @@ function initRoad() {
     wrap.classList.toggle("is-fast", !reduceMotion && Math.abs(dx) > 6);
     trail.style.transform = `scaleX(${t.progress})`;
     rider.pose(wheelDegrees(distance, riderWidth));
+
+    const reached = x / Math.max(roadWidth - riderWidth, 1) + 0.002;
+    stopEls.forEach((el, i) => el.classList.toggle("is-passed", stopAt[i] <= reached));
 
     return Math.abs(t.x - x) > 0.3;
   }
@@ -209,6 +289,7 @@ function initHero() {
 
 /* ---------- Animation loop (runs only while something is moving) ---------- */
 
+let pages = null;
 let road = null;
 let hero = null;
 let ticking = false;
@@ -218,6 +299,7 @@ function tick(now) {
   const dt = Math.min(now - lastTime, 50);
   lastTime = now;
 
+  pages?.step();
   const roadMoving = road ? road.step() : false;
   const heroMoving = hero && !reduceMotion && !document.hidden ? hero.step(dt) : false;
 
@@ -235,19 +317,16 @@ function requestTick() {
   requestAnimationFrame(tick);
 }
 
-/* ---------- Reveal on scroll ---------- */
+/* ---------- Reveal: content fades up as each page arrives ---------- */
 
 const REVEAL_SELECTOR = [
   ".section__header",
   ".trust__item",
   ".card",
-  ".step",
   ".value",
   ".faq__item",
-  ".featured__inner > *",
-  ".about > *",
+  ".split > *",
   ".contact > *",
-  ".voucher > *",
 ].join(",");
 
 // Hidden state lives in the CSS (keyed off html.js); this only adds .is-visible.
@@ -296,15 +375,16 @@ function onScrollEnd(callback) {
     clearTimeout(idle);
     idle = setTimeout(finish, 150);
   };
-  const cap = setTimeout(finish, 2000); // already at target → no scroll events at all
+  const cap = setTimeout(finish, 2500); // already at target → no scroll events at all
 
   if ("onscrollend" in window) window.addEventListener("scrollend", finish);
   window.addEventListener("scroll", onScroll, { passive: true });
   idle = setTimeout(finish, 300);
 }
 
-function arrive(section) {
-  const heading = section.querySelector("h1, h2");
+// Target can be a page (section) or a card inside one (sub-menu links)
+function arrive(target) {
+  const heading = target.matches("h1, h2, h3") ? target : target.querySelector("h1, h2, h3");
   if (!heading || reduceMotion) return;
   heading.classList.remove("is-arriving");
   void heading.offsetWidth; // restart the animation
@@ -315,7 +395,8 @@ function initAnchorLinks() {
   document.addEventListener("click", (event) => {
     const link = event.target.closest('a[href^="#"]');
     if (!link) return;
-    const section = document.querySelector(link.getAttribute("href"));
+    const hash = link.getAttribute("href");
+    const section = hash.length > 1 ? document.querySelector(hash) : null;
     if (!section) return;
 
     road?.wheelie(true);
@@ -346,33 +427,14 @@ function initRipple() {
   });
 }
 
-/* ---------- Scrollspy: highlight the nav link of the section in view ---------- */
-
-function initScrollSpy() {
-  const links = new Map(
-    [...document.querySelectorAll('.site-nav__list a[href^="#"]')].map((a) => [a.getAttribute("href").slice(1), a])
-  );
-  const observer = new IntersectionObserver(
-    (entries) => {
-      for (const entry of entries) {
-        if (!entry.isIntersecting) continue;
-        links.forEach((a) => a.classList.remove("is-active"));
-        links.get(entry.target.id)?.classList.add("is-active");
-      }
-    },
-    { rootMargin: "-45% 0px -50% 0px" }
-  );
-  document.querySelectorAll("main section[id]").forEach((section) => observer.observe(section));
-}
-
 /* ---------- Boot ---------- */
 
+pages = initPages();
 road = initRoad();
 hero = initHero();
 initReveal();
 initAnchorLinks();
 initRipple();
-initScrollSpy();
 
 window.addEventListener(
   "scroll",
@@ -384,13 +446,14 @@ window.addEventListener(
 );
 
 const remeasure = () => {
+  pages?.measure();
   road?.measure();
   hero?.measure();
   requestTick();
 };
 window.addEventListener("resize", remeasure);
-document.addEventListener("visibilitychange", requestTick);
 window.addEventListener("load", remeasure);
+document.addEventListener("visibilitychange", requestTick);
 new ResizeObserver(remeasure).observe(document.body);
 
 requestTick();

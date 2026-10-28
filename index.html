@@ -3,19 +3,22 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Locbike | Aluguel de bicicletas</title>
-  <meta name="description" content="Locbike — aluguel de bicicletas. [Descrição curta do negócio]">
+  <title>LocBike | Cicloturismo em Poços de Caldas MG</title>
+  <meta name="description" content="Agência especializada em cicloturismo, passeios guiados e locação de bicicletas em Poços de Caldas – MG: bike tour, roteiros urbanos e MTB, passeios 4x4 e E-Bikes.">
 
   <!-- Open Graph (link previews on WhatsApp, Instagram, etc.) -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Locbike | Aluguel de bicicletas">
-  <meta property="og:description" content="[Descrição curta do negócio]">
+  <meta property="og:title" content="LocBike | Cicloturismo em Poços de Caldas MG">
+  <meta property="og:description" content="Conheça e aventure-se em Poços de Caldas de bike e E-Bike.">
   <meta property="og:image" content="assets/img/og-image.jpg">
   <meta property="og:locale" content="pt_BR">
 
   <link rel="icon" href="assets/img/favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
   <meta name="theme-color" content="#F2B200">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap">
   <link rel="stylesheet" href="assets/css/styles.css">
   <script>document.documentElement.classList.add("js")</script>
   <script src="assets/js/main.js" defer></script>
@@ -28,7 +31,7 @@
   <header class="site-header" data-header>
     <div class="container site-header__inner">
       <a class="logo" href="#inicio">
-        <img class="logo__img" src="assets/img/logo.webp" alt="Locbike — início" width="678" height="642">
+        <img class="logo__img" src="assets/img/logo.webp" alt="LocBikePocos — início" width="678" height="642">
       </a>
 
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-nav-toggle>
@@ -36,14 +39,38 @@
         <span class="visually-hidden">Abrir menu</span>
       </button>
 
+      <!-- Sub-menus open on hover/focus on desktop; the mobile menu shows top-level links only -->
       <nav class="site-nav" id="site-nav" aria-label="Principal" data-nav>
         <ul class="site-nav__list">
-          <li><a href="#bikes">Bikes</a></li>
-          <li><a href="#como-funciona">Como funciona</a></li>
-          <li><a href="#precos">Preços</a></li>
-          <li><a href="#roteiros">Roteiros</a></li>
-          <li><a href="#sobre">Sobre</a></li>
-          <li><a href="#faq">FAQ</a></li>
+          <li class="has-subnav">
+            <a href="#roteiros">Roteiros</a>
+            <ul class="subnav">
+              <li><a href="#urbanos-pocos">Urbanos Poços</a></li>
+              <li><a href="#mtb-pocos">MTB Poços</a></li>
+              <li><a href="#urbano-noturno">Urbano Noturno</a></li>
+              <li class="subnav__group-start"><a href="#caminho-da-fe">Caminho da Fé</a></li>
+              <li><a href="#serra-da-canastra">Serra da Canastra</a></li>
+              <li><a href="#rota-do-vulcao">Rota do Vulcão</a></li>
+            </ul>
+          </li>
+          <li class="has-subnav">
+            <a href="#passeios-4x4">Passeios 4x4</a>
+            <ul class="subnav">
+              <li><a href="#fazenda-cafe-azeite">Fazenda de Café e Azeite</a></li>
+              <li><a href="#pico-do-gaviao">Pico do Gavião</a></li>
+            </ul>
+          </li>
+          <li class="has-subnav">
+            <a href="#locacao">Locação avulsa</a>
+            <ul class="subnav">
+              <li><a href="#bikes-urbanas">Bikes Urbanas</a></li>
+              <li><a href="#e-bikes">E-Bikes</a></li>
+              <li><a href="#bike-infantil">Bike Infantil</a></li>
+              <li><a href="#acessorios">Acessórios</a></li>
+            </ul>
+          </li>
+          <li><a href="#quem-somos">Quem somos</a></li>
+          <li><a href="#vale-presente">Vale-presente</a></li>
           <li><a href="#contato">Contato</a></li>
         </ul>
         <a class="btn btn--secondary" href="#contato">Reservar</a>
@@ -57,9 +84,10 @@
     </div>
   </header>
 
+  <!-- Every <section> in <main> is a full-screen page. data-label names its stop on the road strip. -->
   <main id="main">
     <!-- ===================== HERO ===================== -->
-    <section class="hero" id="inicio" aria-labelledby="hero-title" data-hero>
+    <section class="hero" id="inicio" aria-labelledby="hero-title" data-hero data-label="Início">
       <!-- Animated landscape: layers loop sideways, speed in data-layer, tile width in data-tile (px) -->
       <div class="hero__scene" aria-hidden="true">
         <div class="hero__sun"></div>
@@ -72,166 +100,236 @@
       </div>
 
       <div class="container hero__inner" data-hero-content>
-        <h1 class="hero__title" id="hero-title">[Título principal]</h1>
-        <p class="hero__subtitle">[Subtítulo / proposta de valor]</p>
+        <p class="kicker">Cicloturismo em Poços de Caldas MG</p>
+        <h1 class="hero__title" id="hero-title">Poços de Caldas de Bike</h1>
+        <p class="hero__subtitle">Conheça e aventure-se em nossa cidade de E-Bike.</p>
         <div class="hero__actions">
-          <a class="btn btn--primary" href="#contato">[CTA principal]</a>
-          <a class="btn btn--ghost" href="#bikes">[CTA secundário]</a>
+          <a class="btn btn--primary" href="#contato">Reservar</a>
+          <a class="btn btn--ghost" href="#roteiros">Ver roteiros</a>
         </div>
-      </div>
-    </section>
-
-    <!-- ===================== TRUST STRIP ===================== -->
-    <section class="trust" aria-label="Credenciais">
-      <div class="container">
-        <ul class="trust__list">
-          <li class="trust__item">[Avaliações]</li>
-          <li class="trust__item">[Desde 20XX]</li>
-          <li class="trust__item">[Selo / prêmio]</li>
-          <li class="trust__item">[Nº de clientes]</li>
+        <ul class="trust__list" aria-label="Credenciais">
+          <li class="trust__item">Agência e guia credenciados Cadastur</li>
         </ul>
       </div>
     </section>
 
-    <!-- ===================== FEATURED / PROMO ===================== -->
-    <section class="section featured" id="destaque" aria-labelledby="featured-title">
-      <div class="container featured__inner">
-        <div class="featured__media placeholder-media" aria-hidden="true"></div>
-        <div class="featured__body">
-          <span class="badge">[Selo]</span>
-          <h2 id="featured-title">[Destaque / promoção]</h2>
-          <p>[Descrição do destaque]</p>
-          <a class="btn btn--primary" href="#contato">[CTA]</a>
+    <!-- ===================== BIKE TOUR ===================== -->
+    <section class="section" id="bike-tour" aria-labelledby="tour-title" data-label="Bike Tour">
+      <div class="container split">
+        <div class="split__media placeholder-media" aria-hidden="true"></div>
+        <div class="split__body">
+          <span class="badge">Até 5 horas</span>
+          <h2 id="tour-title">Bike Tour em Poços de Caldas MG — uma experiência completa</h2>
+          <p>O tour mais completo de Poços de Caldas MG: um circuito de até 5 horas que cruza os pontos turísticos da nossa linda cidade. Ideal para quem quer conhecer a cidade em detalhes.</p>
+          <p>Os roteiros preferidos dos turistas, em circuitos urbanos ou MTB.</p>
+          <ul class="checklist" aria-label="Inclui">
+            <li>Guia</li>
+            <li>Bicicleta ou E-Bike</li>
+            <li>Apoio de veículo, se necessário</li>
+          </ul>
+          <div class="actions">
+            <a class="btn btn--primary" href="#contato">Reservar</a>
+            <a class="btn btn--ghost" href="#roteiros">Ver roteiros</a>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- ===================== BIKES (FLEET) ===================== -->
-    <section class="section" id="bikes" aria-labelledby="bikes-title">
+    <!-- ===================== ROTEIROS: URBANOS ===================== -->
+    <section class="section section--alt" id="roteiros" aria-labelledby="urban-title" data-label="Roteiros urbanos">
       <div class="container">
         <header class="section__header">
-          <h2 id="bikes-title">[Nossas bikes]</h2>
-          <p>[Introdução da frota]</p>
+          <p class="kicker">Roteiros da LocBike</p>
+          <h2 id="urban-title">Cicloturismo urbano</h2>
+          <p>Explore Poços de Caldas de um jeito diferente! Descubra todos os nossos pontos turísticos de E-Bike. Temos experiências únicas para todos os estilos e níveis.</p>
         </header>
 
-        <div class="grid grid--3">
-          <!-- Repeatable bike card -->
-          <article class="card bike-card">
+        <div class="grid grid--2">
+          <!-- Repeatable route card -->
+          <article class="card route-card" id="urbanos-pocos">
             <div class="card__media placeholder-media" aria-hidden="true"></div>
             <div class="card__body">
-              <h3 class="card__title">[Modelo da bike]</h3>
-              <p>[Descrição curta]</p>
-              <ul class="card__specs">
-                <li>[Especificação]</li>
-                <li>[Especificação]</li>
-                <li>[Especificação]</li>
+              <h3 class="card__title">Urbanos Poços</h3>
+              <p>[Descrição do roteiro — detalhes em breve]</p>
+              <ul class="card__meta">
+                <li>[Duração]</li>
+                <li>[Distância]</li>
+                <li>[Nível]</li>
               </ul>
-              <a class="btn btn--primary" href="#contato">[Reservar]</a>
+              <a class="btn btn--primary" href="#contato">Reservar</a>
             </div>
           </article>
 
-          <article class="card bike-card">
+          <article class="card route-card" id="urbano-noturno">
             <div class="card__media placeholder-media" aria-hidden="true"></div>
             <div class="card__body">
-              <h3 class="card__title">[Modelo da bike]</h3>
-              <p>[Descrição curta]</p>
-              <ul class="card__specs">
-                <li>[Especificação]</li>
-                <li>[Especificação]</li>
-                <li>[Especificação]</li>
+              <h3 class="card__title">Urbano Noturno</h3>
+              <p>[Descrição do roteiro — detalhes em breve]</p>
+              <ul class="card__meta">
+                <li>[Duração]</li>
+                <li>[Distância]</li>
+                <li>[Nível]</li>
               </ul>
-              <a class="btn btn--primary" href="#contato">[Reservar]</a>
-            </div>
-          </article>
-
-          <article class="card bike-card">
-            <div class="card__media placeholder-media" aria-hidden="true"></div>
-            <div class="card__body">
-              <h3 class="card__title">[Modelo da bike]</h3>
-              <p>[Descrição curta]</p>
-              <ul class="card__specs">
-                <li>[Especificação]</li>
-                <li>[Especificação]</li>
-                <li>[Especificação]</li>
-              </ul>
-              <a class="btn btn--primary" href="#contato">[Reservar]</a>
+              <a class="btn btn--primary" href="#contato">Reservar</a>
             </div>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- ===================== HOW IT WORKS ===================== -->
-    <section class="section section--alt" id="como-funciona" aria-labelledby="how-title">
-      <div class="container">
-        <header class="section__header">
-          <h2 id="how-title">[Como funciona]</h2>
-        </header>
-
-        <ol class="grid grid--4 steps">
-          <li class="step">
-            <h3 class="step__title">[Passo 1]</h3>
-            <p>[Descrição]</p>
-          </li>
-          <li class="step">
-            <h3 class="step__title">[Passo 2]</h3>
-            <p>[Descrição]</p>
-          </li>
-          <li class="step">
-            <h3 class="step__title">[Passo 3]</h3>
-            <p>[Descrição]</p>
-          </li>
-          <li class="step">
-            <h3 class="step__title">[Passo 4]</h3>
-            <p>[Descrição]</p>
-          </li>
-        </ol>
+    <!-- ===================== ROTEIROS: MTB ===================== -->
+    <section class="section" id="roteiros-mtb" aria-labelledby="mtb-title" data-label="Roteiros MTB">
+      <div class="container split split--reverse">
+        <div class="split__media placeholder-media" aria-hidden="true"></div>
+        <div class="split__body" id="mtb-pocos">
+          <p class="kicker">Roteiros da LocBike</p>
+          <h2 id="mtb-title">Cicloturismo MTB</h2>
+          <p>Pedale com a gente pelas trilhas da nossa região e suas lindas paisagens. Temos experiências únicas para todos os estilos e níveis.</p>
+          <h3>MTB Poços</h3>
+          <p>[Descrição do roteiro — detalhes em breve]</p>
+          <ul class="card__meta">
+            <li>[Duração]</li>
+            <li>[Distância]</li>
+            <li>[Nível]</li>
+          </ul>
+          <a class="btn btn--primary" href="#contato">Reservar</a>
+        </div>
       </div>
     </section>
 
-    <!-- ===================== PRICING ===================== -->
-    <section class="section" id="precos" aria-labelledby="pricing-title">
+    <!-- ===================== ROTEIROS: GRANDES ROTEIROS ===================== -->
+    <section class="section section--alt" id="grandes-roteiros" aria-labelledby="journeys-title" data-label="Grandes roteiros">
       <div class="container">
         <header class="section__header">
-          <h2 id="pricing-title">[Preços]</h2>
-          <p>[Introdução dos planos]</p>
+          <p class="kicker">Roteiros da LocBike</p>
+          <h2 id="journeys-title">[Grandes roteiros]</h2>
+          <p>[Introdução — cicloviagens pela região]</p>
         </header>
 
         <div class="grid grid--3">
-          <article class="card plan">
+          <article class="card route-card" id="caminho-da-fe">
+            <div class="card__media placeholder-media" aria-hidden="true"></div>
             <div class="card__body">
-              <h3 class="card__title">[Plano — ex.: Hora]</h3>
-              <p class="plan__price">[R$ 00]</p>
-              <ul class="plan__features">
-                <li>[Item incluso]</li>
-                <li>[Item incluso]</li>
-              </ul>
-              <a class="btn btn--ghost" href="#contato">[Escolher]</a>
+              <h3 class="card__title">Caminho da Fé</h3>
+              <p>[Descritivo — detalhes em breve]</p>
+              <div class="dates">
+                <p class="dates__title">Próximas saídas</p>
+                <ul class="chips">
+                  <li>[dd/mm]</li>
+                  <li>[dd/mm]</li>
+                  <li>[dd/mm]</li>
+                </ul>
+              </div>
+              <a class="btn btn--primary" href="#contato">Reservar</a>
             </div>
           </article>
 
-          <article class="card plan plan--highlight">
+          <article class="card route-card" id="serra-da-canastra">
+            <div class="card__media placeholder-media" aria-hidden="true"></div>
             <div class="card__body">
-              <span class="badge">[Mais popular]</span>
-              <h3 class="card__title">[Plano — ex.: Diária]</h3>
-              <p class="plan__price">[R$ 00]</p>
-              <ul class="plan__features">
-                <li>[Item incluso]</li>
-                <li>[Item incluso]</li>
-              </ul>
-              <a class="btn btn--primary" href="#contato">[Escolher]</a>
+              <h3 class="card__title">Serra da Canastra</h3>
+              <p>[Descritivo — detalhes em breve]</p>
+              <a class="btn btn--primary" href="#contato">Reservar</a>
             </div>
           </article>
 
-          <article class="card plan">
+          <article class="card route-card" id="rota-do-vulcao">
+            <div class="card__media placeholder-media" aria-hidden="true"></div>
             <div class="card__body">
-              <h3 class="card__title">[Plano — ex.: Semanal]</h3>
-              <p class="plan__price">[R$ 00]</p>
-              <ul class="plan__features">
-                <li>[Item incluso]</li>
-                <li>[Item incluso]</li>
+              <h3 class="card__title">Rota do Vulcão</h3>
+              <p>[Descritivo — detalhes em breve]</p>
+              <a class="btn btn--primary" href="#contato">Reservar</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== PASSEIOS 4X4 ===================== -->
+    <section class="section" id="passeios-4x4" aria-labelledby="offroad-title" data-label="Passeios 4x4">
+      <div class="container">
+        <header class="section__header">
+          <h2 id="offroad-title">Passeios 4x4</h2>
+          <p>[Introdução dos passeios 4x4]</p>
+        </header>
+
+        <div class="grid grid--2">
+          <article class="card route-card" id="fazenda-cafe-azeite">
+            <div class="card__media placeholder-media" aria-hidden="true"></div>
+            <div class="card__body">
+              <h3 class="card__title">Fazenda de Café e Azeite</h3>
+              <p>[Descrição do passeio — detalhes em breve]</p>
+              <ul class="card__meta">
+                <li>[Duração]</li>
+                <li>[Inclui]</li>
               </ul>
-              <a class="btn btn--ghost" href="#contato">[Escolher]</a>
+              <a class="btn btn--primary" href="#contato">Reservar</a>
+            </div>
+          </article>
+
+          <article class="card route-card" id="pico-do-gaviao">
+            <div class="card__media placeholder-media" aria-hidden="true"></div>
+            <div class="card__body">
+              <h3 class="card__title">Pico do Gavião</h3>
+              <p>[Descrição do passeio — detalhes em breve]</p>
+              <ul class="card__meta">
+                <li>[Duração]</li>
+                <li>[Inclui]</li>
+              </ul>
+              <a class="btn btn--primary" href="#contato">Reservar</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== LOCAÇÃO AVULSA ===================== -->
+    <section class="section section--alt" id="locacao" aria-labelledby="rental-title" data-label="Locação avulsa">
+      <div class="container">
+        <header class="section__header">
+          <h2 id="rental-title">Locação avulsa</h2>
+          <p>[Introdução — alugue sua bike e pedale no seu ritmo]</p>
+        </header>
+
+        <div class="grid grid--4">
+          <!-- Repeatable rental card -->
+          <article class="card rental-card" id="bikes-urbanas">
+            <div class="card__media placeholder-media" aria-hidden="true"></div>
+            <div class="card__body">
+              <h3 class="card__title">Bikes Urbanas</h3>
+              <p>[Descrição curta]</p>
+              <p class="price">[R$ 00 / hora]</p>
+              <a class="btn btn--primary" href="#contato">Reservar</a>
+            </div>
+          </article>
+
+          <article class="card rental-card" id="e-bikes">
+            <div class="card__media placeholder-media" aria-hidden="true"></div>
+            <div class="card__body">
+              <h3 class="card__title">E-Bikes</h3>
+              <p>Bicicletas elétricas, incluindo E-MTB Full Suspension.</p>
+              <p class="price">[R$ 00 / hora]</p>
+              <a class="btn btn--primary" href="#contato">Reservar</a>
+            </div>
+          </article>
+
+          <article class="card rental-card" id="bike-infantil">
+            <div class="card__media placeholder-media" aria-hidden="true"></div>
+            <div class="card__body">
+              <h3 class="card__title">Bike Infantil</h3>
+              <p>Modelos infantojuvenis.</p>
+              <p class="price">[R$ 00 / hora]</p>
+              <a class="btn btn--primary" href="#contato">Reservar</a>
+            </div>
+          </article>
+
+          <article class="card rental-card" id="acessorios">
+            <div class="card__media placeholder-media" aria-hidden="true"></div>
+            <div class="card__body">
+              <h3 class="card__title">Acessórios</h3>
+              <p>Capacetes, alforjes, carretinhas e acessórios de transporte.</p>
+              <p class="price">[R$ 00]</p>
+              <a class="btn btn--primary" href="#contato">Reservar</a>
             </div>
           </article>
         </div>
@@ -239,122 +337,54 @@
     </section>
 
     <!-- ===================== GIFT VOUCHER ===================== -->
-    <section class="section section--alt" id="vale-presente" aria-labelledby="voucher-title">
-      <div class="container voucher">
-        <div class="voucher__body">
-          <h2 id="voucher-title">[Vale-presente]</h2>
-          <p>[Descrição do vale-presente]</p>
+    <section class="section" id="vale-presente" aria-labelledby="voucher-title" data-label="Vale-presente">
+      <div class="container split">
+        <div class="split__body">
+          <p class="kicker">Vale-presente</p>
+          <h2 id="voucher-title">Presenteie uma experiência inesquecível em Poços de Caldas, MG</h2>
+          <p>Não é só um passeio: é um presente cheio de memórias.</p>
+          <ul class="checklist" aria-label="Benefícios">
+            <li>Válido por até 12 meses</li>
+            <li>Personalizado com o nome do presenteado</li>
+            <li>Pode ser usado em qualquer tour disponível</li>
+            <li>Ideal para estrangeiros e turistas</li>
+          </ul>
+          <a class="btn btn--primary" href="https://wa.me/5535997790123" target="_blank" rel="noopener" data-whatsapp="Olá! Quero comprar um vale-presente da LocBike.">Quero comprar um vale-presente!</a>
         </div>
-        <a class="btn btn--primary" href="#contato">[Comprar vale]</a>
-      </div>
-    </section>
 
-    <!-- ===================== ROUTES / TOURS ===================== -->
-    <section class="section" id="roteiros" aria-labelledby="routes-title">
-      <div class="container">
-        <header class="section__header">
-          <h2 id="routes-title">[Roteiros sugeridos]</h2>
-          <p>[Introdução dos roteiros]</p>
-        </header>
-
-        <div class="grid grid--3">
-          <article class="card route-card">
-            <div class="card__media placeholder-media" aria-hidden="true"></div>
-            <div class="card__body">
-              <h3 class="card__title">[Nome do roteiro]</h3>
-              <p>[Descrição]</p>
-              <ul class="card__meta">
-                <li>[Distância]</li>
-                <li>[Duração]</li>
-                <li>[Nível]</li>
-              </ul>
-            </div>
-          </article>
-
-          <article class="card route-card">
-            <div class="card__media placeholder-media" aria-hidden="true"></div>
-            <div class="card__body">
-              <h3 class="card__title">[Nome do roteiro]</h3>
-              <p>[Descrição]</p>
-              <ul class="card__meta">
-                <li>[Distância]</li>
-                <li>[Duração]</li>
-                <li>[Nível]</li>
-              </ul>
-            </div>
-          </article>
-
-          <article class="card route-card">
-            <div class="card__media placeholder-media" aria-hidden="true"></div>
-            <div class="card__body">
-              <h3 class="card__title">[Nome do roteiro]</h3>
-              <p>[Descrição]</p>
-              <ul class="card__meta">
-                <li>[Distância]</li>
-                <li>[Duração]</li>
-                <li>[Nível]</li>
-              </ul>
-            </div>
-          </article>
+        <div class="split__body">
+          <h3>Como funciona</h3>
+          <ol class="steps">
+            <li>Escolha o roteiro (bike tour ou city tour em 4 rodas).</li>
+            <li>Fale conosco pelo WhatsApp para definir os detalhes (data marcada ou em aberto).</li>
+            <li>Realize o pagamento.</li>
+            <li>Receba um voucher digital personalizado, com as informações e a validade.</li>
+            <li>Pronto! É só enviar para a pessoa que você ama.</li>
+          </ol>
         </div>
       </div>
     </section>
 
-    <!-- ===================== ABOUT ===================== -->
-    <section class="section section--alt" id="sobre" aria-labelledby="about-title">
-      <div class="container about">
-        <div class="about__media placeholder-media" aria-hidden="true"></div>
-        <div class="about__body">
-          <h2 id="about-title">[Sobre a Locbike]</h2>
-          <p>[História da empresa]</p>
-          <p>[Sobre o fundador]</p>
-        </div>
-      </div>
-
-      <div class="container">
-        <div class="grid grid--3 values">
-          <div class="value">
-            <h3>[Missão]</h3>
-            <p>[Texto]</p>
-          </div>
-          <div class="value">
-            <h3>[Visão]</h3>
-            <p>[Texto]</p>
-          </div>
-          <div class="value">
-            <h3>[Valores]</h3>
-            <p>[Texto]</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===================== TESTIMONIALS ===================== -->
-    <section class="section" id="depoimentos" aria-labelledby="testimonials-title">
-      <div class="container">
-        <header class="section__header">
-          <h2 id="testimonials-title">[Depoimentos]</h2>
-        </header>
-
-        <div class="grid grid--3">
-          <figure class="card testimonial">
-            <blockquote class="testimonial__quote">[Depoimento do cliente]</blockquote>
-            <figcaption class="testimonial__author">[Nome — origem]</figcaption>
-          </figure>
-          <figure class="card testimonial">
-            <blockquote class="testimonial__quote">[Depoimento do cliente]</blockquote>
-            <figcaption class="testimonial__author">[Nome — origem]</figcaption>
-          </figure>
-          <figure class="card testimonial">
-            <blockquote class="testimonial__quote">[Depoimento do cliente]</blockquote>
-            <figcaption class="testimonial__author">[Nome — origem]</figcaption>
-          </figure>
+    <!-- ===================== QUEM SOMOS ===================== -->
+    <section class="section section--alt" id="quem-somos" aria-labelledby="about-title" data-label="Quem somos">
+      <div class="container split split--text">
+        <div class="split__media placeholder-media" aria-hidden="true"></div>
+        <div class="split__body">
+          <p class="kicker">Quem somos</p>
+          <h2 id="about-title">LocBikePocos</h2>
+          <p>A LocBikePocos é uma empresa familiar, agência especializada em cicloturismo, passeios guiados e locação de bicicletas em Poços de Caldas – MG. Nosso objetivo é proporcionar experiências inesquecíveis sobre duas rodas, seja para quem deseja explorar as belezas da nossa cidade ou encarar grandes desafios pelas montanhas da região.</p>
+          <p>Oferecemos uma frota diversificada para atender a todos os perfis de ciclistas, desde modelos urbanos, infantojuvenis e bicicletas de estrada (Road/Speed) até Mountain Bikes (MTB) e bicicletas elétricas (E-Bikes / E-MTB Full Suspension). Além das bikes, disponibilizamos equipamentos essenciais como capacetes, alforjes, carretinhas e acessórios de transporte.</p>
+          <p>Para os apaixonados pelo pedal de longa distância, prestamos suporte e estrutura completa para apoiar ciclistas no Caminho da Fé, na Serra da Canastra, na Rota do Vulcão e em outras rotas da região. Seja para um passeio em família no fim de semana ou para uma expedição de cicloturismo, a LocBikePocos entrega qualidade, segurança e a liberdade que só a bicicleta proporciona.</p>
+          <ul class="chips" aria-label="Credenciais">
+            <li>Agência credenciada Cadastur</li>
+            <li>Guia credenciado Cadastur</li>
+          </ul>
         </div>
       </div>
     </section>
 
     <!-- ===================== FAQ ===================== -->
-    <section class="section section--alt" id="faq" aria-labelledby="faq-title">
+    <section class="section" id="faq" aria-labelledby="faq-title" data-label="FAQ">
       <div class="container container--narrow">
         <header class="section__header">
           <h2 id="faq-title">[Perguntas frequentes]</h2>
@@ -382,23 +412,23 @@
     </section>
 
     <!-- ===================== CONTACT ===================== -->
-    <section class="section" id="contato" aria-labelledby="contact-title">
+    <section class="section section--alt" id="contato" aria-labelledby="contact-title" data-label="Contato">
       <div class="container contact">
         <div class="contact__body">
-          <h2 id="contact-title">[Fale com a gente / Reserve]</h2>
-          <p>[Texto de apoio]</p>
+          <p class="kicker">Contato</p>
+          <h2 id="contact-title">Fale com a gente</h2>
+          <p>Reserve seu passeio ou tire suas dúvidas pelo WhatsApp.</p>
           <ul class="contact__list">
-            <!-- TODO: replace 55XXXXXXXXXXX with the real number (country + area code + number, digits only) -->
-            <li><a href="https://wa.me/55XXXXXXXXXXX" target="_blank" rel="noopener" data-whatsapp>WhatsApp: [(XX) XXXXX-XXXX]</a></li>
-            <li><a href="mailto:contato@locbike.com.br">[contato@locbike.com.br]</a></li>
-            <li>[Endereço]</li>
+            <li><strong>WhatsApp e telefone:</strong> <a href="https://wa.me/5535997790123" target="_blank" rel="noopener" data-whatsapp>(35) 9 9779-0123</a></li>
+            <li><strong>Instagram:</strong> <a href="https://www.instagram.com/locbikepocos" target="_blank" rel="noopener">@locbikepocos</a></li>
+            <li><strong>Endereço:</strong> <a href="https://www.google.com/maps/search/?api=1&amp;query=Av.%20Francisco%20Sales%2C%20969%20-%20Centro%2C%20Po%C3%A7os%20de%20Caldas%20-%20MG" target="_blank" rel="noopener">Av. Francisco Sales, 969 – Centro – Poços de Caldas – MG</a></li>
             <li>[Horário de funcionamento]</li>
           </ul>
-          <a class="btn btn--primary" href="https://wa.me/55XXXXXXXXXXX" target="_blank" rel="noopener" data-whatsapp>[Reservar pelo WhatsApp]</a>
+          <a class="btn btn--primary" href="https://wa.me/5535997790123" target="_blank" rel="noopener" data-whatsapp>Reservar pelo WhatsApp</a>
         </div>
-        <div class="contact__map placeholder-media" aria-label="[Mapa]">
-          <!-- TODO: Google Maps embed iframe -->
-        </div>
+        <iframe class="contact__map" title="Mapa: Av. Francisco Sales, 969 – Centro – Poços de Caldas – MG"
+          src="https://www.google.com/maps?q=Av.%20Francisco%20Sales%2C%20969%20-%20Centro%2C%20Po%C3%A7os%20de%20Caldas%20-%20MG&amp;output=embed"
+          loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
     </section>
   </main>
@@ -408,44 +438,53 @@
     <div class="container site-footer__grid">
       <div>
         <a class="logo logo--footer" href="#inicio">
-          <img class="logo__img" src="assets/img/logo-light.webp" alt="Locbike" width="678" height="642" loading="lazy">
+          <img class="logo__img" src="assets/img/logo-light.webp" alt="LocBikePocos" width="678" height="642" loading="lazy">
         </a>
-        <p>[Frase curta sobre a empresa]</p>
-        <ul class="social">
-          <li><a href="#" target="_blank" rel="noopener">Instagram</a></li>
-          <li><a href="#" target="_blank" rel="noopener">Facebook</a></li>
-          <li><a href="#" target="_blank" rel="noopener">Google</a></li>
-        </ul>
+        <p>Agência especializada em cicloturismo, passeios guiados e locação de bicicletas em Poços de Caldas – MG.</p>
       </div>
 
-      <nav aria-label="Rodapé">
-        <h2 class="site-footer__heading">Navegação</h2>
+      <nav aria-label="Roteiros e passeios">
+        <h2 class="site-footer__heading">Roteiros e passeios</h2>
         <ul>
-          <li><a href="#bikes">Bikes</a></li>
-          <li><a href="#como-funciona">Como funciona</a></li>
-          <li><a href="#precos">Preços</a></li>
-          <li><a href="#roteiros">Roteiros</a></li>
-          <li><a href="#sobre">Sobre</a></li>
-          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#urbanos-pocos">Urbanos Poços</a></li>
+          <li><a href="#mtb-pocos">MTB Poços</a></li>
+          <li><a href="#urbano-noturno">Urbano Noturno</a></li>
+          <li><a href="#caminho-da-fe">Caminho da Fé</a></li>
+          <li><a href="#serra-da-canastra">Serra da Canastra</a></li>
+          <li><a href="#rota-do-vulcao">Rota do Vulcão</a></li>
+          <li><a href="#fazenda-cafe-azeite">Fazenda de Café e Azeite</a></li>
+          <li><a href="#pico-do-gaviao">Pico do Gavião</a></li>
+        </ul>
+      </nav>
+
+      <nav aria-label="Rodapé">
+        <h2 class="site-footer__heading">LocBike</h2>
+        <ul>
+          <li><a href="#locacao">Locação avulsa</a></li>
+          <li><a href="#vale-presente">Vale-presente</a></li>
+          <li><a href="#quem-somos">Quem somos</a></li>
+          <li><a href="#faq">Perguntas frequentes</a></li>
+          <li><a href="#contato">Contato</a></li>
         </ul>
       </nav>
 
       <div>
         <h2 class="site-footer__heading">Contato</h2>
         <ul>
-          <li>[Endereço]</li>
-          <li>[Telefone]</li>
-          <li>[E-mail]</li>
+          <li><a href="https://wa.me/5535997790123" target="_blank" rel="noopener" data-whatsapp>WhatsApp: (35) 9 9779-0123</a></li>
+          <li><a href="https://www.instagram.com/locbikepocos" target="_blank" rel="noopener">Instagram: @locbikepocos</a></li>
+          <li>Av. Francisco Sales, 969 – Centro<br>Poços de Caldas – MG</li>
         </ul>
+        <p class="site-footer__badge">Agência e guia credenciados Cadastur</p>
       </div>
     </div>
 
     <div class="container site-footer__bottom">
-      <p>&copy; <span data-year></span> Locbike. Todos os direitos reservados.</p>
+      <p>&copy; <span data-year></span> LocBikePocos. Todos os direitos reservados.</p>
     </div>
   </footer>
 
   <!-- Floating WhatsApp button -->
-  <a class="whatsapp-float" href="https://wa.me/55XXXXXXXXXXX" target="_blank" rel="noopener" aria-label="Falar no WhatsApp" data-whatsapp>WA</a>
+  <a class="whatsapp-float" href="https://wa.me/5535997790123" target="_blank" rel="noopener" aria-label="Falar no WhatsApp" data-whatsapp>WA</a>
 </body>
 </html>
