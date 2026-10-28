@@ -110,9 +110,23 @@ function initPages() {
     lastY = -1;
   }
 
-  // Each page's position along the road, 0→1
+  // Stops are evenly spaced along the road (0→1), one per page, whatever each page's height
   function stops() {
-    return tops.map((top) => Math.min(top / maxScroll, 1));
+    const n = tops.length;
+    return tops.map((_, i) => (n > 1 ? i / (n - 1) : 0));
+  }
+
+  // Road position for a scroll position: stop i while page i is snapped in,
+  // moving proportionally between stops while scrolling from one page to the next
+  function progress(y) {
+    const n = tops.length;
+    if (n < 2) return Math.min(Math.max(y / maxScroll, 0), 1);
+    const ends = tops.map((top) => Math.min(top, maxScroll));
+    if (y >= ends[n - 1]) return 1;
+    let i = 0;
+    while (i < n - 2 && y >= ends[i + 1]) i++;
+    const span = Math.max(ends[i + 1] - ends[i], 1);
+    return (i + Math.min(Math.max((y - ends[i]) / span, 0), 1)) / (n - 1);
   }
 
   // Highlight the nav link of the page in view
@@ -141,7 +155,7 @@ function initPages() {
   }
 
   measure();
-  return { measure, step, stops, label, sections, maxScroll: () => maxScroll };
+  return { measure, step, stops, progress, label, sections };
 }
 
 /* ---------- Road rider: rides along the strip under the header, from page stop to page stop ---------- */
@@ -188,8 +202,7 @@ function initRoad() {
   }
 
   function target() {
-    const max = pages ? pages.maxScroll() : 1;
-    const progress = Math.min(Math.max(window.scrollY / max, 0), 1);
+    const progress = pages ? pages.progress(window.scrollY) : 0;
     return { progress, x: progress * (roadWidth - riderWidth) };
   }
 

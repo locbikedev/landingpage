@@ -871,8 +871,14 @@ main > section {
   border-radius: 50%;
   background: var(--color-whatsapp);
   color: #ffffff;
-  font-weight: 700;
   text-decoration: none;
+  box-shadow: 0 6px 16px rgb(0 0 0 / 0.2);
+}
+
+.whatsapp-float__icon {
+  width: 1.9rem;
+  height: 1.9rem;
+  fill: currentColor;
 }
 
 /* =========================================================
@@ -1035,6 +1041,20 @@ main > section {
 
 .road__stop:hover::after {
   opacity: 1;
+}
+
+/* Phones: a plain line and smaller stops read better than dashes at this size */
+@media (max-width: 639px) {
+  .road::before {
+    background: rgb(255 255 255 / 0.25);
+  }
+
+  .road__stop {
+    width: 6px;
+    height: 6px;
+    margin: -3px 0 0 -3px;
+    border-width: 1.5px;
+  }
 }
 
 .road__rider .rider {
