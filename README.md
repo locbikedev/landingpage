@@ -9,11 +9,22 @@ index.html            # single page, one <section> per block
 404.html              # GitHub Pages not-found page
 assets/css/styles.css # tokens, reset, layout, components, sections
 assets/js/main.js     # WhatsApp links, mobile nav, footer year
+assets/js/motion.js   # scroll-driven cyclists, reveals, link/click effects (decorative)
 assets/img/           # images, favicon
 .nojekyll             # serve files as-is (skip Jekyll processing)
 ```
 
 Sections in `index.html`: header/nav · hero · trust strip · featured/promo · bikes · how it works · pricing · gift voucher · routes · about · testimonials · FAQ · contact · footer · floating WhatsApp button.
+
+## Motion
+
+`assets/js/motion.js` plus the "Motion" block at the end of `styles.css`:
+
+- **Road strip** under the header: a cyclist rides left→right with page scroll (turns around when you scroll up) and pops a wheelie while a nav link scrolls the page.
+- **Hero landscape**: mountains/road loop sideways behind a pedalling cyclist; scrolling makes them ride faster. Layer speed is `data-layer`, tile width is `data-tile` (must match the CSS `--tile`).
+- **Reveal on scroll** for cards, steps, FAQ, etc. The selector list lives in both `motion.js` (`REVEAL_SELECTOR`) and the CSS. Keep them in sync.
+- **Click effects**: button ripple, heading "swoosh" when you land on a section, active nav link while scrolling.
+- Everything is disabled for visitors with *reduce motion* turned on.
 
 Keep all paths relative (`assets/...`, not `/assets/...`). GitHub Pages serves project sites from `/<repo-name>/`, so absolute paths break.
 

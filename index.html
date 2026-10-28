@@ -13,9 +13,13 @@
   <meta property="og:image" content="assets/img/og-image.jpg">
   <meta property="og:locale" content="pt_BR">
 
-  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/img/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <meta name="theme-color" content="#F2B200">
   <link rel="stylesheet" href="assets/css/styles.css">
+  <script>document.documentElement.classList.add("js")</script>
   <script src="assets/js/main.js" defer></script>
+  <script src="assets/js/motion.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Pular para o conteúdo</a>
@@ -23,7 +27,9 @@
   <!-- ===================== HEADER ===================== -->
   <header class="site-header" data-header>
     <div class="container site-header__inner">
-      <a class="logo" href="#inicio" aria-label="Locbike — início">Locbike</a>
+      <a class="logo" href="#inicio">
+        <img class="logo__img" src="assets/img/logo.webp" alt="Locbike — início" width="678" height="642">
+      </a>
 
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-nav-toggle>
         <span class="nav-toggle__bar" aria-hidden="true"></span>
@@ -40,15 +46,32 @@
           <li><a href="#faq">FAQ</a></li>
           <li><a href="#contato">Contato</a></li>
         </ul>
-        <a class="btn btn--primary" href="#contato">Reservar</a>
+        <a class="btn btn--secondary" href="#contato">Reservar</a>
       </nav>
+    </div>
+
+    <!-- Road strip: a cyclist rides along it as the page scrolls (assets/js/motion.js) -->
+    <div class="road" aria-hidden="true" data-road>
+      <div class="road__trail" data-road-trail></div>
+      <div class="road__rider" data-road-rider><svg></svg></div>
     </div>
   </header>
 
   <main id="main">
     <!-- ===================== HERO ===================== -->
-    <section class="hero" id="inicio" aria-labelledby="hero-title">
-      <div class="container hero__inner">
+    <section class="hero" id="inicio" aria-labelledby="hero-title" data-hero>
+      <!-- Animated landscape: layers loop sideways, speed in data-layer, tile width in data-tile (px) -->
+      <div class="hero__scene" aria-hidden="true">
+        <div class="hero__sun"></div>
+        <div class="scene-layer scene-layer--far" data-layer="0.15" data-tile="1200"></div>
+        <div class="scene-layer scene-layer--near" data-layer="0.4" data-tile="800"></div>
+        <div class="scene-ground">
+          <div class="scene-layer scene-layer--dashes" data-layer="1" data-tile="96"></div>
+        </div>
+        <svg class="hero__rider" data-rider></svg>
+      </div>
+
+      <div class="container hero__inner" data-hero-content>
         <h1 class="hero__title" id="hero-title">[Título principal]</h1>
         <p class="hero__subtitle">[Subtítulo / proposta de valor]</p>
         <div class="hero__actions">
@@ -384,7 +407,9 @@
   <footer class="site-footer">
     <div class="container site-footer__grid">
       <div>
-        <a class="logo" href="#inicio">Locbike</a>
+        <a class="logo logo--footer" href="#inicio">
+          <img class="logo__img" src="assets/img/logo-light.webp" alt="Locbike" width="678" height="642" loading="lazy">
+        </a>
         <p>[Frase curta sobre a empresa]</p>
         <ul class="social">
           <li><a href="#" target="_blank" rel="noopener">Instagram</a></li>
