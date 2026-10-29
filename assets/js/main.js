@@ -42,13 +42,25 @@ function initNav() {
   });
 }
 
-// Tour details: "Ver detalhes" opens the tour's <dialog>; the ×, a backdrop click or Escape close it
+// Tour details: "Ver detalhes" or a click anywhere on its card opens the tour's <dialog>;
+// the ×, a backdrop click or Escape close it
 function initTourDialogs() {
   document.querySelectorAll("[data-dialog-open]").forEach((button) => {
     const dialog = document.getElementById(button.dataset.dialogOpen);
     if (!dialog) return;
 
     button.addEventListener("click", () => dialog.showModal());
+
+    // The button stays the keyboard target; the rest of the card is a bigger pointer target.
+    // Skip clicks on other controls, inside the dialog (it lives in the card), or that end a text selection.
+    const card = button.closest(".card");
+    if (card) {
+      card.classList.add("card--clickable");
+      card.addEventListener("click", (event) => {
+        if (event.target.closest("a, button, dialog") || String(window.getSelection())) return;
+        dialog.showModal();
+      });
+    }
     dialog.addEventListener("click", (event) => {
       if (event.target === dialog || event.target.closest("[data-dialog-close]")) dialog.close();
     });

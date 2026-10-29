@@ -23,10 +23,10 @@ Pages in `index.html` (each `<section>` is one full-screen page):
 |---|---|---|
 | Hero | `#inicio` | Headline, CTAs, trust strip |
 | Bike Tour | `#bike-tour` | The full tour (up to 5h), what's included |
-| Roteiros urbanos | `#roteiros` | Cards: `#urbanos-pocos`, `#urbano-noturno` |
+| Roteiros urbanos | `#roteiros` | Cards: `#urbanos-pocos`, `#noturno-pocos` |
 | Roteiros MTB | `#roteiros-mtb` | `#mtb-pocos` |
 | Grandes roteiros | `#grandes-roteiros` | Cards: `#caminho-da-fe` (with date list), `#serra-da-canastra`, `#rota-do-vulcao` |
-| Passeios off-road | `#passeios-off-road` | Cards: `#fazenda-cafe-azeite`, `#pico-do-gaviao`, `#vinicola`, `#santa-clara`, `#serra-da-mantiqueira` |
+| Passeios 4x4 | `#passeios-4x4` | Cards: `#fazenda-cafe-azeite`, `#pico-do-gaviao`, `#vinicola`, `#santa-clara`, `#serra-da-mantiqueira` |
 | Locação avulsa | `#locacao` | Cards: `#bikes-urbanas`, `#e-bikes`, `#bike-infantil`, `#acessorios` |
 | Vale-presente | `#vale-presente` | |
 | Quem somos | `#quem-somos` | Story, mission/vision/values |
@@ -36,7 +36,7 @@ The header menu has dropdowns (desktop, ≥1100px) linking straight to each card
 
 ### Tours (cards + "Ver detalhes" dialogs)
 
-Each tour card in Grandes roteiros and Passeios off-road has a "Ver detalhes" button (`data-dialog-open`) that opens the `<dialog>` right after it: a photo strip (plus a short clip where there is one), the full description, facts, incluso/não incluso, prices and a WhatsApp button with a prefilled message. The text was copied by hand from `assets/passeios/<folder>/info.txt` into `index.html`. Editing an info.txt does not change the site, so update the matching card and dialog in `index.html` too.
+Each tour card in Grandes roteiros and Passeios 4x4 has a "Ver detalhes" button (`data-dialog-open`) that opens the `<dialog>` right after it: a photo strip (plus a short clip where there is one), the full description, facts, incluso/não incluso, prices and a WhatsApp button with a prefilled message. The text was copied by hand from `assets/passeios/<folder>/info.txt` into `index.html`. Editing an info.txt does not change the site, so update the matching card and dialog in `index.html` too.
 
 The raw photos/videos in `assets/passeios/` are far too big to serve (2–13 MB photos, up to 85 MB clips). The page uses resized, metadata-free copies in `assets/img/passeios/<slug>/`:
 

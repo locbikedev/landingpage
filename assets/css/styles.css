@@ -367,6 +367,11 @@ main > .section:nth-of-type(4n)::after {
   overflow: hidden;
 }
 
+/* Tour cards: a click anywhere opens the details (main.js) */
+.card--clickable {
+  cursor: pointer;
+}
+
 /* Photos end in a soft hill instead of a straight line */
 .card__media {
   aspect-ratio: 16 / 9;
