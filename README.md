@@ -12,6 +12,7 @@ assets/js/main.js     # WhatsApp links, mobile nav, footer year
 assets/js/motion.js   # scroll-driven cyclists, reveals, link/click effects (decorative)
 assets/img/           # images, favicon
 assets/img/passeios/  # web-ready tour photos/clips (generated from assets/passeios/)
+assets/img/deco/      # decorative background SVGs: topo map, placeholder scene, clouds, step chainring
 assets/passeios/      # owner's raw photos/videos + info.txt per itinerary (source material, not served)
 .nojekyll             # serve files as-is (skip Jekyll processing)
 ```
@@ -44,6 +45,16 @@ The raw photos/videos in `assets/passeios/` are far too big to serve (2–13 MB 
 
 To add photos to a tour, export new `NN-800.webp`/`NN-1600.webp` files (EXIF rotation applied, metadata stripped), then add an `<li><img …></li>` to that tour's `tour-gallery__track`.
 
+## Look
+
+Organic shapes and bike motifs. Background pictures live in `assets/img/deco/`. Shapes used as CSS masks (hills, wheels, chainring, chain, stat icons) are inlined in `styles.css` as `data:` URIs, because browsers refuse to load mask images from files when the page is opened straight from disk.
+
+- **Page edges**: each page ends in rolling hills with a dashed tyre track, coloured like the page below. The colour is picked with `:has()` in the "Organic pages" block of `styles.css`. The hills sit inside the page's bottom padding, so page heights and snap points don't change.
+- **Backgrounds**: cream pages carry a faint topographic map, and white pages have a giant spoked wheel peeking in from the side.
+- **Shapes**: cards have leaf-shaped corners and photos with a hill-shaped bottom edge. Split images are breathing blobs with a yellow shadow, and buttons and FAQ items are pills.
+- **Bike details**: a chainring on primary buttons, numbered steps on chainrings joined by a chain, a wheel before each kicker, and icons on the tour stats (`data-icon="distance|elevation|time|level"`). There's a chain line in the footer and a checkered finish flag on the last road stop.
+- **Placeholders**: `.placeholder-media` shows an illustrated landscape until a photo replaces it.
+
 ## Motion
 
 `assets/js/motion.js` plus the "Motion" block at the end of `styles.css`:
@@ -53,13 +64,14 @@ To add photos to a tour, export new `NN-800.webp`/`NN-1600.webp` files (EXIF rot
 - **Hero landscape**: mountains/road loop sideways behind a pedalling cyclist; scrolling makes them ride faster. Layer speed is `data-layer`, tile width is `data-tile` (must match the CSS `--tile`).
 - **Reveal**: content fades up as each page arrives. The selector list lives in both `motion.js` (`REVEAL_SELECTOR`) and the CSS. Keep them in sync.
 - **Click effects**: button ripple, heading "swoosh" when you land on a section, active nav link while scrolling.
+- **Bike bits**: the big wheels and kicker wheels roll as you scroll (CSS scroll-driven animations; they stay still in browsers without them). Cards lean when hovered, the chainring on buttons turns on hover, split images slowly change shape, and clouds drift across the hero.
 - Everything is disabled for visitors with *reduce motion* turned on.
 
 Keep all paths relative (`assets/...`, not `/assets/...`). GitHub Pages serves project sites from `/<repo-name>/`, so absolute paths break.
 
 ## Configuration
 
-- **WhatsApp:** `WHATSAPP_NUMBER` (currently (35) 9 9779-0123) and the default `WHATSAPP_MESSAGE` are at the top of `assets/js/main.js`. They apply to every element with `data-whatsapp`. A link can set its own prefilled message with `data-whatsapp="..."`, as the gift-voucher button does. The `href` in the HTML is a plain `wa.me` fallback for when JS is off.
+- **WhatsApp:** `WHATSAPP_NUMBER` (currently (35) 9 9779-0123) and the default `WHATSAPP_MESSAGE` are at the top of `assets/js/main.js`. They apply to every element with `data-whatsapp`. Every booking button sets its own prefilled message with `data-whatsapp="..."`, naming the tour or rental it books, so a new card's button needs one too. The `href` in the HTML is a plain `wa.me` fallback for when JS is off.
 - **Contacts:** WhatsApp and Instagram (`@locbikepocos`) only. There's no email on purpose.
 - **Map:** the Contato page embeds Google Maps (no API key) for Av. Francisco Sales, 969.
 

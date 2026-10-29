@@ -94,6 +94,7 @@
       <!-- Animated landscape: layers loop sideways, speed in data-layer, tile width in data-tile (px) -->
       <div class="hero__scene" aria-hidden="true">
         <div class="hero__sun"></div>
+        <div class="scene-layer scene-layer--clouds" data-layer="0.06" data-tile="1400"></div>
         <div class="scene-layer scene-layer--far" data-layer="0.15" data-tile="1200"></div>
         <div class="scene-layer scene-layer--near" data-layer="0.4" data-tile="800"></div>
         <div class="scene-ground">
@@ -131,7 +132,7 @@
             <li>Apoio de veículo, se necessário</li>
           </ul>
           <div class="actions">
-            <a class="btn btn--primary" href="#contato">Reservar</a>
+            <a class="btn btn--primary" href="https://wa.me/5535997790123" target="_blank" rel="noopener" data-whatsapp="Olá! Quero reservar o Bike Tour em Poços de Caldas com a LocBike.">Reservar</a>
             <a class="btn btn--ghost" href="#roteiros">Ver roteiros</a>
           </div>
         </div>
@@ -155,11 +156,11 @@
               <h3 class="card__title">Urbanos Poços</h3>
               <p>Os cartões-postais de Poços de Caldas em um só pedal: Thermas Antônio Carlos, Palace Casino, Praça Pedro Sanches, Fonte dos Amores, Recanto Japonês e muito mais, com paradas para fotos e as histórias da cidade.</p>
               <ul class="card__meta">
-                <li>[Duração]</li>
-                <li>[Distância]</li>
-                <li>[Nível]</li>
+                <li data-icon="time">[Duração]</li>
+                <li data-icon="distance">[Distância]</li>
+                <li data-icon="level">[Nível]</li>
               </ul>
-              <a class="btn btn--primary" href="#contato">Reservar</a>
+              <a class="btn btn--primary" href="https://wa.me/5535997790123" target="_blank" rel="noopener" data-whatsapp="Olá! Quero reservar o passeio Urbanos Poços com a LocBike.">Reservar</a>
             </div>
           </article>
 
@@ -169,11 +170,11 @@
               <h3 class="card__title">Urbano Noturno</h3>
               <p>Poços de Caldas vista de outro jeito: um pedal ao anoitecer pelas praças e avenidas iluminadas do centro, com guia e paradas nos pontos turísticos. Programa diferente para fazer em família ou com os amigos.</p>
               <ul class="card__meta">
-                <li>[Duração]</li>
-                <li>[Distância]</li>
-                <li>[Nível]</li>
+                <li data-icon="time">[Duração]</li>
+                <li data-icon="distance">[Distância]</li>
+                <li data-icon="level">[Nível]</li>
               </ul>
-              <a class="btn btn--primary" href="#contato">Reservar</a>
+              <a class="btn btn--primary" href="https://wa.me/5535997790123" target="_blank" rel="noopener" data-whatsapp="Olá! Quero reservar o passeio Urbano Noturno com a LocBike.">Reservar</a>
             </div>
           </article>
         </div>
@@ -191,11 +192,11 @@
           <h3>MTB Poços</h3>
           <p>[Descrição do roteiro — detalhes em breve]</p>
           <ul class="card__meta">
-            <li>[Duração]</li>
-            <li>[Distância]</li>
-            <li>[Nível]</li>
+            <li data-icon="time">[Duração]</li>
+            <li data-icon="distance">[Distância]</li>
+            <li data-icon="level">[Nível]</li>
           </ul>
-          <a class="btn btn--primary" href="#contato">Reservar</a>
+          <a class="btn btn--primary" href="https://wa.me/5535997790123" target="_blank" rel="noopener" data-whatsapp="Olá! Quero reservar o passeio MTB Poços com a LocBike.">Reservar</a>
         </div>
       </div>
     </section>
@@ -364,10 +365,10 @@
             <div class="card__body">
               <h3 class="card__title">Fazenda de Café e Azeite</h3>
               <ul class="card__meta">
-                <li>50 km</li>
-                <li>+1.100 m<span class="visually-hidden"> de elevação acumulada</span></li>
-                <li>4 a 5 h</li>
-                <li>Intermediário</li>
+                <li data-icon="distance">50 km</li>
+                <li data-icon="elevation">+1.100 m<span class="visually-hidden"> de elevação acumulada</span></li>
+                <li data-icon="time">4 a 5 h</li>
+                <li data-icon="level">Intermediário</li>
               </ul>
               <p class="card__price">a partir de <strong>R$ 690</strong></p>
               <button class="btn btn--primary" type="button" data-dialog-open="dialog-fazenda-cafe-azeite">Ver detalhes</button>
@@ -435,8 +436,8 @@
             <div class="card__body">
               <h3 class="card__title">Pico do Gavião</h3>
               <ul class="card__meta">
-                <li>50 km</li>
-                <li>+1.200 m<span class="visually-hidden"> de elevação acumulada</span></li>
+                <li data-icon="distance">50 km</li>
+                <li data-icon="elevation">+1.200 m<span class="visually-hidden"> de elevação acumulada</span></li>
               </ul>
               <p class="card__price">a partir de <strong>R$ 890</strong></p>
               <button class="btn btn--primary" type="button" data-dialog-open="dialog-pico-do-gaviao">Ver detalhes</button>
@@ -490,10 +491,10 @@
             <div class="card__body">
               <h3 class="card__title">Vinícola Estrada Real</h3>
               <ul class="card__meta">
-                <li>52 km</li>
-                <li>+800 m<span class="visually-hidden"> de elevação acumulada</span></li>
-                <li>5 a 6 h</li>
-                <li>Intermediário</li>
+                <li data-icon="distance">52 km</li>
+                <li data-icon="elevation">+800 m<span class="visually-hidden"> de elevação acumulada</span></li>
+                <li data-icon="time">5 a 6 h</li>
+                <li data-icon="level">Intermediário</li>
               </ul>
               <p class="card__price">a partir de <strong>R$ 890</strong></p>
               <button class="btn btn--primary" type="button" data-dialog-open="dialog-vinicola">Ver detalhes</button>
@@ -561,10 +562,10 @@
             <div class="card__body">
               <h3 class="card__title">Igreja Santa Clara</h3>
               <ul class="card__meta">
-                <li>58 km</li>
-                <li>+1.300 m<span class="visually-hidden"> de elevação acumulada</span></li>
-                <li>4 a 5 h</li>
-                <li>Intermediário</li>
+                <li data-icon="distance">58 km</li>
+                <li data-icon="elevation">+1.300 m<span class="visually-hidden"> de elevação acumulada</span></li>
+                <li data-icon="time">4 a 5 h</li>
+                <li data-icon="level">Intermediário</li>
               </ul>
               <p class="card__price">a partir de <strong>R$ 690</strong></p>
               <button class="btn btn--primary" type="button" data-dialog-open="dialog-santa-clara">Ver detalhes</button>
@@ -619,10 +620,10 @@
             <div class="card__body">
               <h3 class="card__title">Serra da Mantiqueira</h3>
               <ul class="card__meta">
-                <li>75 km</li>
-                <li>+1.500 m<span class="visually-hidden"> de elevação acumulada</span></li>
-                <li>6 a 7 h</li>
-                <li>Difícil</li>
+                <li data-icon="distance">75 km</li>
+                <li data-icon="elevation">+1.500 m<span class="visually-hidden"> de elevação acumulada</span></li>
+                <li data-icon="time">6 a 7 h</li>
+                <li data-icon="level">Difícil</li>
               </ul>
               <p class="card__price">a partir de <strong>R$ 890</strong></p>
               <button class="btn btn--primary" type="button" data-dialog-open="dialog-serra-da-mantiqueira">Ver detalhes</button>
@@ -691,7 +692,7 @@
               <h3 class="card__title">Bikes Urbanas</h3>
               <p>[Descrição curta]</p>
               <p class="price">[R$ 00 / hora]</p>
-              <a class="btn btn--primary" href="#contato">Reservar</a>
+              <a class="btn btn--primary" href="https://wa.me/5535997790123" target="_blank" rel="noopener" data-whatsapp="Olá! Quero alugar uma bike urbana com a LocBike.">Reservar</a>
             </div>
           </article>
 
@@ -701,7 +702,7 @@
               <h3 class="card__title">E-Bikes</h3>
               <p>Bicicletas elétricas, incluindo E-MTB Full Suspension.</p>
               <p class="price">[R$ 00 / hora]</p>
-              <a class="btn btn--primary" href="#contato">Reservar</a>
+              <a class="btn btn--primary" href="https://wa.me/5535997790123" target="_blank" rel="noopener" data-whatsapp="Olá! Quero alugar uma E-Bike com a LocBike.">Reservar</a>
             </div>
           </article>
 
@@ -711,7 +712,7 @@
               <h3 class="card__title">Bike Infantil</h3>
               <p>Modelos infantojuvenis.</p>
               <p class="price">[R$ 00 / hora]</p>
-              <a class="btn btn--primary" href="#contato">Reservar</a>
+              <a class="btn btn--primary" href="https://wa.me/5535997790123" target="_blank" rel="noopener" data-whatsapp="Olá! Quero alugar uma bike infantil com a LocBike.">Reservar</a>
             </div>
           </article>
 
@@ -721,7 +722,7 @@
               <h3 class="card__title">Acessórios</h3>
               <p>Capacetes, alforjes, carretinhas e acessórios de transporte.</p>
               <p class="price">[R$ 00]</p>
-              <a class="btn btn--primary" href="#contato">Reservar</a>
+              <a class="btn btn--primary" href="https://wa.me/5535997790123" target="_blank" rel="noopener" data-whatsapp="Olá! Quero alugar acessórios com a LocBike.">Reservar</a>
             </div>
           </article>
         </div>
@@ -816,7 +817,7 @@
             <li><strong>Endereço:</strong> <a href="https://www.google.com/maps/search/?api=1&amp;query=Av.%20Francisco%20Sales%2C%20969%20-%20Centro%2C%20Po%C3%A7os%20de%20Caldas%20-%20MG" target="_blank" rel="noopener">Av. Francisco Sales, 969 – Centro – Poços de Caldas – MG</a></li>
             <li>[Horário de funcionamento]</li>
           </ul>
-          <a class="btn btn--primary" href="https://wa.me/5535997790123" target="_blank" rel="noopener" data-whatsapp>Reservar pelo WhatsApp</a>
+          <a class="btn btn--primary" href="https://wa.me/5535997790123" target="_blank" rel="noopener" data-whatsapp="Olá! Quero reservar um passeio com a LocBike.">Reservar pelo WhatsApp</a>
         </div>
         <iframe class="contact__map" title="Mapa: Av. Francisco Sales, 969 – Centro – Poços de Caldas – MG"
           src="https://www.google.com/maps?q=Av.%20Francisco%20Sales%2C%20969%20-%20Centro%2C%20Po%C3%A7os%20de%20Caldas%20-%20MG&amp;output=embed"
