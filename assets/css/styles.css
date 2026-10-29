@@ -8,8 +8,8 @@
   /* Always light: tells browsers with an automatic dark mode (Samsung Internet, Chrome on Android) not to recolor the page */
   color-scheme: only light;
 
-  /* Brand: yellow sampled from the Locbike truck, blue is its complement (hue 44° → 224°) */
-  --color-yellow: #f2b200;
+  /* Brand: the Locbike truck yellow, brightened; blue is its complement (hue 44° → 224°) */
+  --color-yellow: #ffc414;
   --color-yellow-light: #fff6d6;
   --color-blue: #1b3a8c;
   --color-navy: #0f2357;
@@ -1078,7 +1078,7 @@ html:has(.tour-dialog[open]) {
   aspect-ratio: 1;
   border-radius: 50%;
   background: var(--color-yellow);
-  box-shadow: 0 0 60px 10px rgb(242 178 0 / 0.35);
+  box-shadow: 0 0 60px 10px rgb(255 196 20 / 0.35);
 }
 
 /* Smaller screens: the copy fills the top, so the sun rises behind the mountains instead */
