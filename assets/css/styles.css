@@ -372,6 +372,304 @@ main > section {
   font-weight: 600;
 }
 
+/* ---------- Tour cards (Grandes roteiros, Passeios off-road) ---------- */
+@media (min-width: 640px) {
+  .grid--5 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 960px) {
+  .grid--5 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Five across on wide screens: compact cards so the page still fits one screen */
+@media (min-width: 1100px) {
+  .grid--5 {
+    grid-template-columns: repeat(5, 1fr);
+    gap: var(--space-3);
+  }
+
+  .grid--5 .card__body {
+    gap: var(--space-2);
+    padding: var(--space-3);
+  }
+
+  .grid--5 .card__title {
+    font-size: 1.05rem;
+  }
+}
+
+/* Photos are mostly portrait, so tour cards crop them to a fixed band instead of an aspect ratio */
+.grid--3 .card__media,
+.grid--5 .card__media {
+  height: clamp(120px, 22vh, 220px);
+  aspect-ratio: auto;
+}
+
+.grid--3 .card__media {
+  height: clamp(120px, 18vh, 200px); /* Caminho da Fé also carries its dates */
+}
+
+img.card__media {
+  width: 100%;
+  object-fit: cover;
+}
+
+.card__body > .card__price {
+  margin-top: auto;
+  color: var(--color-muted);
+  font-size: 0.9rem;
+}
+
+.card__price strong {
+  color: var(--color-text);
+  font-size: 1.15rem;
+  font-weight: 800;
+}
+
+.card__body > .card__price + .btn {
+  margin-top: 0;
+}
+
+/* ---------- Tour detail dialog: gallery + full description, prices and WhatsApp CTA ---------- */
+html:has(.tour-dialog[open]) {
+  overflow: hidden; /* keeps the snapped page behind the dialog still */
+}
+
+.tour-dialog {
+  width: 100%;
+  max-width: none;
+  height: 100%;
+  max-height: none;
+  margin: auto; /* the reset zeroes margins; auto is what centres a modal dialog */
+  padding: 0;
+  border: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  overflow: hidden;
+}
+
+.tour-dialog[open] {
+  display: grid;
+  grid-template-rows: 42% 1fr;
+}
+
+.tour-dialog::backdrop {
+  background: rgb(15 35 87 / 0.7);
+  backdrop-filter: blur(4px);
+}
+
+@media (min-width: 960px) {
+  .tour-dialog {
+    width: min(1100px, 100% - 4rem);
+    height: min(720px, 100% - 4rem);
+    border-radius: var(--radius);
+    box-shadow: 0 24px 64px rgb(0 0 0 / 0.35);
+  }
+
+  .tour-dialog[open] {
+    grid-template-columns: 5fr 6fr;
+    grid-template-rows: none;
+  }
+}
+
+.tour-dialog__close {
+  position: absolute; /* the dialog is the containing block, so it stays put while the text scrolls */
+  top: var(--space-3);
+  right: var(--space-3);
+  z-index: 1;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 0;
+  border-radius: 50%;
+  background: var(--color-bg);
+  color: var(--color-text);
+  box-shadow: 0 2px 8px rgb(0 0 0 / 0.25);
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.tour-dialog__body {
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: var(--space-5) var(--space-4);
+}
+
+@media (min-width: 960px) {
+  .tour-dialog__body {
+    padding: var(--space-5);
+  }
+}
+
+.tour-dialog__body > * + * {
+  margin-top: var(--space-3);
+}
+
+.tour-dialog__body > h3 {
+  margin-top: var(--space-1);
+  padding-right: var(--space-6);
+  font-size: 1.6rem;
+}
+
+.tour-dialog h4 {
+  margin-top: var(--space-4);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.tour-dialog h4 + * {
+  margin-top: var(--space-2);
+}
+
+.tour-route {
+  color: var(--color-muted);
+  font-weight: 600;
+}
+
+.tour-facts {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(8.5rem, 1fr));
+  gap: var(--space-2);
+}
+
+.tour-facts > div {
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius);
+  background: var(--color-yellow-light);
+}
+
+.tour-facts dt {
+  color: var(--color-muted);
+  font-size: 0.75rem;
+}
+
+.tour-facts dd {
+  font-weight: 800;
+}
+
+.tour-lists {
+  display: grid;
+  gap: 0 var(--space-4);
+}
+
+@media (min-width: 640px) {
+  .tour-lists {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.tour-excluded {
+  display: grid;
+  gap: var(--space-1);
+}
+
+.tour-excluded li {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--space-2);
+}
+
+.tour-excluded li::before {
+  content: "✕";
+  color: var(--color-muted);
+  font-weight: 800;
+}
+
+.tour-prices > div {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding-block: var(--space-2);
+  border-bottom: 1px dashed var(--color-border);
+}
+
+.tour-prices dd {
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.tour-note {
+  color: var(--color-muted);
+}
+
+/* Photo strip: swipe on touch, arrow buttons for the mouse */
+.tour-gallery {
+  position: relative;
+  min-height: 0;
+}
+
+.tour-gallery__track {
+  display: flex;
+  height: 100%;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+
+.tour-gallery__track:focus-visible {
+  outline-offset: -4px; /* the dialog clips anything drawn outside the strip */
+}
+
+.tour-gallery__track::-webkit-scrollbar {
+  display: none;
+}
+
+.tour-gallery__track > li {
+  flex: 0 0 100%;
+  scroll-snap-align: start;
+}
+
+.tour-gallery__track img,
+.tour-gallery__track video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.tour-gallery__track video {
+  object-fit: contain;
+  background: var(--color-navy);
+}
+
+.tour-gallery__btn {
+  position: absolute;
+  top: 50%;
+  width: 2.75rem;
+  height: 2.75rem;
+  margin-top: -1.375rem;
+  border: 0;
+  border-radius: 50%;
+  background: rgb(255 255 255 / 0.85);
+  color: var(--color-navy);
+  font-size: 1.8rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.tour-gallery__btn--prev {
+  left: var(--space-3);
+}
+
+.tour-gallery__btn--next {
+  right: var(--space-3);
+}
+
+.tour-gallery--empty {
+  display: grid;
+  place-items: center;
+  min-height: 0;
+  color: var(--color-muted);
+  font-weight: 700;
+}
+
 /* ---------- Header ---------- */
 .site-header {
   position: sticky;
@@ -497,7 +795,7 @@ main > section {
   }
 }
 
-/* ---------- Sub-menus (Roteiros, Passeios 4x4, Locação avulsa) ----------
+/* ---------- Sub-menus (Roteiros, Passeios off-road, Locação avulsa) ----------
    Desktop: dropdown on hover/keyboard focus. Mobile: hidden; the parent link goes to the section. */
 .subnav {
   display: none;

@@ -1,0 +1,15 @@
+# macOS
+.DS_Store
+
+# Raw tour photos/videos from the owner (hundreds of MB). The site serves the
+# resized copies in assets/img/passeios/; only the info.txt files are tracked here.
+assets/passeios/**/*.jpg
+assets/passeios/**/*.JPG
+assets/passeios/**/*.jpeg
+assets/passeios/**/*.png
+assets/passeios/**/*.heic
+assets/passeios/**/*.HEIC
+assets/passeios/**/*.mp4
+assets/passeios/**/*.MP4
+assets/passeios/**/*.mov
+assets/passeios/**/*.MOV

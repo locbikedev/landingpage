@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>LocBike | Cicloturismo em Poços de Caldas MG</title>
-  <meta name="description" content="Agência especializada em cicloturismo, passeios guiados e locação de bicicletas em Poços de Caldas – MG: bike tour, roteiros urbanos e MTB, passeios 4x4 e E-Bikes.">
+  <meta name="description" content="Agência especializada em cicloturismo, passeios guiados e locação de bicicletas em Poços de Caldas – MG: bike tour, roteiros urbanos e MTB, passeios off-road e E-Bikes.">
 
   <!-- Open Graph (link previews on WhatsApp, Instagram, etc.) -->
   <meta property="og:type" content="website">
@@ -54,10 +54,13 @@
             </ul>
           </li>
           <li class="has-subnav">
-            <a href="#passeios-4x4">Passeios 4x4</a>
+            <a href="#passeios-off-road">Passeios off-road</a>
             <ul class="subnav">
               <li><a href="#fazenda-cafe-azeite">Fazenda de Café e Azeite</a></li>
               <li><a href="#pico-do-gaviao">Pico do Gavião</a></li>
+              <li><a href="#vinicola">Vinícola Estrada Real</a></li>
+              <li><a href="#santa-clara">Igreja Santa Clara</a></li>
+              <li><a href="#serra-da-mantiqueira">Serra da Mantiqueira</a></li>
             </ul>
           </li>
           <li class="has-subnav">
@@ -150,7 +153,7 @@
             <div class="card__media placeholder-media" aria-hidden="true"></div>
             <div class="card__body">
               <h3 class="card__title">Urbanos Poços</h3>
-              <p>[Descrição do roteiro — detalhes em breve]</p>
+              <p>Os cartões-postais de Poços de Caldas em um só pedal: Thermas Antônio Carlos, Palace Casino, Praça Pedro Sanches, Fonte dos Amores, Recanto Japonês e muito mais, com paradas para fotos e as histórias da cidade.</p>
               <ul class="card__meta">
                 <li>[Duração]</li>
                 <li>[Distância]</li>
@@ -164,7 +167,7 @@
             <div class="card__media placeholder-media" aria-hidden="true"></div>
             <div class="card__body">
               <h3 class="card__title">Urbano Noturno</h3>
-              <p>[Descrição do roteiro — detalhes em breve]</p>
+              <p>Poços de Caldas vista de outro jeito: um pedal ao anoitecer pelas praças e avenidas iluminadas do centro, com guia e paradas nos pontos turísticos. Programa diferente para fazer em família ou com os amigos.</p>
               <ul class="card__meta">
                 <li>[Duração]</li>
                 <li>[Distância]</li>
@@ -203,15 +206,15 @@
         <header class="section__header">
           <p class="kicker">Roteiros da LocBike</p>
           <h2 id="journeys-title">[Grandes roteiros]</h2>
-          <p>[Introdução — cicloviagens pela região]</p>
+          <p>Cicloviagens pelas rotas mais bonitas da região e de Minas Gerais, com guia credenciado, E-Bikes e veículo de apoio da LocBikePocos.</p>
         </header>
 
         <div class="grid grid--3">
           <article class="card route-card" id="caminho-da-fe">
-            <div class="card__media placeholder-media" aria-hidden="true"></div>
+            <img class="card__media" src="assets/img/passeios/caminho-da-fe/01-800.webp" srcset="assets/img/passeios/caminho-da-fe/01-800.webp 600w, assets/img/passeios/caminho-da-fe/01-1600.webp 1200w" sizes="(min-width: 960px) 33vw, (min-width: 640px) 50vw, 100vw" width="600" height="800" alt="Ciclista de E-Bike com o vale e as montanhas ao fundo" loading="lazy" decoding="async">
             <div class="card__body">
               <h3 class="card__title">Caminho da Fé</h3>
-              <p>[Descritivo — detalhes em breve]</p>
+              <p>A rota de peregrinação mais famosa do Brasil, pedalada pela Serra da Mantiqueira.</p>
               <div class="dates">
                 <p class="dates__title">Próximas saídas</p>
                 <ul class="chips">
@@ -220,64 +223,453 @@
                   <li>[dd/mm]</li>
                 </ul>
               </div>
-              <a class="btn btn--primary" href="#contato">Reservar</a>
+              <button class="btn btn--primary" type="button" data-dialog-open="dialog-caminho-da-fe">Ver detalhes</button>
             </div>
+
+            <dialog class="tour-dialog" id="dialog-caminho-da-fe" aria-labelledby="dialog-caminho-da-fe-title">
+              <div class="tour-gallery" data-gallery>
+                <ul class="tour-gallery__track" data-gallery-track tabindex="0" aria-label="Fotos do passeio Caminho da Fé">
+                  <li><img src="assets/img/passeios/caminho-da-fe/01-800.webp" srcset="assets/img/passeios/caminho-da-fe/01-800.webp 600w, assets/img/passeios/caminho-da-fe/01-1600.webp 1200w" sizes="(min-width: 960px) 45vw, 100vw" width="600" height="800" alt="Ciclista de E-Bike com o vale e as montanhas ao fundo" loading="lazy" decoding="async"></li>
+                  <li><img src="assets/img/passeios/caminho-da-fe/02-800.webp" srcset="assets/img/passeios/caminho-da-fe/02-800.webp 600w, assets/img/passeios/caminho-da-fe/02-1600.webp 1200w" sizes="(min-width: 960px) 45vw, 100vw" width="600" height="800" alt="Ciclistas subindo estrada de terra rumo a um pico de pedra" loading="lazy" decoding="async"></li>
+                  <li><img src="assets/img/passeios/caminho-da-fe/03-800.webp" srcset="assets/img/passeios/caminho-da-fe/03-800.webp 450w, assets/img/passeios/caminho-da-fe/03-1600.webp 901w" sizes="(min-width: 960px) 45vw, 100vw" width="450" height="800" alt="Ciclistas em estrada de terra com a serra ao fundo" loading="lazy" decoding="async"></li>
+                  <li><img src="assets/img/passeios/caminho-da-fe/04-800.webp" srcset="assets/img/passeios/caminho-da-fe/04-800.webp 800w, assets/img/passeios/caminho-da-fe/04-1600.webp 1600w" sizes="(min-width: 960px) 45vw, 100vw" width="800" height="450" alt="Grupo de ciclistas em um mirante" loading="lazy" decoding="async"></li>
+                  <li><img src="assets/img/passeios/caminho-da-fe/05-800.webp" srcset="assets/img/passeios/caminho-da-fe/05-800.webp 450w, assets/img/passeios/caminho-da-fe/05-1600.webp 901w" sizes="(min-width: 960px) 45vw, 100vw" width="450" height="800" alt="Vale verde com uma pequena cidade ao fundo" loading="lazy" decoding="async"></li>
+                  <li><img src="assets/img/passeios/caminho-da-fe/06-800.webp" srcset="assets/img/passeios/caminho-da-fe/06-800.webp 600w, assets/img/passeios/caminho-da-fe/06-1600.webp 1200w" sizes="(min-width: 960px) 45vw, 100vw" width="600" height="800" alt="Ciclistas em estrada de terra vermelha ao pé de um morro de pedra" loading="lazy" decoding="async"></li>
+                  <li><img src="assets/img/passeios/caminho-da-fe/07-800.webp" srcset="assets/img/passeios/caminho-da-fe/07-800.webp 450w, assets/img/passeios/caminho-da-fe/07-1600.webp 901w" sizes="(min-width: 960px) 45vw, 100vw" width="450" height="800" alt="Grupo pedalando em estrada rural entre morros" loading="lazy" decoding="async"></li>
+                  <li><img src="assets/img/passeios/caminho-da-fe/08-800.webp" srcset="assets/img/passeios/caminho-da-fe/08-800.webp 450w, assets/img/passeios/caminho-da-fe/08-1600.webp 901w" sizes="(min-width: 960px) 45vw, 100vw" width="450" height="800" alt="Ciclista diante de um grande paredão de pedra" loading="lazy" decoding="async"></li>
+                  <li><img src="assets/img/passeios/caminho-da-fe/09-800.webp" srcset="assets/img/passeios/caminho-da-fe/09-800.webp 450w, assets/img/passeios/caminho-da-fe/09-1600.webp 901w" sizes="(min-width: 960px) 45vw, 100vw" width="450" height="800" alt="Ciclistas pedalando em estrada de terra molhada" loading="lazy" decoding="async"></li>
+                  <li><img src="assets/img/passeios/caminho-da-fe/10-800.webp" srcset="assets/img/passeios/caminho-da-fe/10-800.webp 450w, assets/img/passeios/caminho-da-fe/10-1600.webp 901w" sizes="(min-width: 960px) 45vw, 100vw" width="450" height="800" alt="Ciclista em frente a uma igreja histórica" loading="lazy" decoding="async"></li>
+                  <li><img src="assets/img/passeios/caminho-da-fe/11-800.webp" srcset="assets/img/passeios/caminho-da-fe/11-800.webp 450w, assets/img/passeios/caminho-da-fe/11-1600.webp 901w" sizes="(min-width: 960px) 45vw, 100vw" width="450" height="800" alt="Ciclista acenando no alto da serra" loading="lazy" decoding="async"></li>
+                  <li><img src="assets/img/passeios/caminho-da-fe/12-800.webp" srcset="assets/img/passeios/caminho-da-fe/12-800.webp 600w, assets/img/passeios/caminho-da-fe/12-1600.webp 1200w" sizes="(min-width: 960px) 45vw, 100vw" width="600" height="800" alt="Pousada colorida entre montanhas e neblina" loading="lazy" decoding="async"></li>
+                </ul>
+                <button class="tour-gallery__btn tour-gallery__btn--prev" type="button" data-gallery-prev aria-label="Foto anterior">&#8249;</button>
+                <button class="tour-gallery__btn tour-gallery__btn--next" type="button" data-gallery-next aria-label="Próxima foto">&#8250;</button>
+              </div>
+              <div class="tour-dialog__body">
+                <button class="tour-dialog__close" type="button" data-dialog-close aria-label="Fechar" autofocus>&times;</button>
+                <p class="kicker">Grandes roteiros</p>
+                <h3 id="dialog-caminho-da-fe-title">Caminho da Fé</h3>
+                <p class="tour-route">Peregrinação de bike pela Serra da Mantiqueira até Aparecida (SP)</p>
+                <p>Inspirado no Caminho de Santiago de Compostela, o Caminho da Fé é uma das rotas de peregrinação mais conhecidas do Brasil, com destino ao Santuário Nacional de Aparecida (SP). Partindo da região de Águas da Prata, vizinha a Poços de Caldas, o caminho cruza a Serra da Mantiqueira por estradas de terra, entre montanhas, cafezais, pequenas cidades e igrejas centenárias.</p>
+                <p>São subidas desafiadoras e vistas que recompensam cada quilômetro. A LocBikePocos dá todo o suporte para você viver essa jornada com segurança e tranquilidade: bicicletas e E-Bikes, guia credenciado e veículo de apoio.</p>
+                <div class="dates">
+                  <p class="dates__title">Próximas saídas</p>
+                  <ul class="chips">
+                    <li>[dd/mm]</li>
+                    <li>[dd/mm]</li>
+                    <li>[dd/mm]</li>
+                  </ul>
+                </div>
+                <p class="tour-note">Valores, datas e roteiro completo sob consulta pelo WhatsApp.</p>
+                <a class="btn btn--primary" href="https://wa.me/5535997790123" data-whatsapp="Olá! Quero reservar o passeio Caminho da Fé com a LocBike.">Reservar pelo WhatsApp</a>
+              </div>
+            </dialog>
           </article>
 
           <article class="card route-card" id="serra-da-canastra">
-            <div class="card__media placeholder-media" aria-hidden="true"></div>
+            <img class="card__media" src="assets/img/passeios/serra-da-canastra/01-800.webp" srcset="assets/img/passeios/serra-da-canastra/01-800.webp 600w, assets/img/passeios/serra-da-canastra/01-1600.webp 1200w" sizes="(min-width: 960px) 33vw, (min-width: 640px) 50vw, 100vw" width="600" height="800" alt="Estrada de terra serpenteando aos pés dos paredões da Serra da Canastra" loading="lazy" decoding="async">
             <div class="card__body">
               <h3 class="card__title">Serra da Canastra</h3>
-              <p>[Descritivo — detalhes em breve]</p>
-              <a class="btn btn--primary" href="#contato">Reservar</a>
+              <p>Chapadões, paredões de pedra e cachoeiras onde nasce o Rio São Francisco.</p>
+              <button class="btn btn--primary" type="button" data-dialog-open="dialog-serra-da-canastra">Ver detalhes</button>
             </div>
+
+            <dialog class="tour-dialog" id="dialog-serra-da-canastra" aria-labelledby="dialog-serra-da-canastra-title">
+              <div class="tour-gallery" data-gallery>
+                <ul class="tour-gallery__track" data-gallery-track tabindex="0" aria-label="Fotos do passeio Serra da Canastra">
+                  <li><img src="assets/img/passeios/serra-da-canastra/01-800.webp" srcset="assets/img/passeios/serra-da-canastra/01-800.webp 600w, assets/img/passeios/serra-da-canastra/01-1600.webp 1200w" sizes="(min-width: 960px) 45vw, 100vw" width="600" height="800" alt="Estrada de terra serpenteando aos pés dos paredões da Serra da Canastra" loading="lazy" decoding="async"></li>
+                  <li><img src="assets/img/passeios/serra-da-canastra/02-800.webp" srcset="assets/img/passeios/serra-da-canastra/02-800.webp 600w, assets/img/passeios/serra-da-canastra/02-1600.webp 1200w" sizes="(min-width: 960px) 45vw, 100vw" width="600" height="800" alt="Ciclistas subindo uma estrada de cascalho na serra" loading="lazy" decoding="async"></li>
+                  <li><img src="assets/img/passeios/serra-da-canastra/03-800.webp" srcset="assets/img/passeios/serra-da-canastra/03-800.webp 600w, assets/img/passeios/serra-da-canastra/03-1600.webp 1200w" sizes="(min-width: 960px) 45vw, 100vw" width="600" height="800" alt="Vista aérea de um grupo pedalando em estrada sinuosa no chapadão" loading="lazy" decoding="async"></li>
+                  <li><img src="assets/img/passeios/serra-da-canastra/04-800.webp" srcset="assets/img/passeios/serra-da-canastra/04-800.webp 600w, assets/img/passeios/serra-da-canastra/04-1600.webp 1200w" sizes="(min-width: 960px) 45vw, 100vw" width="600" height="800" alt="Cachoeira despencando do paredão da serra" loading="lazy" decoding="async"></li>
+                  <li><img src="assets/img/passeios/serra-da-canastra/05-800.webp" srcset="assets/img/passeios/serra-da-canastra/05-800.webp 600w, assets/img/passeios/serra-da-canastra/05-1600.webp 1200w" sizes="(min-width: 960px) 45vw, 100vw" width="600" height="800" alt="Cachoeira com um banhista na base" loading="lazy" decoding="async"></li>
+                  <li><img src="assets/img/passeios/serra-da-canastra/06-800.webp" srcset="assets/img/passeios/serra-da-canastra/06-800.webp 600w, assets/img/passeios/serra-da-canastra/06-1600.webp 1200w" sizes="(min-width: 960px) 45vw, 100vw" width="600" height="800" alt="Ciclistas acima de um mar de nuvens" loading="lazy" decoding="async"></li>
+                  <li><img src="assets/img/passeios/serra-da-canastra/07-800.webp" srcset="assets/img/passeios/serra-da-canastra/07-800.webp 600w, assets/img/passeios/serra-da-canastra/07-1600.webp 1200w" sizes="(min-width: 960px) 45vw, 100vw" width="600" height="800" alt="Grupo com as bicicletas em um mirante sobre o mar de nuvens" loading="lazy" decoding="async"></li>
+                  <li><img src="assets/img/passeios/serra-da-canastra/08-800.webp" srcset="assets/img/passeios/serra-da-canastra/08-800.webp 600w, assets/img/passeios/serra-da-canastra/08-1600.webp 1200w" sizes="(min-width: 960px) 45vw, 100vw" width="600" height="800" alt="Ciclistas em estrada de terra entre campos e montanhas" loading="lazy" decoding="async"></li>
+                  <li><img src="assets/img/passeios/serra-da-canastra/09-800.webp" srcset="assets/img/passeios/serra-da-canastra/09-800.webp 600w, assets/img/passeios/serra-da-canastra/09-1600.webp 1200w" sizes="(min-width: 960px) 45vw, 100vw" width="600" height="800" alt="Estradas de terra cruzando o chapadão" loading="lazy" decoding="async"></li>
+                  <li><img src="assets/img/passeios/serra-da-canastra/10-800.webp" srcset="assets/img/passeios/serra-da-canastra/10-800.webp 600w, assets/img/passeios/serra-da-canastra/10-1600.webp 1200w" sizes="(min-width: 960px) 45vw, 100vw" width="600" height="800" alt="Ciclista sorridente na estrada de cascalho" loading="lazy" decoding="async"></li>
+                  <li><img src="assets/img/passeios/serra-da-canastra/11-800.webp" srcset="assets/img/passeios/serra-da-canastra/11-800.webp 600w, assets/img/passeios/serra-da-canastra/11-1600.webp 1200w" sizes="(min-width: 960px) 45vw, 100vw" width="600" height="800" alt="Grupo descendo estrada de terra entre árvores" loading="lazy" decoding="async"></li>
+                  <li><img src="assets/img/passeios/serra-da-canastra/12-800.webp" srcset="assets/img/passeios/serra-da-canastra/12-800.webp 600w, assets/img/passeios/serra-da-canastra/12-1600.webp 1200w" sizes="(min-width: 960px) 45vw, 100vw" width="600" height="800" alt="Ciclista em trilha de terra no cerrado" loading="lazy" decoding="async"></li>
+                  <li><video controls muted playsinline preload="none" poster="assets/img/passeios/serra-da-canastra/video-poster.webp" aria-label="Vídeo do passeio Serra da Canastra"><source src="assets/img/passeios/serra-da-canastra/video.mp4" type="video/mp4"></video></li>
+                </ul>
+                <button class="tour-gallery__btn tour-gallery__btn--prev" type="button" data-gallery-prev aria-label="Foto anterior">&#8249;</button>
+                <button class="tour-gallery__btn tour-gallery__btn--next" type="button" data-gallery-next aria-label="Próxima foto">&#8250;</button>
+              </div>
+              <div class="tour-dialog__body">
+                <button class="tour-dialog__close" type="button" data-dialog-close aria-label="Fechar" autofocus>&times;</button>
+                <p class="kicker">Grandes roteiros</p>
+                <h3 id="dialog-serra-da-canastra-title">Serra da Canastra</h3>
+                <p class="tour-route">Parque Nacional da Serra da Canastra – MG</p>
+                <p>No coração de Minas Gerais, a Serra da Canastra abriga o Parque Nacional onde nasce o Rio São Francisco. É um cenário de chapadões a perder de vista, campos rupestres, paredões de pedra e cachoeiras impressionantes, como a Casca d'Anta, além de ser a terra do famoso queijo Canastra.</p>
+                <p>Nossa expedição percorre as estradas de terra da serra, com subidas épicas, mirantes sobre o mar de nuvens e paradas para banho de cachoeira, sempre com guia, E-Bikes e veículo de apoio da LocBikePocos.</p>
+                <p class="tour-note">Valores, datas e roteiro completo sob consulta pelo WhatsApp.</p>
+                <a class="btn btn--primary" href="https://wa.me/5535997790123" data-whatsapp="Olá! Quero reservar o passeio Serra da Canastra com a LocBike.">Reservar pelo WhatsApp</a>
+              </div>
+            </dialog>
           </article>
 
           <article class="card route-card" id="rota-do-vulcao">
-            <div class="card__media placeholder-media" aria-hidden="true"></div>
+            <img class="card__media" src="assets/img/passeios/rota-do-vulcao/01-800.webp" srcset="assets/img/passeios/rota-do-vulcao/01-800.webp 600w, assets/img/passeios/rota-do-vulcao/01-1600.webp 1200w" sizes="(min-width: 960px) 33vw, (min-width: 640px) 50vw, 100vw" width="600" height="800" alt="Represa entre montanhas com mar de nuvens, vista de um mirante" loading="lazy" decoding="async">
             <div class="card__body">
               <h3 class="card__title">Rota do Vulcão</h3>
-              <p>[Descritivo — detalhes em breve]</p>
-              <a class="btn btn--primary" href="#contato">Reservar</a>
+              <p>Um giro pelas cidades e represas que contornam a cratera do antigo vulcão.</p>
+              <button class="btn btn--primary" type="button" data-dialog-open="dialog-rota-do-vulcao">Ver detalhes</button>
             </div>
+
+            <dialog class="tour-dialog" id="dialog-rota-do-vulcao" aria-labelledby="dialog-rota-do-vulcao-title">
+              <div class="tour-gallery" data-gallery>
+                <ul class="tour-gallery__track" data-gallery-track tabindex="0" aria-label="Fotos do passeio Rota do Vulcão">
+                  <li><img src="assets/img/passeios/rota-do-vulcao/01-800.webp" srcset="assets/img/passeios/rota-do-vulcao/01-800.webp 600w, assets/img/passeios/rota-do-vulcao/01-1600.webp 1200w" sizes="(min-width: 960px) 45vw, 100vw" width="600" height="800" alt="Represa entre montanhas com mar de nuvens, vista de um mirante" loading="lazy" decoding="async"></li>
+                  <li><img src="assets/img/passeios/rota-do-vulcao/02-800.webp" srcset="assets/img/passeios/rota-do-vulcao/02-800.webp 600w, assets/img/passeios/rota-do-vulcao/02-1600.webp 1200w" sizes="(min-width: 960px) 45vw, 100vw" width="600" height="800" alt="Ciclistas pedalando sobre a barragem ao nascer do sol" loading="lazy" decoding="async"></li>
+                  <li><img src="assets/img/passeios/rota-do-vulcao/03-800.webp" srcset="assets/img/passeios/rota-do-vulcao/03-800.webp 800w, assets/img/passeios/rota-do-vulcao/03-1600.webp 1600w" sizes="(min-width: 960px) 45vw, 100vw" width="800" height="600" alt="Grupo de ciclistas no letreiro Eu amo Caconde" loading="lazy" decoding="async"></li>
+                  <li><img src="assets/img/passeios/rota-do-vulcao/04-800.webp" srcset="assets/img/passeios/rota-do-vulcao/04-800.webp 600w, assets/img/passeios/rota-do-vulcao/04-1600.webp 1200w" sizes="(min-width: 960px) 45vw, 100vw" width="600" height="800" alt="Ciclistas em estrada asfaltada com neblina no vale" loading="lazy" decoding="async"></li>
+                  <li><img src="assets/img/passeios/rota-do-vulcao/05-800.webp" srcset="assets/img/passeios/rota-do-vulcao/05-800.webp 600w, assets/img/passeios/rota-do-vulcao/05-1600.webp 1200w" sizes="(min-width: 960px) 45vw, 100vw" width="600" height="800" alt="Ciclista em curva de estrada com as montanhas ao fundo" loading="lazy" decoding="async"></li>
+                  <li><img src="assets/img/passeios/rota-do-vulcao/06-800.webp" srcset="assets/img/passeios/rota-do-vulcao/06-800.webp 600w, assets/img/passeios/rota-do-vulcao/06-1600.webp 1200w" sizes="(min-width: 960px) 45vw, 100vw" width="600" height="800" alt="Dois ciclistas em estrada de terra rural" loading="lazy" decoding="async"></li>
+                  <li><img src="assets/img/passeios/rota-do-vulcao/07-800.webp" srcset="assets/img/passeios/rota-do-vulcao/07-800.webp 600w, assets/img/passeios/rota-do-vulcao/07-1600.webp 1200w" sizes="(min-width: 960px) 45vw, 100vw" width="600" height="800" alt="Pavão ao lado de um antigo carro de boi" loading="lazy" decoding="async"></li>
+                  <li><img src="assets/img/passeios/rota-do-vulcao/08-800.webp" srcset="assets/img/passeios/rota-do-vulcao/08-800.webp 600w, assets/img/passeios/rota-do-vulcao/08-1600.webp 1200w" sizes="(min-width: 960px) 45vw, 100vw" width="600" height="800" alt="Ciclista em estrada ladeada por eucaliptos" loading="lazy" decoding="async"></li>
+                  <li><img src="assets/img/passeios/rota-do-vulcao/09-800.webp" srcset="assets/img/passeios/rota-do-vulcao/09-800.webp 600w, assets/img/passeios/rota-do-vulcao/09-1600.webp 1200w" sizes="(min-width: 960px) 45vw, 100vw" width="600" height="800" alt="Ciclista de E-Bike em estrada na mata" loading="lazy" decoding="async"></li>
+                  <li><img src="assets/img/passeios/rota-do-vulcao/10-800.webp" srcset="assets/img/passeios/rota-do-vulcao/10-800.webp 600w, assets/img/passeios/rota-do-vulcao/10-1600.webp 1200w" sizes="(min-width: 960px) 45vw, 100vw" width="600" height="800" alt="Estrada de paralelepípedos sobre a barragem" loading="lazy" decoding="async"></li>
+                  <li><video controls muted playsinline preload="none" poster="assets/img/passeios/rota-do-vulcao/video-poster.webp" aria-label="Vídeo do passeio Rota do Vulcão"><source src="assets/img/passeios/rota-do-vulcao/video.mp4" type="video/mp4"></video></li>
+                </ul>
+                <button class="tour-gallery__btn tour-gallery__btn--prev" type="button" data-gallery-prev aria-label="Foto anterior">&#8249;</button>
+                <button class="tour-gallery__btn tour-gallery__btn--next" type="button" data-gallery-next aria-label="Próxima foto">&#8250;</button>
+              </div>
+              <div class="tour-dialog__body">
+                <button class="tour-dialog__close" type="button" data-dialog-close aria-label="Fechar" autofocus>&times;</button>
+                <p class="kicker">Grandes roteiros</p>
+                <h3 id="dialog-rota-do-vulcao-title">Rota do Vulcão</h3>
+                <p class="tour-route">Ao redor da caldeira vulcânica de Poços de Caldas, entre MG e SP</p>
+                <p>Poços de Caldas fica dentro da cratera de um antigo vulcão, extinto há milhões de anos: uma formação geológica única, cercada de serras. A Rota do Vulcão percorre as cidades e paisagens que contornam essa caldeira, entre Minas Gerais e São Paulo.</p>
+                <p>São estradas rurais e de asfalto, mirantes com mar de nuvens sobre as represas, cidadezinhas charmosas como Caconde e muita natureza pelo caminho. Um roteiro para quem quer pedalar longe, com guia, E-Bikes e todo o apoio da LocBikePocos.</p>
+                <p class="tour-note">Valores, datas e roteiro completo sob consulta pelo WhatsApp.</p>
+                <a class="btn btn--primary" href="https://wa.me/5535997790123" data-whatsapp="Olá! Quero reservar o passeio Rota do Vulcão com a LocBike.">Reservar pelo WhatsApp</a>
+              </div>
+            </dialog>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- ===================== PASSEIOS 4X4 ===================== -->
-    <section class="section" id="passeios-4x4" aria-labelledby="offroad-title" data-label="Passeios 4x4">
+    <!-- ===================== PASSEIOS OFF-ROAD ===================== -->
+    <section class="section" id="passeios-off-road" aria-labelledby="offroad-title" data-label="Passeios off-road">
       <div class="container">
         <header class="section__header">
-          <h2 id="offroad-title">Passeios 4x4</h2>
-          <p>[Introdução dos passeios 4x4]</p>
+          <p class="kicker">Roteiros da LocBike</p>
+          <h2 id="offroad-title">Passeios off-road de E-Bike</h2>
+          <p>Pedaladas guiadas de E-Bike por estradas rurais e serras da região: fazendas de café e azeite, vinícola, picos e mirantes. Todos incluem E-Bike, guia, apoio mecânico básico e seguro ciclista.</p>
         </header>
 
-        <div class="grid grid--2">
+        <div class="grid grid--5">
           <article class="card route-card" id="fazenda-cafe-azeite">
-            <div class="card__media placeholder-media" aria-hidden="true"></div>
+            <img class="card__media" src="assets/img/passeios/cafe-e-azeite/01-800.webp" srcset="assets/img/passeios/cafe-e-azeite/01-800.webp 450w, assets/img/passeios/cafe-e-azeite/01-1600.webp 901w" sizes="(min-width: 1100px) 20vw, (min-width: 640px) 50vw, 100vw" width="450" height="800" alt="Ciclista comemorando em uma varanda sobre os cafezais" loading="lazy" decoding="async">
             <div class="card__body">
               <h3 class="card__title">Fazenda de Café e Azeite</h3>
-              <p>[Descrição do passeio — detalhes em breve]</p>
               <ul class="card__meta">
-                <li>[Duração]</li>
-                <li>[Inclui]</li>
+                <li>50 km</li>
+                <li>+1.100 m<span class="visually-hidden"> de elevação acumulada</span></li>
+                <li>4 a 5 h</li>
+                <li>Intermediário</li>
               </ul>
-              <a class="btn btn--primary" href="#contato">Reservar</a>
+              <p class="card__price">a partir de <strong>R$ 690</strong></p>
+              <button class="btn btn--primary" type="button" data-dialog-open="dialog-fazenda-cafe-azeite">Ver detalhes</button>
             </div>
+
+            <dialog class="tour-dialog" id="dialog-fazenda-cafe-azeite" aria-labelledby="dialog-fazenda-cafe-azeite-title">
+              <div class="tour-gallery" data-gallery>
+                <ul class="tour-gallery__track" data-gallery-track tabindex="0" aria-label="Fotos do passeio Fazenda de Café e Azeite">
+                  <li><img src="assets/img/passeios/cafe-e-azeite/01-800.webp" srcset="assets/img/passeios/cafe-e-azeite/01-800.webp 450w, assets/img/passeios/cafe-e-azeite/01-1600.webp 901w" sizes="(min-width: 960px) 45vw, 100vw" width="450" height="800" alt="Ciclista comemorando em uma varanda sobre os cafezais" loading="lazy" decoding="async"></li>
+                  <li><img src="assets/img/passeios/cafe-e-azeite/02-800.webp" srcset="assets/img/passeios/cafe-e-azeite/02-800.webp 450w, assets/img/passeios/cafe-e-azeite/02-1600.webp 901w" sizes="(min-width: 960px) 45vw, 100vw" width="450" height="800" alt="Casa de fazenda antiga com jardim" loading="lazy" decoding="async"></li>
+                  <li><img src="assets/img/passeios/cafe-e-azeite/03-800.webp" srcset="assets/img/passeios/cafe-e-azeite/03-800.webp 450w, assets/img/passeios/cafe-e-azeite/03-1600.webp 901w" sizes="(min-width: 960px) 45vw, 100vw" width="450" height="800" alt="Ciclista acenando na estrada de terra" loading="lazy" decoding="async"></li>
+                  <li><img src="assets/img/passeios/cafe-e-azeite/04-800.webp" srcset="assets/img/passeios/cafe-e-azeite/04-800.webp 450w, assets/img/passeios/cafe-e-azeite/04-1600.webp 901w" sizes="(min-width: 960px) 45vw, 100vw" width="450" height="800" alt="Ciclista de E-Bike em estrada de terra entre cafezais" loading="lazy" decoding="async"></li>
+                  <li><img src="assets/img/passeios/cafe-e-azeite/05-800.webp" srcset="assets/img/passeios/cafe-e-azeite/05-800.webp 450w, assets/img/passeios/cafe-e-azeite/05-1600.webp 901w" sizes="(min-width: 960px) 45vw, 100vw" width="450" height="800" alt="Ciclistas sob uma árvore florida" loading="lazy" decoding="async"></li>
+                  <li><img src="assets/img/passeios/cafe-e-azeite/06-800.webp" srcset="assets/img/passeios/cafe-e-azeite/06-800.webp 450w, assets/img/passeios/cafe-e-azeite/06-1600.webp 901w" sizes="(min-width: 960px) 45vw, 100vw" width="450" height="800" alt="Pães de queijo e café servidos na fazenda" loading="lazy" decoding="async"></li>
+                  <li><img src="assets/img/passeios/cafe-e-azeite/07-800.webp" srcset="assets/img/passeios/cafe-e-azeite/07-800.webp 450w, assets/img/passeios/cafe-e-azeite/07-1600.webp 901w" sizes="(min-width: 960px) 45vw, 100vw" width="450" height="800" alt="Grupo de ciclistas pronto para a saída" loading="lazy" decoding="async"></li>
+                  <li><video controls muted playsinline preload="none" poster="assets/img/passeios/cafe-e-azeite/video-poster.webp" aria-label="Vídeo do passeio Fazenda de Café e Azeite"><source src="assets/img/passeios/cafe-e-azeite/video.mp4" type="video/mp4"></video></li>
+                </ul>
+                <button class="tour-gallery__btn tour-gallery__btn--prev" type="button" data-gallery-prev aria-label="Foto anterior">&#8249;</button>
+                <button class="tour-gallery__btn tour-gallery__btn--next" type="button" data-gallery-next aria-label="Próxima foto">&#8250;</button>
+              </div>
+              <div class="tour-dialog__body">
+                <button class="tour-dialog__close" type="button" data-dialog-close aria-label="Fechar" autofocus>&times;</button>
+                <p class="kicker">Passeios off-road</p>
+                <h3 id="dialog-fazenda-cafe-azeite-title">Fazenda de Café e Azeite</h3>
+                <p class="tour-route">Fazenda de Cafés Especiais · Fazenda Irarema</p>
+                <dl class="tour-facts">
+                  <div><dt>Distância</dt><dd>50 km</dd></div>
+                  <div><dt>Elevação acumulada</dt><dd>1.100 m</dd></div>
+                  <div><dt>Duração</dt><dd>4 a 5 h</dd></div>
+                  <div><dt>Nível</dt><dd>Intermediário</dd></div>
+                  <div><dt>Idade</dt><dd>A partir de 12 anos</dd></div>
+                </dl>
+                <p>Um roteiro exclusivo de cicloturismo que une o melhor da natureza e da produção artesanal da nossa região. Partindo do coração da cidade, nossa pedalada guiada com E-Bikes e suporte completo leva você por estradinhas rurais cheias de charme até a tradicional Pousada do Café, onde a história da cafeicultura mineira se revela em cada detalhe.</p>
+                <p>Em seguida, seguimos pedalando em meio a belas paisagens serranas rumo a uma fazenda produtora de azeites de oliva de alta qualidade, onde você conhecerá de perto o processo de extração e poderá saborear sabores únicos. Tudo isso com o conforto, a segurança e a estrutura de apoio especializado.</p>
+                <div class="tour-lists">
+                  <div>
+                    <h4>Incluso</h4>
+                    <ul class="checklist">
+                      <li>E-Bike</li>
+                      <li>Guia</li>
+                      <li>Apoio mecânico básico</li>
+                      <li>Seguro ciclista</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4>Não incluso</h4>
+                    <ul class="tour-excluded">
+                      <li>Refeições</li>
+                    </ul>
+                  </div>
+                </div>
+                <h4>Valores</h4>
+                <dl class="tour-prices">
+                  <div><dt>Por ciclista (mínimo 2 ciclistas)</dt><dd>R$ 690,00</dd></div>
+                  <div><dt>Privado individual</dt><dd>R$ 890,00</dd></div>
+                  <div><dt>Privado acima de 2 ciclistas</dt><dd>R$ 790,00</dd></div>
+                </dl>
+                <a class="btn btn--primary" href="https://wa.me/5535997790123" data-whatsapp="Olá! Quero reservar o passeio Fazenda de Café e Azeite com a LocBike.">Reservar pelo WhatsApp</a>
+              </div>
+            </dialog>
           </article>
 
           <article class="card route-card" id="pico-do-gaviao">
             <div class="card__media placeholder-media" aria-hidden="true"></div>
             <div class="card__body">
               <h3 class="card__title">Pico do Gavião</h3>
-              <p>[Descrição do passeio — detalhes em breve]</p>
               <ul class="card__meta">
-                <li>[Duração]</li>
-                <li>[Inclui]</li>
+                <li>50 km</li>
+                <li>+1.200 m<span class="visually-hidden"> de elevação acumulada</span></li>
               </ul>
-              <a class="btn btn--primary" href="#contato">Reservar</a>
+              <p class="card__price">a partir de <strong>R$ 890</strong></p>
+              <button class="btn btn--primary" type="button" data-dialog-open="dialog-pico-do-gaviao">Ver detalhes</button>
             </div>
+
+            <dialog class="tour-dialog" id="dialog-pico-do-gaviao" aria-labelledby="dialog-pico-do-gaviao-title">
+              <div class="tour-gallery tour-gallery--empty placeholder-media"><p>Fotos em breve</p></div>
+              <div class="tour-dialog__body">
+                <button class="tour-dialog__close" type="button" data-dialog-close aria-label="Fechar" autofocus>&times;</button>
+                <p class="kicker">Passeios off-road</p>
+                <h3 id="dialog-pico-do-gaviao-title">Pico do Gavião</h3>
+                <p class="tour-route">Águas da Prata · Pico do Gavião · Águas da Prata</p>
+                <dl class="tour-facts">
+                  <div><dt>Distância</dt><dd>50 km</dd></div>
+                  <div><dt>Elevação acumulada</dt><dd>1.200 m</dd></div>
+                  <div><dt>Idade</dt><dd>A partir de 12 anos</dd></div>
+                </dl>
+                <p>Uma jornada épica que desafia os limites e recompensa cada pedalada com paisagens de tirar o fôlego. Nossa expedição guiada de cicloturismo parte de Águas da Prata e avança pelo consagrado primeiro trecho do Caminho da Fé, subindo a serra rumo ao majestoso Pico do Gavião.</p>
+                <p>Conquista, superação e vistas panorâmicas incomparáveis esperam por você, contando com toda a segurança, suporte especializado e a estrutura de E-Bikes da LocBikePocos. Prepare-se para viver uma das maiores experiências off-road da região!</p>
+                <div class="tour-lists">
+                  <div>
+                    <h4>Incluso</h4>
+                    <ul class="checklist">
+                      <li>E-Bike</li>
+                      <li>Guia</li>
+                      <li>Apoio mecânico básico</li>
+                      <li>Seguro ciclista</li>
+                      <li>Veículo de resgate</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4>Não incluso</h4>
+                    <ul class="tour-excluded">
+                      <li>Refeições e bebidas</li>
+                    </ul>
+                  </div>
+                </div>
+                <h4>Valores</h4>
+                <dl class="tour-prices">
+                  <div><dt>Por ciclista (mínimo 2 ciclistas)</dt><dd>R$ 890,00</dd></div>
+                  <div><dt>Privado individual</dt><dd>R$ 990,00</dd></div>
+                  <div><dt>Privado acima de 2 ciclistas</dt><dd>R$ 890,00</dd></div>
+                </dl>
+                <a class="btn btn--primary" href="https://wa.me/5535997790123" data-whatsapp="Olá! Quero reservar o passeio Pico do Gavião com a LocBike.">Reservar pelo WhatsApp</a>
+              </div>
+            </dialog>
+          </article>
+
+          <article class="card route-card" id="vinicola">
+            <img class="card__media" src="assets/img/passeios/vinicola/01-800.webp" srcset="assets/img/passeios/vinicola/01-800.webp 600w, assets/img/passeios/vinicola/01-1600.webp 1200w" sizes="(min-width: 1100px) 20vw, (min-width: 640px) 50vw, 100vw" width="600" height="800" alt="Dupla de ciclistas comemorando diante dos campos verdes" loading="lazy" decoding="async">
+            <div class="card__body">
+              <h3 class="card__title">Vinícola Estrada Real</h3>
+              <ul class="card__meta">
+                <li>52 km</li>
+                <li>+800 m<span class="visually-hidden"> de elevação acumulada</span></li>
+                <li>5 a 6 h</li>
+                <li>Intermediário</li>
+              </ul>
+              <p class="card__price">a partir de <strong>R$ 890</strong></p>
+              <button class="btn btn--primary" type="button" data-dialog-open="dialog-vinicola">Ver detalhes</button>
+            </div>
+
+            <dialog class="tour-dialog" id="dialog-vinicola" aria-labelledby="dialog-vinicola-title">
+              <div class="tour-gallery" data-gallery>
+                <ul class="tour-gallery__track" data-gallery-track tabindex="0" aria-label="Fotos do passeio Vinícola Estrada Real">
+                  <li><img src="assets/img/passeios/vinicola/01-800.webp" srcset="assets/img/passeios/vinicola/01-800.webp 600w, assets/img/passeios/vinicola/01-1600.webp 1200w" sizes="(min-width: 960px) 45vw, 100vw" width="600" height="800" alt="Dupla de ciclistas comemorando diante dos campos verdes" loading="lazy" decoding="async"></li>
+                  <li><img src="assets/img/passeios/vinicola/02-800.webp" srcset="assets/img/passeios/vinicola/02-800.webp 600w, assets/img/passeios/vinicola/02-1600.webp 1200w" sizes="(min-width: 960px) 45vw, 100vw" width="600" height="800" alt="Mirante com vista para a serra" loading="lazy" decoding="async"></li>
+                  <li><img src="assets/img/passeios/vinicola/03-800.webp" srcset="assets/img/passeios/vinicola/03-800.webp 600w, assets/img/passeios/vinicola/03-1600.webp 1200w" sizes="(min-width: 960px) 45vw, 100vw" width="600" height="800" alt="Ciclistas ao lado de esculturas de dinossauro na estrada" loading="lazy" decoding="async"></li>
+                  <li><img src="assets/img/passeios/vinicola/04-800.webp" srcset="assets/img/passeios/vinicola/04-800.webp 600w, assets/img/passeios/vinicola/04-1600.webp 1200w" sizes="(min-width: 960px) 45vw, 100vw" width="600" height="800" alt="Ciclistas em estrada de terra na mata" loading="lazy" decoding="async"></li>
+                  <li><img src="assets/img/passeios/vinicola/05-800.webp" srcset="assets/img/passeios/vinicola/05-800.webp 600w, assets/img/passeios/vinicola/05-1600.webp 1200w" sizes="(min-width: 960px) 45vw, 100vw" width="600" height="800" alt="Dupla pedalando E-Bikes em estrada de terra" loading="lazy" decoding="async"></li>
+                  <li><img src="assets/img/passeios/vinicola/06-800.webp" srcset="assets/img/passeios/vinicola/06-800.webp 600w, assets/img/passeios/vinicola/06-1600.webp 1200w" sizes="(min-width: 960px) 45vw, 100vw" width="600" height="800" alt="Jardim e casa da vinícola" loading="lazy" decoding="async"></li>
+                  <li><video controls muted playsinline preload="none" poster="assets/img/passeios/vinicola/video-poster.webp" aria-label="Vídeo do passeio Vinícola Estrada Real"><source src="assets/img/passeios/vinicola/video.mp4" type="video/mp4"></video></li>
+                </ul>
+                <button class="tour-gallery__btn tour-gallery__btn--prev" type="button" data-gallery-prev aria-label="Foto anterior">&#8249;</button>
+                <button class="tour-gallery__btn tour-gallery__btn--next" type="button" data-gallery-next aria-label="Próxima foto">&#8250;</button>
+              </div>
+              <div class="tour-dialog__body">
+                <button class="tour-dialog__close" type="button" data-dialog-close aria-label="Fechar" autofocus>&times;</button>
+                <p class="kicker">Passeios off-road</p>
+                <h3 id="dialog-vinicola-title">Vinícola Estrada Real</h3>
+                <p class="tour-route">Poços de Caldas · Caldas · Vinícola Estrada Real</p>
+                <dl class="tour-facts">
+                  <div><dt>Distância</dt><dd>52 km</dd></div>
+                  <div><dt>Elevação acumulada</dt><dd>800 m</dd></div>
+                  <div><dt>Duração</dt><dd>5 a 6 h</dd></div>
+                  <div><dt>Nível</dt><dd>Intermediário</dd></div>
+                  <div><dt>Idade</dt><dd>A partir de 12 anos</dd></div>
+                </dl>
+                <p>Viva uma experiência inesquecível de cicloturismo combinando história, paisagens deslumbrantes e enoturismo de excelência. Nossa pedalada guiada com E-Bikes e suporte completo parte de Poços de Caldas e cruza estradas rurais encantadoras até a charmosa cidade de Caldas, berço histórico da nossa região.</p>
+                <p>De lá, seguimos pedalando em meio a vales e montanhas até a consagrada Vinícola Estrada Real, onde você poderá relaxar, conhecer os vinhedos e desfrutar de uma degustação exclusiva de vinhos finos de altitude. Com toda a segurança, conforto e estrutura de apoio especializada da LocBikePocos, este é o roteiro perfeito para quem busca aventura com sofisticação sobre duas rodas!</p>
+                <div class="tour-lists">
+                  <div>
+                    <h4>Incluso</h4>
+                    <ul class="checklist">
+                      <li>E-Bike</li>
+                      <li>Guia</li>
+                      <li>Apoio mecânico básico</li>
+                      <li>Seguro ciclista</li>
+                      <li>Veículo de resgate</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4>Não incluso</h4>
+                    <ul class="tour-excluded">
+                      <li>Refeições e bebidas</li>
+                    </ul>
+                  </div>
+                </div>
+                <h4>Valores</h4>
+                <dl class="tour-prices">
+                  <div><dt>Por ciclista (mínimo 2 ciclistas)</dt><dd>R$ 890,00</dd></div>
+                  <div><dt>Privado individual</dt><dd>R$ 990,00</dd></div>
+                  <div><dt>Privado acima de 2 ciclistas</dt><dd>R$ 890,00</dd></div>
+                </dl>
+                <a class="btn btn--primary" href="https://wa.me/5535997790123" data-whatsapp="Olá! Quero reservar o passeio Vinícola Estrada Real com a LocBike.">Reservar pelo WhatsApp</a>
+              </div>
+            </dialog>
+          </article>
+
+          <article class="card route-card" id="santa-clara">
+            <div class="card__media placeholder-media" aria-hidden="true"></div>
+            <div class="card__body">
+              <h3 class="card__title">Igreja Santa Clara</h3>
+              <ul class="card__meta">
+                <li>58 km</li>
+                <li>+1.300 m<span class="visually-hidden"> de elevação acumulada</span></li>
+                <li>4 a 5 h</li>
+                <li>Intermediário</li>
+              </ul>
+              <p class="card__price">a partir de <strong>R$ 690</strong></p>
+              <button class="btn btn--primary" type="button" data-dialog-open="dialog-santa-clara">Ver detalhes</button>
+            </div>
+
+            <dialog class="tour-dialog" id="dialog-santa-clara" aria-labelledby="dialog-santa-clara-title">
+              <div class="tour-gallery tour-gallery--empty placeholder-media"><p>Fotos em breve</p></div>
+              <div class="tour-dialog__body">
+                <button class="tour-dialog__close" type="button" data-dialog-close aria-label="Fechar" autofocus>&times;</button>
+                <p class="kicker">Passeios off-road</p>
+                <h3 id="dialog-santa-clara-title">Igreja Santa Clara</h3>
+                <p class="tour-route">Igreja Santa Clara · Fazenda de Cafés Especiais · Fazenda Irarema</p>
+                <dl class="tour-facts">
+                  <div><dt>Distância</dt><dd>58 km</dd></div>
+                  <div><dt>Elevação acumulada</dt><dd>1.300 m</dd></div>
+                  <div><dt>Duração</dt><dd>4 a 5 h</dd></div>
+                  <div><dt>Nível</dt><dd>Intermediário</dd></div>
+                  <div><dt>Idade</dt><dd>A partir de 12 anos</dd></div>
+                </dl>
+                <p>Uma pedalada imperdível que une paisagens encantadoras, tranquilidade e momentos de pura contemplação. Nossa experiência guiada de cicloturismo com E-Bikes e suporte completo parte de Poços de Caldas por caminhos rurais muito agradáveis até a histórica e acolhedora região da Igreja Santa Clara.</p>
+                <p>É o roteiro perfeito para quem quer pedalar com leveza, apreciar a natureza e desfrutar de todo o conforto, segurança e estrutura especializada da LocBikePocos.</p>
+                <div class="tour-lists">
+                  <div>
+                    <h4>Incluso</h4>
+                    <ul class="checklist">
+                      <li>E-Bike</li>
+                      <li>Guia</li>
+                      <li>Apoio mecânico básico</li>
+                      <li>Seguro ciclista</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4>Não incluso</h4>
+                    <ul class="tour-excluded">
+                      <li>Refeições</li>
+                    </ul>
+                  </div>
+                </div>
+                <h4>Valores</h4>
+                <dl class="tour-prices">
+                  <div><dt>Por ciclista (mínimo 2 ciclistas)</dt><dd>R$ 690,00</dd></div>
+                  <div><dt>Privado individual</dt><dd>R$ 890,00</dd></div>
+                  <div><dt>Privado acima de 2 ciclistas</dt><dd>R$ 790,00</dd></div>
+                </dl>
+                <a class="btn btn--primary" href="https://wa.me/5535997790123" data-whatsapp="Olá! Quero reservar o passeio Igreja Santa Clara com a LocBike.">Reservar pelo WhatsApp</a>
+              </div>
+            </dialog>
+          </article>
+
+          <article class="card route-card" id="serra-da-mantiqueira">
+            <div class="card__media placeholder-media" aria-hidden="true"></div>
+            <div class="card__body">
+              <h3 class="card__title">Serra da Mantiqueira</h3>
+              <ul class="card__meta">
+                <li>75 km</li>
+                <li>+1.500 m<span class="visually-hidden"> de elevação acumulada</span></li>
+                <li>6 a 7 h</li>
+                <li>Difícil</li>
+              </ul>
+              <p class="card__price">a partir de <strong>R$ 890</strong></p>
+              <button class="btn btn--primary" type="button" data-dialog-open="dialog-serra-da-mantiqueira">Ver detalhes</button>
+            </div>
+
+            <dialog class="tour-dialog" id="dialog-serra-da-mantiqueira" aria-labelledby="dialog-serra-da-mantiqueira-title">
+              <div class="tour-gallery tour-gallery--empty placeholder-media"><p>Fotos em breve</p></div>
+              <div class="tour-dialog__body">
+                <button class="tour-dialog__close" type="button" data-dialog-close aria-label="Fechar" autofocus>&times;</button>
+                <p class="kicker">Passeios off-road</p>
+                <h3 id="dialog-serra-da-mantiqueira-title">Serra da Mantiqueira</h3>
+                <p class="tour-route">Poços de Caldas · Águas da Prata · Poços de Caldas</p>
+                <dl class="tour-facts">
+                  <div><dt>Distância</dt><dd>75 km</dd></div>
+                  <div><dt>Elevação acumulada</dt><dd>1.500 m</dd></div>
+                  <div><dt>Duração</dt><dd>6 a 7 h</dd></div>
+                  <div><dt>Nível</dt><dd>Difícil</dd></div>
+                  <div><dt>Idade</dt><dd>A partir de 15 anos</dd></div>
+                </dl>
+                <p>Uma pedalada clássica e encantadora que conecta Minas Gerais a São Paulo em um trajeto repleto de natureza e belas paisagens. Nossa expedição guiada de cicloturismo parte de Poços de Caldas com destino à charmosa estância hidromineral de Águas da Prata, retornando a Poços pelo mesmo cenário envolvente da serra.</p>
+                <p>Roteiro ideal para quem quer curtir o pedal com tranquilidade, contando com a assistência de E-Bikes modernas, guia credenciado e toda a estrutura de suporte e segurança da LocBikePocos. Uma experiência completa de ida e volta sobre duas rodas!</p>
+                <div class="tour-lists">
+                  <div>
+                    <h4>Incluso</h4>
+                    <ul class="checklist">
+                      <li>E-Bike</li>
+                      <li>Guia</li>
+                      <li>Apoio mecânico básico</li>
+                      <li>Seguro ciclista</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4>Não incluso</h4>
+                    <ul class="tour-excluded">
+                      <li>Refeições e bebidas</li>
+                    </ul>
+                  </div>
+                </div>
+                <h4>Valores</h4>
+                <dl class="tour-prices">
+                  <div><dt>Por ciclista (mínimo 2 ciclistas)</dt><dd>R$ 890,00</dd></div>
+                  <div><dt>Privado individual</dt><dd>R$ 990,00</dd></div>
+                  <div><dt>Privado acima de 2 ciclistas</dt><dd>R$ 890,00</dd></div>
+                </dl>
+                <a class="btn btn--primary" href="https://wa.me/5535997790123" data-whatsapp="Olá! Quero reservar o passeio Serra da Mantiqueira com a LocBike.">Reservar pelo WhatsApp</a>
+              </div>
+            </dialog>
           </article>
         </div>
       </div>
@@ -454,6 +846,9 @@
           <li><a href="#rota-do-vulcao">Rota do Vulcão</a></li>
           <li><a href="#fazenda-cafe-azeite">Fazenda de Café e Azeite</a></li>
           <li><a href="#pico-do-gaviao">Pico do Gavião</a></li>
+          <li><a href="#vinicola">Vinícola Estrada Real</a></li>
+          <li><a href="#santa-clara">Igreja Santa Clara</a></li>
+          <li><a href="#serra-da-mantiqueira">Serra da Mantiqueira</a></li>
         </ul>
       </nav>
 

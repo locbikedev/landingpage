@@ -42,6 +42,32 @@ function initNav() {
   });
 }
 
+// Tour details: "Ver detalhes" opens the tour's <dialog>; the ×, a backdrop click or Escape close it
+function initTourDialogs() {
+  document.querySelectorAll("[data-dialog-open]").forEach((button) => {
+    const dialog = document.getElementById(button.dataset.dialogOpen);
+    if (!dialog) return;
+
+    button.addEventListener("click", () => dialog.showModal());
+    dialog.addEventListener("click", (event) => {
+      if (event.target === dialog || event.target.closest("[data-dialog-close]")) dialog.close();
+    });
+    dialog.addEventListener("close", () => {
+      dialog.querySelectorAll("video").forEach((video) => video.pause());
+    });
+  });
+}
+
+// Photo strips inside the dialogs: arrow buttons step one photo at a time
+function initGalleries() {
+  document.querySelectorAll("[data-gallery]").forEach((gallery) => {
+    const track = gallery.querySelector("[data-gallery-track]");
+    const step = (direction) => track.scrollBy({ left: direction * track.clientWidth, behavior: "smooth" });
+    gallery.querySelector("[data-gallery-prev]").addEventListener("click", () => step(-1));
+    gallery.querySelector("[data-gallery-next]").addEventListener("click", () => step(1));
+  });
+}
+
 function initFooterYear() {
   document.querySelectorAll("[data-year]").forEach((el) => {
     el.textContent = new Date().getFullYear();
@@ -50,4 +76,6 @@ function initFooterYear() {
 
 initWhatsAppLinks();
 initNav();
+initTourDialogs();
+initGalleries();
 initFooterYear();
