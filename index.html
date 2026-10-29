@@ -139,70 +139,38 @@
       </div>
     </section>
 
-    <!-- ===================== ROTEIROS: URBANOS ===================== -->
-    <section class="section section--alt" id="roteiros" aria-labelledby="urban-title" data-label="Roteiros urbanos">
+    <!-- ===================== ROTEIROS BIKE ===================== -->
+    <!-- Text only for now; each block gets its itinerary cards once they exist -->
+    <section class="section section--alt" id="roteiros" aria-labelledby="urban-title" data-label="Roteiros Bike">
       <div class="container">
         <header class="section__header">
           <p class="kicker">Roteiros da LocBike</p>
-          <h2 id="urban-title">Cicloturismo urbano</h2>
-          <p>Explore Poços de Caldas de um jeito diferente! Descubra todos os nossos pontos turísticos de E-Bike. Temos experiências únicas para todos os estilos e níveis.</p>
+          <h2 id="urban-title">Cicloturismo em Poços de Caldas</h2>
+          <p>Explore Poços de Caldas de um jeito diferente, pelos pontos turísticos da cidade ou pelas trilhas da região. Temos experiências únicas para todos os estilos e níveis.</p>
         </header>
 
-        <div class="grid grid--2">
-          <!-- Repeatable route card -->
-          <article class="card route-card" id="urbanos-pocos">
-            <div class="card__media placeholder-media" aria-hidden="true"></div>
-            <div class="card__body">
-              <h3 class="card__title">Urbanos Poços</h3>
-              <p>Os cartões-postais de Poços de Caldas em um só pedal: Thermas Antônio Carlos, Palace Casino, Praça Pedro Sanches, Fonte dos Amores, Recanto Japonês e muito mais, com paradas para fotos e as histórias da cidade.</p>
-              <ul class="card__meta">
-                <li data-icon="time">[Duração]</li>
-                <li data-icon="distance">[Distância]</li>
-                <li data-icon="level">[Nível]</li>
-              </ul>
-              <a class="btn btn--primary" href="https://wa.me/5535997790123" target="_blank" rel="noopener" data-whatsapp="Olá! Quero reservar o passeio Urbanos Poços com a LocBike.">Reservar</a>
-            </div>
-          </article>
+        <div class="grid grid--3">
+          <div class="value route-text" id="urbanos-pocos">
+            <h3>Urbanos Poços</h3>
+            <p>Os cartões-postais de Poços de Caldas em um só pedal de E-Bike: Thermas Antônio Carlos, Palace Casino, Praça Pedro Sanches, Fonte dos Amores, Recanto Japonês e muito mais, com paradas para fotos e as histórias da cidade.</p>
+          </div>
 
-          <article class="card route-card" id="noturno-pocos">
-            <div class="card__media placeholder-media" aria-hidden="true"></div>
-            <div class="card__body">
-              <h3 class="card__title">Noturno Poços</h3>
-              <p>Poços de Caldas vista de outro jeito: um pedal ao anoitecer pelas praças e avenidas iluminadas do centro, com guia e paradas nos pontos turísticos. Programa diferente para fazer em família ou com os amigos.</p>
-              <ul class="card__meta">
-                <li data-icon="time">[Duração]</li>
-                <li data-icon="distance">[Distância]</li>
-                <li data-icon="level">[Nível]</li>
-              </ul>
-              <a class="btn btn--primary" href="https://wa.me/5535997790123" target="_blank" rel="noopener" data-whatsapp="Olá! Quero reservar o passeio Noturno Poços com a LocBike.">Reservar</a>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
+          <div class="value route-text" id="noturno-pocos">
+            <h3>Noturno Poços</h3>
+            <p>Poços de Caldas vista de outro jeito: um pedal ao anoitecer pelas praças e avenidas iluminadas do centro, com guia e paradas nos pontos turísticos. Programa diferente para fazer em família ou com os amigos.</p>
+          </div>
 
-    <!-- ===================== ROTEIROS: MTB ===================== -->
-    <section class="section" id="roteiros-mtb" aria-labelledby="mtb-title" data-label="Roteiros MTB">
-      <div class="container split split--reverse">
-        <div class="split__media placeholder-media" aria-hidden="true"></div>
-        <div class="split__body" id="mtb-pocos">
-          <p class="kicker">Roteiros da LocBike</p>
-          <h2 id="mtb-title">Cicloturismo MTB</h2>
-          <p>Pedale com a gente pelas trilhas da nossa região e suas lindas paisagens. Temos experiências únicas para todos os estilos e níveis.</p>
-          <h3>MTB Poços</h3>
-          <p>[Descrição do roteiro — detalhes em breve]</p>
-          <ul class="card__meta">
-            <li data-icon="time">[Duração]</li>
-            <li data-icon="distance">[Distância]</li>
-            <li data-icon="level">[Nível]</li>
-          </ul>
-          <a class="btn btn--primary" href="https://wa.me/5535997790123" target="_blank" rel="noopener" data-whatsapp="Olá! Quero reservar o passeio MTB Poços com a LocBike.">Reservar</a>
+          <div class="value route-text" id="mtb-pocos">
+            <h3>MTB Poços</h3>
+            <p>Pedale com a gente pelas trilhas da nossa região e suas lindas paisagens: fazendas de café e azeite, vinícola, picos e mirantes.</p>
+            <a class="btn btn--ghost" href="#mtb-regiao">Ver roteiros MTB</a>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- ===================== ROTEIROS: MTB PELA REGIÃO ===================== -->
-    <section class="section section--alt" id="mtb-regiao" aria-labelledby="mtb-regiao-title" data-label="MTB pela região">
+    <section class="section" id="mtb-regiao" aria-labelledby="mtb-regiao-title" data-label="MTB pela região">
       <div class="container">
         <header class="section__header">
           <p class="kicker">Roteiros MTB</p>
@@ -528,7 +496,7 @@
     </section>
 
     <!-- ===================== ROTEIROS: GRANDES ROTEIROS ===================== -->
-    <section class="section" id="grandes-roteiros" aria-labelledby="journeys-title" data-label="Grandes roteiros">
+    <section class="section section--alt" id="grandes-roteiros" aria-labelledby="journeys-title" data-label="Grandes roteiros">
       <div class="container">
         <header class="section__header">
           <p class="kicker">Roteiros da LocBike</p>
@@ -677,7 +645,7 @@
     </section>
 
     <!-- ===================== LOCAÇÃO AVULSA ===================== -->
-    <section class="section section--alt" id="locacao" aria-labelledby="rental-title" data-label="Locação avulsa">
+    <section class="section" id="locacao" aria-labelledby="rental-title" data-label="Locação avulsa">
       <div class="container">
         <header class="section__header">
           <h2 id="rental-title">Locação avulsa</h2>
@@ -731,7 +699,7 @@
 
     <!-- ===================== PASSEIOS 4X4 ===================== -->
     <!-- Same itineraries and photos as MTB pela região, by 4x4 vehicle. [Brackets] still to come from the owner. -->
-    <section class="section" id="passeios-4x4" aria-labelledby="title-4x4" data-label="Passeios 4x4">
+    <section class="section section--alt" id="passeios-4x4" aria-labelledby="title-4x4" data-label="Passeios 4x4">
       <div class="container">
         <header class="section__header">
           <p class="kicker">Passeios da LocBike</p>
@@ -1024,7 +992,7 @@
     </section>
 
     <!-- ===================== QUEM SOMOS ===================== -->
-    <section class="section section--alt" id="quem-somos" aria-labelledby="about-title" data-label="Quem somos">
+    <section class="section" id="quem-somos" aria-labelledby="about-title" data-label="Quem somos">
       <div class="container split split--text">
         <div class="split__media placeholder-media" aria-hidden="true"></div>
         <div class="split__body">
@@ -1042,7 +1010,7 @@
     </section>
 
     <!-- ===================== GIFT VOUCHER ===================== -->
-    <section class="section" id="vale-presente" aria-labelledby="voucher-title" data-label="Vale-presente">
+    <section class="section section--alt" id="vale-presente" aria-labelledby="voucher-title" data-label="Vale-presente">
       <div class="container split">
         <div class="split__body">
           <p class="kicker">Vale-presente</p>
@@ -1071,7 +1039,7 @@
     </section>
 
     <!-- ===================== FAQ ===================== -->
-    <section class="section section--alt" id="faq" aria-labelledby="faq-title" data-label="FAQ">
+    <section class="section" id="faq" aria-labelledby="faq-title" data-label="FAQ">
       <div class="container container--narrow">
         <header class="section__header">
           <h2 id="faq-title">[Perguntas frequentes]</h2>
@@ -1099,7 +1067,7 @@
     </section>
 
     <!-- ===================== CONTACT ===================== -->
-    <section class="section" id="contato" aria-labelledby="contact-title" data-label="Contato">
+    <section class="section section--alt" id="contato" aria-labelledby="contact-title" data-label="Contato">
       <div class="container contact">
         <div class="contact__body">
           <p class="kicker">Contato</p>

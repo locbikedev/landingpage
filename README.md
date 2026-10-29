@@ -23,8 +23,7 @@ Pages in `index.html` (each `<section>` is one full-screen page):
 |---|---|---|
 | Hero | `#inicio` | Headline, CTAs, trust strip |
 | Bike Tour | `#bike-tour` | The full tour (up to 5h), what's included |
-| Roteiros urbanos | `#roteiros` | Cards: `#urbanos-pocos`, `#noturno-pocos` |
-| Roteiros MTB | `#roteiros-mtb` | `#mtb-pocos` |
+| Roteiros Bike | `#roteiros` | Text blocks (no cards until there are itineraries): `#urbanos-pocos`, `#noturno-pocos`, `#mtb-pocos` (links to MTB pela região) |
 | MTB pela região | `#mtb-regiao` | E-Bike cards: `#fazenda-cafe-azeite`, `#pico-do-gaviao`, `#vinicola`, `#santa-clara`, `#serra-da-mantiqueira` |
 | Grandes roteiros | `#grandes-roteiros` | Cards: `#caminho-da-fe` (with date list), `#serra-da-canastra`, `#rota-do-vulcao` |
 | Locação avulsa | `#locacao` | Cards: `#bikes-urbanas`, `#e-bikes`, `#bike-infantil`, `#acessorios` |
