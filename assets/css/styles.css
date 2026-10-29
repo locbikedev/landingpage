@@ -635,6 +635,10 @@ html:has(.tour-dialog[open]) {
   grid-template-rows: 42% 1fr;
 }
 
+.tour-dialog:focus-visible {
+  outline: none; /* it takes focus itself on open (main.js) */
+}
+
 .tour-dialog::backdrop {
   background: rgb(15 35 87 / 0.7);
   backdrop-filter: blur(4px);
@@ -1623,7 +1627,7 @@ html:has(.tour-dialog[open]) {
 }
 
 /* =========================================================
-   Motion — riders, reveals and click effects (assets/js/motion.js)
+   Motion — riders and click effects (assets/js/motion.js)
    ========================================================= */
 
 /* ---------- Rider SVG (shared by the road and the hero) ---------- */
@@ -1936,14 +1940,20 @@ main h3 {
     transition: rotate 400ms cubic-bezier(0.3, 1.4, 0.5, 1);
   }
 
+  .card {
+    transition:
+      transform 300ms ease,
+      rotate 300ms ease,
+      box-shadow 300ms ease;
+  }
+
   /* Mouse only: on touch screens a tap leaves :hover stuck on the card */
   @media (hover: hover) {
     .btn--primary:hover::after {
       rotate: 1turn;
     }
 
-    /* Cards lean like a bike into a corner. Transitions for rotate/transform live in the
-       Reveal block below, which sets the transition list once a card is visible. */
+    /* Cards lean like a bike into a corner */
     .card:hover {
       transform: translateY(-4px);
       rotate: -0.8deg;
@@ -2019,35 +2029,5 @@ main h3 {
       transform: scale(1.7);
       opacity: 0;
     }
-  }
-}
-
-/* ---------- Reveal: content fades up as each page arrives ----------
-   Keep this selector list in sync with REVEAL_SELECTOR in motion.js.
-   Hidden state is keyed off .js (set inline in <head>) so nothing flashes before motion.js runs.
-   Uses `translate`, not `transform`, so it doesn't fight hover transforms. */
-@media (prefers-reduced-motion: no-preference) {
-  .js :is(
-      .section__header,
-      .trust__item,
-      .card,
-      .value,
-      .faq__item,
-      .split > *,
-      .contact > *
-    ) {
-    opacity: 0;
-    translate: 0 40px;
-  }
-
-  .js .is-visible.is-visible {
-    opacity: 1;
-    translate: none;
-    transition:
-      opacity 600ms ease var(--reveal-delay, 0ms),
-      translate 700ms cubic-bezier(0.2, 0.7, 0.2, 1) var(--reveal-delay, 0ms),
-      transform 300ms ease,
-      rotate 300ms ease,
-      box-shadow 300ms ease;
   }
 }

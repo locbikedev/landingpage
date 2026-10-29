@@ -1,4 +1,4 @@
-// LocBike — motion: scroll-driven riders, reveals, link/click effects.
+// LocBike — motion: scroll-driven riders, link/click effects.
 // Everything here is decorative; the page works without it.
 
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -842,45 +842,6 @@ function requestTick() {
   requestAnimationFrame(tick);
 }
 
-/* ---------- Reveal: content fades up as each page arrives ---------- */
-
-const REVEAL_SELECTOR = [
-  ".section__header",
-  ".trust__item",
-  ".card",
-  ".value",
-  ".faq__item",
-  ".split > *",
-  ".contact > *",
-].join(",");
-
-// Hidden state lives in the CSS (keyed off html.js); this only adds .is-visible.
-function initReveal() {
-  const items = document.querySelectorAll(REVEAL_SELECTOR);
-  if (reduceMotion || !("IntersectionObserver" in window)) {
-    items.forEach((el) => el.classList.add("is-visible"));
-    return;
-  }
-
-  const observer = new IntersectionObserver(
-    (entries) => {
-      for (const entry of entries) {
-        if (!entry.isIntersecting) continue;
-        entry.target.classList.add("is-visible");
-        observer.unobserve(entry.target);
-      }
-    },
-    { threshold: 0.1, rootMargin: "0px 0px -40px 0px" }
-  );
-
-  items.forEach((el) => {
-    // Stagger siblings (cards in a grid, steps, etc.)
-    const index = [...el.parentElement.children].indexOf(el);
-    el.style.setProperty("--reveal-delay", `${Math.min(index, 5) * 90}ms`);
-    observer.observe(el);
-  });
-}
-
 /* ---------- Link clicks: wheelie on the way, heading swoosh on arrival ---------- */
 
 function onScrollEnd(callback) {
@@ -958,7 +919,6 @@ pages = initPages();
 road = initRoad();
 hero = initHero();
 initHeroVideo();
-initReveal();
 initAnchorLinks();
 initRipple();
 

@@ -109,6 +109,7 @@ function cardKeyframes(dialog, card) {
 function openDialog(dialog, card) {
   if (dialog.open) return;
   dialog.showModal();
+  dialog.focus(); // the dialog itself, so neither the close button nor the photo strip opens focused
   if (!card || prefersStill.matches) return;
 
   const box = { duration: DIALOG_OPEN_MS, easing: "cubic-bezier(0.3, 0.9, 0.25, 1)" };
