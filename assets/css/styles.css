@@ -5,6 +5,9 @@
 
 /* ---------- Tokens ---------- */
 :root {
+  /* Always light: tells browsers with an automatic dark mode (Samsung Internet, Chrome on Android) not to recolor the page */
+  color-scheme: only light;
+
   /* Brand: yellow sampled from the Locbike truck, blue is its complement (hue 44° → 224°) */
   --color-yellow: #f2b200;
   --color-yellow-light: #fff6d6;
@@ -45,6 +48,12 @@
   --road-height: 1.75rem;
   --scene-ground: 3rem;
   --hero-rider-w: clamp(150px, 20vw, 260px);
+}
+
+/* Samsung Internet only skips its forced dark mode on sites that answer the dark query themselves,
+   so answer it: same light colours */
+@media (prefers-color-scheme: dark) {
+  :root { color-scheme: only light; }
 }
 
 /* ---------- Reset ---------- */
