@@ -28,7 +28,7 @@ Pages in `index.html` (each `<section>` is one full-screen page):
 | MTB pela região | `#mtb-regiao` | E-Bike cards: `#fazenda-cafe-azeite`, `#pico-do-gaviao`, `#vinicola`, `#santa-clara`, `#serra-da-mantiqueira` |
 | Grandes roteiros | `#grandes-roteiros` | Cards: `#caminho-da-fe` (with date list), `#serra-da-canastra`, `#rota-do-vulcao` |
 | Locação avulsa | `#locacao` | Cards: `#bikes-urbanas`, `#e-bikes`, `#bike-infantil`, `#acessorios` |
-| Passeios 4x4 | `#passeios-4x4` | The MTB pela região itineraries by 4x4 vehicle (no photos yet): `#fazenda-cafe-azeite-4x4`, … (ids end in `-4x4`) |
+| Passeios 4x4 | `#passeios-4x4` | Cards (no photos yet): `#fazenda-cafe-azeite-4x4`, `#pico-do-gaviao-4x4`, `#vinicola-4x4` (Vinícola Primeira Estrada) |
 | Quem somos | `#quem-somos` | Story, mission/vision/values |
 | Vale-presente | `#vale-presente` | |
 | FAQ, Contato | `#faq`, `#contato` | |
@@ -37,7 +37,7 @@ The header menu is Roteiros Bike, Locação avulsa, Passeios 4x4, Quem somos, Va
 
 ### Tours (cards + "Ver detalhes" dialogs)
 
-Each tour card in MTB pela região, Grandes roteiros and Passeios 4x4 has a "Ver detalhes" button (`data-dialog-open`) that opens the `<dialog>` right after it: a photo strip (plus a short clip where there is one), the full description, facts, incluso/não incluso, prices and a WhatsApp button with a prefilled message. The text was copied by hand from `assets/passeios/<folder>/info.txt` into `index.html`. Editing an info.txt does not change the site, so update the matching card and dialog in `index.html` too. The info.txt files describe the E-Bike versions. The 4x4 cards have their own vehicle descriptions and no photos yet; their duration, age, inclusions and prices are `[placeholders]` until the owner sends them. Clicking anywhere on a card with a dialog opens it. The card grows into the dialog as it opens, and closing shrinks it back onto the card (`openDialog`/`closeDialog` in `main.js`; no animation with reduced motion).
+Each tour card in MTB pela região, Grandes roteiros and Passeios 4x4 has a "Ver detalhes" button (`data-dialog-open`) that opens the `<dialog>` right after it: a photo strip (plus a short clip where there is one), the full description, facts, incluso/não incluso, prices and a WhatsApp button with a prefilled message. The text was copied by hand from `assets/passeios/<folder>/info.txt` into `index.html`. Editing an info.txt does not change the site, so update the matching card and dialog in `index.html` too. The info.txt files describe the E-Bike versions. The 4x4 cards have their own text from the owner (not from an info.txt) and no photos yet. Their prices are for the whole group (up to 4 people). Clicking anywhere on a card with a dialog opens it. The card grows into the dialog as it opens, and closing shrinks it back onto the card (`openDialog`/`closeDialog` in `main.js`; no animation with reduced motion).
 
 The raw photos/videos in `assets/passeios/` are far too big to serve (2–13 MB photos, up to 85 MB clips). The page uses resized, metadata-free copies in `assets/img/passeios/<slug>/`:
 
