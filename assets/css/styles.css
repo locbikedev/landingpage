@@ -154,6 +154,18 @@ main > section {
   scroll-snap-align: end;
 }
 
+/* Phones and touch screens: free, natural scrolling. No snapping, and pages are as tall as
+   their content (only the first screen stays full height) */
+@media (max-width: 767px), (pointer: coarse) {
+  html {
+    scroll-snap-type: none;
+  }
+
+  main > section:not(.hero) {
+    min-height: 0;
+  }
+}
+
 .visually-hidden {
   position: absolute;
   width: 1px;

@@ -60,7 +60,7 @@ Organic shapes and bike motifs. Background pictures live in `assets/img/deco/`. 
 
 `assets/js/motion.js` plus the "Motion" block at the end of `styles.css`:
 
-- **Full-screen pages**: every `main > section` fills the screen below the header, and scrolling snaps page by page (`scroll-snap-type` on `html`). On phones, a section taller than the screen scrolls through its own content before the next page snaps in.
+- **Full-screen pages**: on desktop, every `main > section` fills the screen below the header, and scrolling snaps page by page (`scroll-snap-type` on `html`). On phones and touch screens (`max-width: 767px` or `pointer: coarse`), scrolling is free with no snapping, and pages are as tall as their content; only the hero stays full screen.
 - **Road strip** under the header: there's a stop for each page, and the cyclist rides from stop to stop as pages change. It turns around when you scroll up, and pops a wheelie while a nav link scrolls the page.
 - **Hero video**: the hero background is a silent 22 s loop cut from the LocBike Instagram reel (`assets/img/hero/hero.mp4`, poster `hero-poster.webp`, 720×1280), under a light navy veil.
   - `initHeroVideo()` starts it. If it isn't playing within 5 s (slow connection, blocked autoplay, error), it's dropped and the animated landscape below runs instead.
