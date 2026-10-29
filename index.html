@@ -91,16 +91,27 @@
   <main id="main">
     <!-- ===================== HERO ===================== -->
     <section class="hero" id="inicio" aria-labelledby="hero-title" data-hero data-label="Início">
-      <!-- Animated landscape: layers loop sideways, speed in data-layer, tile width in data-tile (px) -->
+      <!-- Animated landscape: motion.js draws random mountains, hills and road on the canvas.
+           Clouds loop sideways: speed in data-layer, tile width in data-tile (px).
+           The static mountains in .hero__fallback only show without JS. -->
       <div class="hero__scene" aria-hidden="true">
         <div class="hero__sun"></div>
         <div class="scene-layer scene-layer--clouds" data-layer="0.06" data-tile="1400"></div>
-        <div class="scene-layer scene-layer--far" data-layer="0.15" data-tile="1200"></div>
-        <div class="scene-layer scene-layer--near" data-layer="0.4" data-tile="800"></div>
-        <div class="scene-ground">
-          <div class="scene-layer scene-layer--dashes" data-layer="1" data-tile="96"></div>
+        <div class="hero__fallback">
+          <div class="scene-layer scene-layer--far"></div>
+          <div class="scene-layer scene-layer--near"></div>
+          <div class="scene-ground"></div>
         </div>
+        <canvas class="hero__land" data-hero-land></canvas>
         <svg class="hero__rider" data-rider></svg>
+      </div>
+
+      <!-- Hero video (motion.js plays it). If it isn't playing within 5 s, it's dropped and the
+           animated scene above runs instead. Source: the LocBike reel, cut to a silent 22 s loop. -->
+      <div class="hero__film" aria-hidden="true">
+        <video muted loop playsinline preload="none" poster="assets/img/hero/hero-poster.webp" data-hero-video>
+          <source src="assets/img/hero/hero.mp4" type="video/mp4" />
+        </video>
       </div>
 
       <div class="container hero__inner" data-hero-content>
@@ -115,6 +126,10 @@
           <li class="trust__item">Agência e guia credenciados Cadastur</li>
         </ul>
       </div>
+
+      <a class="hero__scroll" href="#bike-tour" aria-label="Descer para o Bike Tour">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" /></svg>
+      </a>
     </section>
 
     <!-- ===================== BIKE TOUR ===================== -->

@@ -48,6 +48,8 @@
   --road-height: 1.75rem;
   --scene-ground: 3rem;
   --hero-rider-w: clamp(150px, 20vw, 260px);
+  /* Spoked wheel shape, used as a mask: the big wheels on white pages and around the hero video */
+  --wheel: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200' fill='none' stroke='%23000'%3E%3Ccircle cx='100' cy='100' r='88' stroke-width='12'/%3E%3Ccircle cx='100' cy='100' r='96' stroke-width='5' stroke-dasharray='5 7'/%3E%3Ccircle cx='100' cy='100' r='77' stroke-width='3'/%3E%3Cpath stroke-width='1.4' d='M111.4 93.8L176 100M110 108.3L174.5 114.8M109.9 98.9L170.2 129.1M104.6 108.9L163.2 142.2M112.5 103.7L153.7 153.7M101.2 112.9L142.2 163.2M107.8 106.3L129.1 170.2M97 109.5L114.8 174.5M106.2 111.4L100 176M91.7 110L85.2 174.5M101.1 109.9L70.9 170.2M91.1 104.6L57.8 163.2M96.3 112.5L46.3 153.7M87.1 101.2L36.8 142.2M93.7 107.8L29.8 129.1M90.5 97L25.5 114.8M88.6 106.2L24 100M90 91.7L25.5 85.2M90.1 101.1L29.8 70.9M95.4 91.1L36.8 57.8M87.5 96.3L46.3 46.3M98.8 87.1L57.8 36.8M92.2 93.7L70.9 29.8M103 90.5L85.2 25.5M93.8 88.6L100 24M108.3 90L114.8 25.5M98.9 90.1L129.1 29.8M108.9 95.4L142.2 36.8M103.7 87.5L153.7 46.3M112.9 98.8L163.2 57.8M106.3 92.2L170.2 70.9M109.5 103L174.5 85.2'/%3E%3Ccircle cx='100' cy='100' r='15' stroke-width='3'/%3E%3Ccircle cx='100' cy='100' r='6' fill='%23000'/%3E%3C/svg%3E");
 }
 
 /* Samsung Internet only skips its forced dark mode on sites that answer the dark query themselves,
@@ -251,7 +253,7 @@ main > .section:not(.section--alt)::after {
   aspect-ratio: 1;
   background: var(--color-navy);
   opacity: 0.05;
-  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200' fill='none' stroke='%23000'%3E%3Ccircle cx='100' cy='100' r='88' stroke-width='12'/%3E%3Ccircle cx='100' cy='100' r='96' stroke-width='5' stroke-dasharray='5 7'/%3E%3Ccircle cx='100' cy='100' r='77' stroke-width='3'/%3E%3Cpath stroke-width='1.4' d='M111.4 93.8L176 100M110 108.3L174.5 114.8M109.9 98.9L170.2 129.1M104.6 108.9L163.2 142.2M112.5 103.7L153.7 153.7M101.2 112.9L142.2 163.2M107.8 106.3L129.1 170.2M97 109.5L114.8 174.5M106.2 111.4L100 176M91.7 110L85.2 174.5M101.1 109.9L70.9 170.2M91.1 104.6L57.8 163.2M96.3 112.5L46.3 153.7M87.1 101.2L36.8 142.2M93.7 107.8L29.8 129.1M90.5 97L25.5 114.8M88.6 106.2L24 100M90 91.7L25.5 85.2M90.1 101.1L29.8 70.9M95.4 91.1L36.8 57.8M87.5 96.3L46.3 46.3M98.8 87.1L57.8 36.8M92.2 93.7L70.9 29.8M103 90.5L85.2 25.5M93.8 88.6L100 24M108.3 90L114.8 25.5M98.9 90.1L129.1 29.8M108.9 95.4L142.2 36.8M103.7 87.5L153.7 46.3M112.9 98.8L163.2 57.8M106.3 92.2L170.2 70.9M109.5 103L174.5 85.2'/%3E%3Ccircle cx='100' cy='100' r='15' stroke-width='3'/%3E%3Ccircle cx='100' cy='100' r='6' fill='%23000'/%3E%3C/svg%3E") center / contain no-repeat;
+  mask: var(--wheel) center / contain no-repeat;
   pointer-events: none;
 }
 
@@ -1097,6 +1099,13 @@ html:has(.tour-dialog[open]) {
   }
 }
 
+/* Short phones: lower still, so it stays clear of the copy */
+@media (max-width: 959px) and (max-height: 700px) {
+  .hero__sun {
+    bottom: calc(var(--scene-ground) + 70px);
+  }
+}
+
 .scene-layer {
   position: absolute;
   left: 0;
@@ -1139,20 +1148,198 @@ html:has(.tour-dialog[open]) {
   background: var(--color-navy);
 }
 
-.scene-layer--dashes {
-  --tile: 96px;
+.scene-ground::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
   top: calc(50% - 2px);
   height: 4px;
-  background-image: linear-gradient(90deg, var(--color-yellow) 0 48px, transparent 48px 96px);
-  background-size: 96px 4px;
+  background: linear-gradient(90deg, var(--color-yellow) 0 48px, transparent 48px 96px) 0 0 / 96px 4px;
 }
 
+/* With JS the canvas draws a random landscape instead (motion.js) */
+.js .hero__fallback {
+  display: none;
+}
+
+.hero__land {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* motion.js stands the rider on the road and tilts it with the slope, pivoting on the rear tyre */
 .hero__rider {
   position: absolute;
-  right: 14%;
-  bottom: calc(var(--scene-ground) - var(--hero-rider-w) * 0.025);
+  left: 0;
+  bottom: calc(var(--hero-rider-w) * -0.025);
   width: var(--hero-rider-w);
   aspect-ratio: 4 / 3;
+  transform-origin: 20% 96.67%;
+  will-change: transform;
+}
+
+.js .hero__rider:not(.rider) {
+  visibility: hidden; /* until motion.js has drawn it */
+}
+
+/* Other cyclists on the road: (a) yellow jersey on a white bike, (b) light-blue bike and helmet */
+.hero__rider[data-look="a"] .rider__frame {
+  stroke: #ffffff;
+}
+
+.hero__rider[data-look="a"] .rider__helmet {
+  fill: #ffffff;
+}
+
+.hero__rider[data-look="a"] .rider__body {
+  stroke: var(--color-yellow);
+}
+
+.hero__rider[data-look="b"] .rider__frame {
+  stroke: #8ec5ff;
+}
+
+.hero__rider[data-look="b"] .rider__helmet {
+  fill: #8ec5ff;
+}
+
+/* Hero video (motion.js), shown while loading (poster) and playing; the animated scene
+   waits underneath in case the video can't play.
+   Phones: it fills the screen.
+   Wider screens: it plays at its own vertical shape in the middle, so it's never stretched
+   or blurry, with a few still wheels around it. */
+.hero__film {
+  display: none;
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.hero[data-video] .hero__film {
+  display: block;
+}
+
+.hero[data-video] .hero__scene {
+  visibility: hidden;
+}
+
+/* A few still wheels of different sizes on the blue around the video (wide screens) */
+.hero[data-video]::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #ffffff;
+  opacity: 0.07;
+  mask-image: var(--wheel), var(--wheel), var(--wheel), var(--wheel), var(--wheel), var(--wheel);
+  mask-repeat: no-repeat;
+  mask-size: 440px, 130px, 230px, 400px, 150px, 80px;
+  mask-position:
+    left -150px top 6%,
+    left 20% bottom 20%,
+    left 4% bottom -70px,
+    right -120px bottom -90px,
+    right 18% top 10%,
+    right 9% top 52%;
+  pointer-events: none;
+}
+
+.hero__film video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Light navy veil keeps the white copy readable */
+.hero__film::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgb(15 35 87 / 0.35);
+}
+
+/* Bright sky in the footage: a soft shadow keeps the copy crisp over it */
+.hero[data-video] :is(.kicker, .hero__title, .hero__subtitle, .trust__item) {
+  text-shadow: 0 1px 3px rgb(15 35 87 / 0.5), 0 2px 18px rgb(15 35 87 / 0.55);
+}
+
+@media (min-width: 768px) {
+  .hero__film {
+    left: 50%;
+    right: auto;
+    aspect-ratio: 9 / 16;
+    translate: -50% 0;
+    border-inline: 4px solid var(--color-yellow);
+    box-shadow: 0 0 60px rgb(15 35 87 / 0.7);
+  }
+
+  /* Copy centred over the video, sized to stay inside it (its width follows the screen height) */
+  .hero[data-video] .hero__inner {
+    text-align: center;
+  }
+
+  .hero[data-video] .hero__inner > * {
+    margin-inline: auto;
+  }
+
+  .hero[data-video] .hero__inner > :not(.hero__title) {
+    max-width: 22rem;
+    text-wrap: balance;
+  }
+
+  .hero[data-video] .hero__title {
+    font-size: clamp(2rem, 5.5svh, 4rem); /* keeps its two lines within the video's width */
+  }
+
+  .hero[data-video] :is(.hero__actions, .trust__list) {
+    justify-content: center;
+  }
+}
+
+/* Bouncing "scroll down" arrow, centred over the road */
+.hero__scroll {
+  position: absolute;
+  z-index: 2;
+  left: 50%;
+  bottom: calc(var(--scene-ground) + 4.5rem);
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  margin-left: -1.375rem;
+  border: 2px solid rgb(255 255 255 / 0.7);
+  border-radius: 50%;
+  color: var(--color-yellow);
+  background: rgb(15 35 87 / 0.35);
+  transition: border-color 200ms ease, background-color 200ms ease;
+}
+
+.hero__scroll:hover {
+  border-color: var(--color-yellow);
+  background: rgb(15 35 87 / 0.6);
+}
+
+.hero__scroll svg {
+  width: 1.4rem;
+  height: 1.4rem;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero__scroll {
+    animation: scroll-hint 1.4s ease-in-out infinite;
+  }
+
+  @keyframes scroll-hint {
+    0%,
+    100% {
+      translate: 0 0;
+    }
+    50% {
+      translate: 0 10px;
+    }
+  }
 }
 
 .hero__inner > * + * {

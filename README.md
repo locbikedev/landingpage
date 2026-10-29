@@ -12,6 +12,7 @@ assets/js/main.js     # WhatsApp links, mobile nav, footer year
 assets/js/motion.js   # scroll-driven cyclists, reveals, link/click effects (decorative)
 assets/img/           # images, favicon
 assets/img/passeios/  # web-ready tour photos/clips (generated from assets/passeios/)
+assets/img/hero/      # hero background video + poster
 assets/img/deco/      # decorative background SVGs: topo map, placeholder scene, clouds, step chainring
 assets/passeios/      # owner's raw photos/videos + info.txt per itinerary (source material, not served)
 .nojekyll             # serve files as-is (skip Jekyll processing)
@@ -61,7 +62,20 @@ Organic shapes and bike motifs. Background pictures live in `assets/img/deco/`. 
 
 - **Full-screen pages**: every `main > section` fills the screen below the header, and scrolling snaps page by page (`scroll-snap-type` on `html`). On phones, a section taller than the screen scrolls through its own content before the next page snaps in.
 - **Road strip** under the header: there's a stop for each page, and the cyclist rides from stop to stop as pages change. It turns around when you scroll up, and pops a wheelie while a nav link scrolls the page.
-- **Hero landscape**: mountains/road loop sideways behind a pedalling cyclist; scrolling makes them ride faster. Layer speed is `data-layer`, tile width is `data-tile` (must match the CSS `--tile`).
+- **Hero video**: the hero background is a silent 22 s loop cut from the LocBike Instagram reel (`assets/img/hero/hero.mp4`, poster `hero-poster.webp`, 720×1280), under a light navy veil.
+  - `initHeroVideo()` starts it. If it isn't playing within 5 s (slow connection, blocked autoplay, error), it's dropped and the animated landscape below runs instead.
+  - With reduced motion or the browser's data saver on, the video isn't loaded and the landscape shows as a still.
+  - Phones (≤767px): it fills the hero. Wider screens: it plays at its own 9:16 shape in the middle, never stretched, between yellow side borders, with a few faint still wheels around it (the same wheel as the white pages, `--wheel` in `styles.css`). The copy is centred over it.
+- **Hero landscape** (fallback for the video): `initHero()` draws it on a canvas (`data-hero-land`) from seeded noise, so it never repeats and is different on every visit:
+  - Two mountain ranges and hills with araucárias, pines and farmhouses sit behind the road. Fences and yellow trail signs naming the tours line the road.
+  - The cyclist rides the road's hills. He tilts with the slope, slows down and spins faster uphill, and coasts with the pedals still on the way down, kicking up dust.
+  - Now and then birds fly over, and other cyclists show up: one or two overtake him, he overtakes a slower one, or one rides alongside for a while and then sprints ahead or drops back. Riding alongside only happens on wide screens, where there's room beside him clear of the arrow.
+  - On phones he rides on the left, so the centred arrow has the road ahead to itself.
+  - Scrolling makes everything ride faster.
+  - The road only climbs as high as the space under the hero copy allows.
+  - Clouds are still a looping CSS layer: speed is `data-layer`, tile width is `data-tile` (must match the CSS `--tile`).
+  - Without JS, the static mountains in `.hero__fallback` show instead.
+- **Scroll hint**: a bouncing arrow centred in the hero (`.hero__scroll`) links to the first page, `#bike-tour`.
 - **Reveal**: content fades up as each page arrives. The selector list lives in both `motion.js` (`REVEAL_SELECTOR`) and the CSS. Keep them in sync.
 - **Click effects**: button ripple, heading "swoosh" when you land on a section, active nav link while scrolling.
 - **Bike bits**: the big wheels and kicker wheels roll as you scroll (CSS scroll-driven animations; they stay still in browsers without them). Cards lean when hovered, the chainring on buttons turns on hover, split images slowly change shape, and clouds drift across the hero.
