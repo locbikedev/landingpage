@@ -25,18 +25,19 @@ Pages in `index.html` (each `<section>` is one full-screen page):
 | Bike Tour | `#bike-tour` | The full tour (up to 5h), what's included |
 | Roteiros urbanos | `#roteiros` | Cards: `#urbanos-pocos`, `#noturno-pocos` |
 | Roteiros MTB | `#roteiros-mtb` | `#mtb-pocos` |
+| MTB pela região | `#mtb-regiao` | E-Bike cards: `#fazenda-cafe-azeite`, `#pico-do-gaviao`, `#vinicola`, `#santa-clara`, `#serra-da-mantiqueira` |
 | Grandes roteiros | `#grandes-roteiros` | Cards: `#caminho-da-fe` (with date list), `#serra-da-canastra`, `#rota-do-vulcao` |
-| Passeios 4x4 | `#passeios-4x4` | Cards: `#fazenda-cafe-azeite`, `#pico-do-gaviao`, `#vinicola`, `#santa-clara`, `#serra-da-mantiqueira` |
 | Locação avulsa | `#locacao` | Cards: `#bikes-urbanas`, `#e-bikes`, `#bike-infantil`, `#acessorios` |
-| Vale-presente | `#vale-presente` | |
+| Passeios 4x4 | `#passeios-4x4` | The MTB pela região itineraries by 4x4 vehicle, same photos: `#fazenda-cafe-azeite-4x4`, … (ids end in `-4x4`) |
 | Quem somos | `#quem-somos` | Story, mission/vision/values |
+| Vale-presente | `#vale-presente` | |
 | FAQ, Contato | `#faq`, `#contato` | |
 
-The header menu has dropdowns (desktop, ≥1100px) linking straight to each card. Text in `[brackets]` is placeholder content still to be written.
+The header menu is Roteiros Bike, Locação avulsa, Passeios 4x4, Quem somos, Vale-presente, plus the Reservar button (goes to Contato). Pages follow that order. The menus have dropdowns (desktop, ≥1100px) linking straight to each card; the MTB pela região tours are indented under MTB Poços (`subnav__sub`). Text in `[brackets]` is placeholder content still to be written.
 
 ### Tours (cards + "Ver detalhes" dialogs)
 
-Each tour card in Grandes roteiros and Passeios 4x4 has a "Ver detalhes" button (`data-dialog-open`) that opens the `<dialog>` right after it: a photo strip (plus a short clip where there is one), the full description, facts, incluso/não incluso, prices and a WhatsApp button with a prefilled message. The text was copied by hand from `assets/passeios/<folder>/info.txt` into `index.html`. Editing an info.txt does not change the site, so update the matching card and dialog in `index.html` too.
+Each tour card in MTB pela região, Grandes roteiros and Passeios 4x4 has a "Ver detalhes" button (`data-dialog-open`) that opens the `<dialog>` right after it: a photo strip (plus a short clip where there is one), the full description, facts, incluso/não incluso, prices and a WhatsApp button with a prefilled message. The text was copied by hand from `assets/passeios/<folder>/info.txt` into `index.html`. Editing an info.txt does not change the site, so update the matching card and dialog in `index.html` too. The info.txt files describe the E-Bike versions. The 4x4 cards reuse the same photos with their own vehicle descriptions; their duration, age, inclusions and prices are `[placeholders]` until the owner sends them. Clicking anywhere on a card with a dialog opens it.
 
 The raw photos/videos in `assets/passeios/` are far too big to serve (2–13 MB photos, up to 85 MB clips). The page uses resized, metadata-free copies in `assets/img/passeios/<slug>/`:
 
