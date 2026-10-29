@@ -848,6 +848,7 @@ html:has(.tour-dialog[open]) {
   top: 0;
   z-index: 50;
   background: var(--color-yellow);
+  box-shadow: 0 8px 18px -6px rgb(15 35 87 / 0.45); /* the bar floats over the pages */
 }
 
 .site-header__inner {
@@ -951,18 +952,23 @@ html:has(.tour-dialog[open]) {
     display: none;
   }
 
+  /* Links spread evenly over the room between the logo and Reservar */
   .site-nav {
     display: flex;
+    flex: 1;
     position: static;
     flex-direction: row;
     align-items: center;
     gap: var(--space-4);
+    margin-left: var(--space-4);
     padding: 0;
     border: 0;
   }
 
   .site-nav__list {
+    flex: 1;
     flex-direction: row;
+    justify-content: space-evenly;
     gap: var(--space-4);
   }
 }
