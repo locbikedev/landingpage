@@ -33,7 +33,7 @@ Pages in `index.html` (each `<section>` is one full-screen page):
 | Vale-presente | `#vale-presente` | |
 | FAQ, Contato | `#faq`, `#contato` | |
 
-The header menu is Roteiros Bike, Locação avulsa, Passeios 4x4, Quem somos, Vale-presente, plus the Reservar button (goes to Contato). Pages follow that order. The menus have dropdowns (desktop, ≥1100px) linking straight to each card; the MTB pela região tours are indented under MTB Poços (`subnav__sub`). Text in `[brackets]` is placeholder content still to be written.
+The header menu is Roteiros Bike, Locação avulsa, Passeios 4x4, Quem somos, Vale-presente, plus the Reservar button (goes to Contato). Pages follow that order. The menus have dropdowns (desktop, ≥1100px) linking straight to each card. The Roteiros Bike dropdown lists only Urbanos Poços, Noturno Poços, MTB Poços and the Grandes roteiros; the MTB pela região tours are reached from the MTB pages and the footer. Text in `[brackets]` is placeholder content still to be written.
 
 ### Tours (cards + "Ver detalhes" dialogs)
 
