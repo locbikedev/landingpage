@@ -980,10 +980,49 @@ img.card__media {
   background-size: 100% 2px;
 }
 
+/* Language switch (things18n fills it with PT / EN buttons). Phones: next to the menu toggle;
+   desktop: after Reservar. Empty, and so hidden, with JS off or if the library didn't load. */
+.lang-switch {
+  display: flex;
+  gap: 2px;
+  margin-left: auto;
+  margin-right: var(--space-2);
+  padding: 3px;
+  border-radius: 999px;
+  background: rgb(255 255 255 / 0.55);
+}
+
+.lang-switch:empty {
+  display: none;
+}
+
+.lang-switch button {
+  padding: 0.35rem 0.6rem;
+  border: 0;
+  border-radius: 999px;
+  background: none;
+  color: var(--color-navy);
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.lang-switch button[aria-pressed="true"] {
+  background: var(--color-navy);
+  color: #ffffff;
+}
+
 /* The full menu needs ~1100px; below that it lives behind the toggle */
 @media (min-width: 1100px) {
   .nav-toggle {
     display: none;
+  }
+
+  .lang-switch {
+    order: 1;
+    margin: 0 0 0 var(--space-3);
   }
 
   /* Links spread evenly over the room between the logo and Reservar */
@@ -1571,6 +1610,177 @@ img.card__media {
 
 .site-footer__heading {
   font-size: 1rem;
+}
+
+/* Seals row: logos on white tiles (they're drawn for a light background) */
+.site-footer__seals {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3) var(--space-4);
+  margin-top: var(--space-5);
+}
+
+.seals {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin: 0;
+}
+
+.seal {
+  display: grid;
+  place-items: center;
+  padding: var(--space-2) var(--space-3);
+  border: 0;
+  border-radius: var(--radius);
+  background: #ffffff;
+}
+
+.seal img {
+  width: auto;
+  height: 3rem;
+}
+
+button.seal {
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+button.seal:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 0 3px var(--color-yellow);
+}
+
+/* The Cadastur menu: a small card in the middle of the screen; a click outside or Escape closes it */
+.seal-docs {
+  width: min(24rem, calc(100% - 2 * var(--space-3)));
+  margin: auto; /* centered, like the browser's own popover style that the reset removes */
+  padding: var(--space-4);
+  border: 0;
+  border-radius: var(--radius-leaf);
+  background: #ffffff;
+  color: var(--color-navy);
+  box-shadow: 0 20px 50px rgb(0 0 0 / 0.3);
+}
+
+/* Same short fade and zoom as the tour dialogs, where the browser can animate a popover */
+.seal-docs,
+.seal-docs::backdrop {
+  transition: opacity 0.2s ease-out, transform 0.2s ease-out, overlay 0.2s allow-discrete, display 0.2s allow-discrete;
+}
+
+.seal-docs:not(:popover-open) {
+  opacity: 0;
+  transform: scale(0.96);
+}
+
+.seal-docs::backdrop {
+  background: rgb(15 35 87 / 0.78);
+}
+
+.seal-docs:not(:popover-open)::backdrop {
+  opacity: 0;
+}
+
+@starting-style {
+  .seal-docs:popover-open {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+
+  .seal-docs:popover-open::backdrop {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .seal-docs,
+  .seal-docs::backdrop {
+    transition: none;
+  }
+}
+
+.seal-docs__head {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+}
+
+.seal-docs__head img {
+  width: auto;
+  height: 2.75rem;
+}
+
+.seal-docs__close {
+  width: 2.25rem;
+  height: 2.25rem;
+  margin: calc(-1 * var(--space-2)) calc(-1 * var(--space-2)) 0 0;
+  border: 0;
+  border-radius: 50%;
+  background: var(--color-yellow-light);
+  color: inherit;
+  font-size: 1.4rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.seal-docs__title {
+  margin: var(--space-3) 0;
+  font-weight: 700;
+}
+
+.seal-docs ul {
+  display: grid;
+  gap: var(--space-2);
+  margin: 0;
+}
+
+.seal-doc {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-2);
+  border-radius: var(--radius);
+  background: var(--color-yellow-light);
+  color: inherit;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.seal-doc:hover {
+  background: var(--color-yellow);
+}
+
+/* Both previews in a box of the same size, so the titles line up */
+.seal-doc__thumb {
+  flex: none;
+  width: 6rem;
+  height: 4.25rem;
+  padding: 0.2rem;
+  border-radius: 6px;
+  background: #ffffff;
+  box-shadow: 0 2px 6px rgb(15 35 87 / 0.18);
+  object-fit: contain;
+}
+
+.seal-doc__text {
+  display: grid;
+  gap: 0.15rem;
+}
+
+.seal-doc__text small {
+  color: var(--color-muted);
+  font-size: 0.8rem;
+}
+
+.seal-doc:hover .seal-doc__text small {
+  color: inherit;
+}
+
+.seal-doc__text strong::after {
+  content: " ↗";
+  font-weight: 400;
 }
 
 .social {

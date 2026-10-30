@@ -189,11 +189,11 @@ function initRoad() {
       el.className = "road__stop";
       el.href = `#${pages.sections[i].id}`;
       el.tabIndex = -1;
-      el.dataset.label = pages.label(i);
       road.insertBefore(el, wrap);
       stopEls.push(el);
     }
     stopEls.forEach((el, i) => {
+      el.dataset.label = pages.label(i); // here, not at creation: it follows the language
       const left = stopAt[i] * (roadWidth - riderWidth) + riderWidth / 2;
       el.style.left = `${left}px`;
       // Keep the hover label on screen near the edges
@@ -944,5 +944,8 @@ window.addEventListener("resize", remeasure);
 window.addEventListener("load", remeasure);
 document.addEventListener("visibilitychange", requestTick);
 new ResizeObserver(remeasure).observe(document.body);
+// Another language (things18n): new road labels, and the hero copy reflows
+window.things18n?.ready(remeasure);
+document.addEventListener("things18n:change", remeasure);
 
 requestTick();
