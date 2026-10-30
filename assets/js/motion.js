@@ -273,6 +273,9 @@ const SIGNS = ["Pico do Gavião", "Serra da Mantiqueira", "Caminho da Fé", "Vin
 const BASE_SPEED = 0.09; // px per ms on the flat
 const MAX_TILT = 16; // degrees
 const STEP = 8; // px between points of a ridge line
+// Phones: the hero video fills the hero, so the scene behind it rests. Wider screens: the video is
+// a strip in the middle and the scene keeps riding on either side (same breakpoint as the CSS).
+const videoFillsHero = window.matchMedia("(max-width: 767px)");
 
 function initHero() {
   const hero = document.querySelector("[data-hero]");
@@ -538,7 +541,7 @@ function initHero() {
 
   function step(dt) {
     fadeContent();
-    if (!visible || hero.dataset.video) return false; // the hero video is on instead of the scene
+    if (!visible || (hero.dataset.video && videoFillsHero.matches)) return false; // the video covers the scene
     clock += dt;
 
     boost *= Math.pow(0.996, dt); // ease back to cruising speed
