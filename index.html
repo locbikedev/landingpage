@@ -64,8 +64,11 @@
             <a href="#locacao" data-t>Locação avulsa</a>
             <ul class="subnav">
               <li><a href="#bikes-urbanas" data-t>Bikes Urbanas</a></li>
-              <li><a href="#e-bikes">E-Bikes</a></li>
-              <li><a href="#bike-infantil" data-t>Bike Infantil</a></li>
+              <li><a href="#e-bikes-urbanas" data-t>Bikes Urbanas Elétricas</a></li>
+              <li><a href="#locacao-mtb">MTB</a></li>
+              <li><a href="#locacao-e-mtb" data-t>MTB Elétrica</a></li>
+              <li><a href="#locacao-speed">Speed</a></li>
+              <li><a href="#bike-infantil" data-t>Bikes Infantis</a></li>
               <li><a href="#acessorios" data-t>Acessórios</a></li>
             </ul>
           </li>
@@ -879,50 +882,224 @@
       <div class="container">
         <header class="section__header">
           <h2 id="rental-title" data-t>Locação avulsa</h2>
-          <p data-t>[Introdução — alugue sua bike e pedale no seu ritmo]</p>
+          <p data-t>Bikes para a cidade, a trilha e o asfalto, para pedalar no seu ritmo.</p>
         </header>
 
         <div class="grid grid--4">
-          <!-- Repeatable rental card -->
           <article class="card rental-card" id="bikes-urbanas">
-            <div class="card__media placeholder-media" aria-hidden="true"></div>
             <div class="card__body">
               <h3 class="card__title" data-t>Bikes Urbanas</h3>
-              <p data-t>[Descrição curta]</p>
-              <p class="price" data-t>[R$ 00 / hora]</p>
-              <a class="btn btn--primary" href="https://wa.me/5535997790123" target="_blank" rel="noopener" data-whatsapp="Olá! Quero alugar uma bike urbana com a LocBike." data-t data-t-attr="data-whatsapp">Reservar</a>
+              <p data-t>Para o centro e os bairros da cidade.</p>
+              <p class="card__price"><strong>R$ 90</strong> <span data-t>por período</span></p>
+              <button class="btn btn--primary" type="button" data-dialog-open="dialog-bikes-urbanas" data-t>Ver detalhes</button>
             </div>
-          </article>
 
-          <article class="card rental-card" id="e-bikes">
-            <div class="card__media placeholder-media" aria-hidden="true"></div>
+            <dialog class="tour-dialog" id="dialog-bikes-urbanas" aria-labelledby="dialog-bikes-urbanas-title" tabindex="-1">
+              <div class="tour-gallery tour-gallery--empty placeholder-media"><p data-t>Fotos em breve</p></div>
+              <div class="tour-dialog__body">
+                <button class="tour-dialog__close" type="button" data-dialog-close aria-label="Fechar" data-t-attr="aria-label">&times;</button>
+                <p class="kicker" data-t>Locação avulsa</p>
+                <h3 id="dialog-bikes-urbanas-title" data-t>Bikes Urbanas</h3>
+                <dl class="tour-facts">
+                  <div><dt data-t>Período</dt><dd data-t>Manhã à noite</dd></div>
+                  <div><dt data-t>Idade</dt><dd data-t>A partir de 15 anos</dd></div>
+                </dl>
+                <p data-t>Poços de Caldas tem um relevo bastante peculiar, com áreas planas no centro e subidas acentuadas nos bairros residenciais. Pensando nisso, nossas bikes urbanas equilibram versatilidade, conforto e praticidade para o dia a dia.</p>
+                <h4 data-t>Valores</h4>
+                <dl class="tour-prices">
+                  <div><dt data-t>Por período</dt><dd data-t>R$ 90,00</dd></div>
+                </dl>
+                <p class="tour-note" data-t>Idade mínima de 15 anos, com acompanhante responsável. O período vai da manhã até a noite do mesmo dia.</p>
+                <a class="btn btn--primary" href="https://wa.me/5535997790123" data-whatsapp="Olá! Quero alugar uma bike urbana com a LocBike." data-t data-t-attr="data-whatsapp">Reservar pelo WhatsApp</a>
+              </div>
+            </dialog>
+          </article>
+          <article class="card rental-card" id="e-bikes-urbanas">
             <div class="card__body">
-              <h3 class="card__title">E-Bikes</h3>
-              <p data-t>Bicicletas elétricas, incluindo E-MTB Full Suspension.</p>
-              <p class="price" data-t>[R$ 00 / hora]</p>
-              <a class="btn btn--primary" href="https://wa.me/5535997790123" target="_blank" rel="noopener" data-whatsapp="Olá! Quero alugar uma E-Bike com a LocBike." data-t data-t-attr="data-whatsapp">Reservar</a>
+              <h3 class="card__title" data-t>Bikes Urbanas Elétricas</h3>
+              <p data-t>Suba as ladeiras sem esforço.</p>
+              <p class="card__price"><strong>R$ 90</strong> <span data-t>por período</span></p>
+              <button class="btn btn--primary" type="button" data-dialog-open="dialog-e-bikes-urbanas" data-t>Ver detalhes</button>
             </div>
-          </article>
 
+            <dialog class="tour-dialog" id="dialog-e-bikes-urbanas" aria-labelledby="dialog-e-bikes-urbanas-title" tabindex="-1">
+              <div class="tour-gallery tour-gallery--empty placeholder-media"><p data-t>Fotos em breve</p></div>
+              <div class="tour-dialog__body">
+                <button class="tour-dialog__close" type="button" data-dialog-close aria-label="Fechar" data-t-attr="aria-label">&times;</button>
+                <p class="kicker" data-t>Locação avulsa</p>
+                <h3 id="dialog-e-bikes-urbanas-title" data-t>Bikes Urbanas Elétricas</h3>
+                <dl class="tour-facts">
+                  <div><dt data-t>Período</dt><dd data-t>Manhã à noite</dd></div>
+                  <div><dt data-t>Idade</dt><dd data-t>A partir de 15 anos</dd></div>
+                </dl>
+                <p data-t>Alugar uma e-bike urbana para pedalar em Poços de Caldas é a combinação ideal de praticidade, conforto e aproveitamento do turismo local.</p>
+                <p data-t>Vença a topografia sem esforço: a cidade tem relevo montanhoso e ladeiras íngremes, e o motor de pedal assistido permite subir a pontos como o Parque da Serra de São Domingos, os mirantes ou as rotas gastronômicas sem se desgastar.</p>
+                <h4 data-t>Valores</h4>
+                <dl class="tour-prices">
+                  <div><dt data-t>Por período</dt><dd data-t>R$ 90,00</dd></div>
+                </dl>
+                <p class="tour-note" data-t>Idade mínima de 15 anos, com acompanhante responsável. O período vai da manhã até a noite do mesmo dia.</p>
+                <a class="btn btn--primary" href="https://wa.me/5535997790123" data-whatsapp="Olá! Quero alugar uma e-bike urbana com a LocBike." data-t data-t-attr="data-whatsapp">Reservar pelo WhatsApp</a>
+              </div>
+            </dialog>
+          </article>
+          <article class="card rental-card" id="locacao-mtb">
+            <div class="card__body">
+              <h3 class="card__title">MTB</h3>
+              <p data-t>Aventura nas trilhas da serra.</p>
+              <p class="card__price"><strong>R$ 90</strong> <span data-t>por período</span></p>
+              <button class="btn btn--primary" type="button" data-dialog-open="dialog-locacao-mtb" data-t>Ver detalhes</button>
+            </div>
+
+            <dialog class="tour-dialog" id="dialog-locacao-mtb" aria-labelledby="dialog-locacao-mtb-title" tabindex="-1">
+              <div class="tour-gallery tour-gallery--empty placeholder-media"><p data-t>Fotos em breve</p></div>
+              <div class="tour-dialog__body">
+                <button class="tour-dialog__close" type="button" data-dialog-close aria-label="Fechar" data-t-attr="aria-label">&times;</button>
+                <p class="kicker" data-t>Locação avulsa</p>
+                <h3 id="dialog-locacao-mtb-title">MTB</h3>
+                <dl class="tour-facts">
+                  <div><dt data-t>Período</dt><dd data-t>Manhã à noite</dd></div>
+                  <div><dt data-t>Idade</dt><dd data-t>A partir de 15 anos</dd></div>
+                </dl>
+                <p data-t>Alugar uma mountain bike (MTB) para explorar as trilhas de Poços de Caldas é a escolha perfeita para quem busca aventura, contato com a natureza e superação de limites.</p>
+                <h4 data-t>Valores</h4>
+                <dl class="tour-prices">
+                  <div><dt data-t>Por período</dt><dd data-t>R$ 90,00</dd></div>
+                </dl>
+                <p class="tour-note" data-t>Idade mínima de 15 anos, com acompanhante responsável. O período vai da manhã até a noite do mesmo dia.</p>
+                <a class="btn btn--primary" href="https://wa.me/5535997790123" data-whatsapp="Olá! Quero alugar uma MTB com a LocBike." data-t data-t-attr="data-whatsapp">Reservar pelo WhatsApp</a>
+              </div>
+            </dialog>
+          </article>
+          <article class="card rental-card" id="locacao-e-mtb">
+            <div class="card__body">
+              <h3 class="card__title" data-t>MTB Elétrica</h3>
+              <p data-t>Off-road com pedal assistido.</p>
+              <p class="card__price"><strong>R$ 490</strong> <span data-t>por período</span></p>
+              <button class="btn btn--primary" type="button" data-dialog-open="dialog-locacao-e-mtb" data-t>Ver detalhes</button>
+            </div>
+
+            <dialog class="tour-dialog" id="dialog-locacao-e-mtb" aria-labelledby="dialog-locacao-e-mtb-title" tabindex="-1">
+              <div class="tour-gallery tour-gallery--empty placeholder-media"><p data-t>Fotos em breve</p></div>
+              <div class="tour-dialog__body">
+                <button class="tour-dialog__close" type="button" data-dialog-close aria-label="Fechar" data-t-attr="aria-label">&times;</button>
+                <p class="kicker" data-t>Locação avulsa</p>
+                <h3 id="dialog-locacao-e-mtb-title" data-t>MTB Elétrica</h3>
+                <dl class="tour-facts">
+                  <div><dt data-t>Período</dt><dd data-t>Manhã à noite</dd></div>
+                  <div><dt data-t>Idade</dt><dd data-t>A partir de 15 anos</dd></div>
+                </dl>
+                <p data-t>Alugar uma E-MTB (mountain bike elétrica) para encarar as trilhas de Poços de Caldas une a emoção do off-road ao impulso tecnológico ideal para superar o terreno desafiador da região.</p>
+                <h4 data-t>Valores</h4>
+                <dl class="tour-prices">
+                  <div><dt data-t>Por período</dt><dd data-t>R$ 490,00</dd></div>
+                </dl>
+                <p class="tour-note" data-t>Idade mínima de 15 anos, com acompanhante responsável. O período vai da manhã até a noite do mesmo dia.</p>
+                <a class="btn btn--primary" href="https://wa.me/5535997790123" data-whatsapp="Olá! Quero alugar uma MTB elétrica com a LocBike." data-t data-t-attr="data-whatsapp">Reservar pelo WhatsApp</a>
+              </div>
+            </dialog>
+          </article>
+          <article class="card rental-card" id="locacao-speed">
+            <div class="card__body">
+              <h3 class="card__title">Speed</h3>
+              <p data-t>Velocidade e desafio no asfalto.</p>
+              <p class="card__price"><strong>R$ 120</strong> <span data-t>por período</span></p>
+              <button class="btn btn--primary" type="button" data-dialog-open="dialog-locacao-speed" data-t>Ver detalhes</button>
+            </div>
+
+            <dialog class="tour-dialog" id="dialog-locacao-speed" aria-labelledby="dialog-locacao-speed-title" tabindex="-1">
+              <div class="tour-gallery tour-gallery--empty placeholder-media"><p data-t>Fotos em breve</p></div>
+              <div class="tour-dialog__body">
+                <button class="tour-dialog__close" type="button" data-dialog-close aria-label="Fechar" data-t-attr="aria-label">&times;</button>
+                <p class="kicker" data-t>Locação avulsa</p>
+                <h3 id="dialog-locacao-speed-title">Speed</h3>
+                <dl class="tour-facts">
+                  <div><dt data-t>Período</dt><dd data-t>Manhã à noite</dd></div>
+                  <div><dt data-t>Idade</dt><dd data-t>A partir de 15 anos</dd></div>
+                </dl>
+                <p data-t>Alugar uma bicicleta de estrada (Speed/Road) para pedalar nas rodovias e serras de Poços de Caldas é a escolha ideal para quem busca velocidade, alto desempenho e desafio físico no asfalto.</p>
+                <h4 data-t>Valores</h4>
+                <dl class="tour-prices">
+                  <div><dt data-t>Por período</dt><dd data-t>R$ 120,00</dd></div>
+                </dl>
+                <p class="tour-note" data-t>Idade mínima de 15 anos, com acompanhante responsável. O período vai da manhã até a noite do mesmo dia.</p>
+                <a class="btn btn--primary" href="https://wa.me/5535997790123" data-whatsapp="Olá! Quero alugar uma speed com a LocBike." data-t data-t-attr="data-whatsapp">Reservar pelo WhatsApp</a>
+              </div>
+            </dialog>
+          </article>
           <article class="card rental-card" id="bike-infantil">
-            <div class="card__media placeholder-media" aria-hidden="true"></div>
             <div class="card__body">
-              <h3 class="card__title" data-t>Bike Infantil</h3>
-              <p data-t>Modelos infantojuvenis.</p>
-              <p class="price" data-t>[R$ 00 / hora]</p>
-              <a class="btn btn--primary" href="https://wa.me/5535997790123" target="_blank" rel="noopener" data-whatsapp="Olá! Quero alugar uma bike infantil com a LocBike." data-t data-t-attr="data-whatsapp">Reservar</a>
+              <h3 class="card__title" data-t>Bikes Infantis</h3>
+              <p data-t>Aro 16 a 26, para pedalar em família.</p>
+              <p class="card__price"><strong>R$ 80</strong> <span data-t>por período</span></p>
+              <button class="btn btn--primary" type="button" data-dialog-open="dialog-bike-infantil" data-t>Ver detalhes</button>
             </div>
-          </article>
 
+            <dialog class="tour-dialog" id="dialog-bike-infantil" aria-labelledby="dialog-bike-infantil-title" tabindex="-1">
+              <div class="tour-gallery tour-gallery--empty placeholder-media"><p data-t>Fotos em breve</p></div>
+              <div class="tour-dialog__body">
+                <button class="tour-dialog__close" type="button" data-dialog-close aria-label="Fechar" data-t-attr="aria-label">&times;</button>
+                <p class="kicker" data-t>Locação avulsa</p>
+                <h3 id="dialog-bike-infantil-title" data-t>Bikes Infantis</h3>
+                <dl class="tour-facts">
+                  <div><dt data-t>Período</dt><dd data-t>Manhã à noite</dd></div>
+                  <div><dt data-t>Idade</dt><dd data-t>A partir de 5 anos</dd></div>
+                  <div><dt data-t>Tamanhos</dt><dd data-t>Aro 16 a 26</dd></div>
+                </dl>
+                <p data-t>Alugar uma bicicleta infantil para passear com as crianças em Poços de Caldas é a escolha certa para garantir diversão, segurança e momentos inesquecíveis em família.</p>
+                <h4 data-t>Valores</h4>
+                <dl class="tour-prices">
+                  <div><dt data-t>Por período</dt><dd data-t>R$ 80,00</dd></div>
+                </dl>
+                <p class="tour-note" data-t>Idade mínima de 5 anos, com acompanhante responsável. O período vai da manhã até a noite do mesmo dia.</p>
+                <a class="btn btn--primary" href="https://wa.me/5535997790123" data-whatsapp="Olá! Quero alugar uma bike infantil com a LocBike." data-t data-t-attr="data-whatsapp">Reservar pelo WhatsApp</a>
+              </div>
+            </dialog>
+          </article>
           <article class="card rental-card" id="acessorios">
-            <div class="card__media placeholder-media" aria-hidden="true"></div>
             <div class="card__body">
               <h3 class="card__title" data-t>Acessórios</h3>
-              <p data-t>Capacetes, alforjes, carretinhas e acessórios de transporte.</p>
-              <p class="price">[R$ 00]</p>
-              <a class="btn btn--primary" href="https://wa.me/5535997790123" target="_blank" rel="noopener" data-whatsapp="Olá! Quero alugar acessórios com a LocBike." data-t data-t-attr="data-whatsapp">Reservar</a>
+              <p data-t>Capacete, transbike, pedal clip e baterias.</p>
+              <p class="card__price"><span data-t>a partir de</span> <strong>R$ 25</strong> <span data-t>por período</span></p>
+              <button class="btn btn--primary" type="button" data-dialog-open="dialog-acessorios" data-t>Ver detalhes</button>
             </div>
+
+            <dialog class="tour-dialog" id="dialog-acessorios" aria-labelledby="dialog-acessorios-title" tabindex="-1">
+              <div class="tour-gallery tour-gallery--empty placeholder-media"><p data-t>Fotos em breve</p></div>
+              <div class="tour-dialog__body">
+                <button class="tour-dialog__close" type="button" data-dialog-close aria-label="Fechar" data-t-attr="aria-label">&times;</button>
+                <p class="kicker" data-t>Locação avulsa</p>
+                <h3 id="dialog-acessorios-title" data-t>Acessórios</h3>
+                <dl class="tour-facts">
+                  <div><dt data-t>Período</dt><dd data-t>Manhã à noite</dd></div>
+                </dl>
+                <p data-t>Alugar acessórios de segurança e desempenho junto com a bicicleta é fundamental para garantir uma pedalada segura, eficiente e confortável nas ruas e trilhas da região.</p>
+                <h4 data-t>Disponíveis</h4>
+                <ul class="checklist">
+                  <li data-t>Capacete</li>
+                  <li data-t>Transbike</li>
+                  <li data-t>Pedais de encaixe (clip)</li>
+                  <li data-t>Baterias reserva para E-Bike</li>
+                </ul>
+                <h4 data-t>Valores</h4>
+                <dl class="tour-prices">
+                  <div><dt data-t>Por período, a partir de</dt><dd data-t>R$ 25,00</dd></div>
+                </dl>
+                <p class="tour-note" data-t>O período vai da manhã até a noite do mesmo dia.</p>
+                <a class="btn btn--primary" href="https://wa.me/5535997790123" data-whatsapp="Olá! Quero alugar acessórios com a LocBike." data-t data-t-attr="data-whatsapp">Reservar pelo WhatsApp</a>
+              </div>
+            </dialog>
           </article>
+
+          <aside class="card rental-info">
+            <div class="card__body">
+              <h3 class="card__title" data-t>Como funciona</h3>
+              <ul class="rental-info__list">
+                <li data-icon="time" data-t>Período: da manhã até a noite do mesmo dia</li>
+                <li data-icon="person" data-t>Idade mínima: 15 anos, com acompanhante responsável (bikes infantis: 5 anos)</li>
+              </ul>
+            </div>
+          </aside>
         </div>
       </div>
     </section>
