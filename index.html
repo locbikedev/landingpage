@@ -172,6 +172,7 @@
           <div class="value route-text" id="noturno-pocos">
             <h3>Noturno Poços</h3>
             <p>Poços de Caldas vista de outro jeito: um pedal ao anoitecer pelas praças e avenidas iluminadas do centro, com guia e paradas nos pontos turísticos. Programa diferente para fazer em família ou com os amigos.</p>
+            <button class="btn btn--ghost" type="button" data-dialog-open="dialog-passeio-noturno">Ver detalhes</button>
           </div>
 
           <div class="value route-text" id="mtb-pocos">
@@ -189,10 +190,10 @@
         <header class="section__header">
           <p class="kicker">Roteiros urbanos</p>
           <h2 id="urbanos-cidade-title">Urbanos de E-Bike pela cidade</h2>
-          <p>Os cartões-postais de Poços de Caldas em um só pedal de E-Bike: Thermas Antônio Carlos, Serra do Cristo, Palace Casino, Praça Pedro Sanches, Fonte dos Amores, Recanto Japonês e muito mais, com paradas para fotos e as histórias da cidade.</p>
+          <p>Os cartões-postais de Poços de Caldas em um só pedal de E-Bike: Thermas Antônio Carlos, Serra do Cristo, Palace Casino, Praça Pedro Sanches, Fonte dos Amores, Recanto Japonês e muito mais, com paradas para fotos e as histórias da cidade. E, à noite, a cidade iluminada no Passeio Noturno.</p>
         </header>
 
-        <div class="grid grid--3">
+        <div class="grid grid--4">
           <article class="card route-card" id="recanto-japones-fonte-dos-amores">
             <div class="card__media placeholder-media" aria-hidden="true"></div>
             <div class="card__body">
@@ -336,6 +337,55 @@
                   <div><dt>Por ciclista</dt><dd>R$ 390,00</dd></div>
                 </dl>
                 <a class="btn btn--primary" href="https://wa.me/5535997790123" data-whatsapp="Olá! Quero reservar o passeio Véu das Noivas de E-Bike com a LocBike.">Reservar pelo WhatsApp</a>
+              </div>
+            </dialog>
+          </article>
+
+          <article class="card route-card" id="passeio-noturno">
+            <div class="card__media placeholder-media" aria-hidden="true"></div>
+            <div class="card__body">
+              <h3 class="card__title">Passeio Noturno</h3>
+              <ul class="card__meta">
+                <li data-icon="time">2 a 3 h</li>
+                <li data-icon="level">Fácil</li>
+              </ul>
+              <p class="card__price"><strong>R$ 290</strong> por ciclista</p>
+              <button class="btn btn--primary" type="button" data-dialog-open="dialog-passeio-noturno">Ver detalhes</button>
+            </div>
+
+            <dialog class="tour-dialog" id="dialog-passeio-noturno" aria-labelledby="dialog-passeio-noturno-title" tabindex="-1">
+              <div class="tour-gallery tour-gallery--empty placeholder-media"><p>Fotos em breve</p></div>
+              <div class="tour-dialog__body">
+                <button class="tour-dialog__close" type="button" data-dialog-close aria-label="Fechar">&times;</button>
+                <p class="kicker">Roteiro noturno</p>
+                <h3 id="dialog-passeio-noturno-title">Passeio Noturno</h3>
+                <p class="tour-route">Centro · Ciclovias e praças · Sorveteria Dubellato · Igrejas históricas</p>
+                <dl class="tour-facts">
+                  <div><dt>Duração</dt><dd>2 a 3 h</dd></div>
+                  <div><dt>Nível</dt><dd>Fácil</dd></div>
+                  <div><dt>Idade</dt><dd>A partir de 15 anos</dd></div>
+                </dl>
+                <p>Uma experiência encantadora para vivenciar Poços de Caldas sob a iluminação noturna. O pedal começa no Centro, percorre as agradáveis ciclovias e praças da cidade, faz uma pausa deliciosa na Sorveteria Dubellato e segue contemplando a arquitetura e a história das principais igrejas de Poços de Caldas.</p>
+                <div class="tour-lists">
+                  <div>
+                    <h4>Incluso</h4>
+                    <ul class="checklist">
+                      <li>E-Bike</li>
+                      <li>Guia</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4>Não incluso</h4>
+                    <ul class="tour-excluded">
+                      <li>Refeições e bebidas</li>
+                    </ul>
+                  </div>
+                </div>
+                <h4>Valores</h4>
+                <dl class="tour-prices">
+                  <div><dt>Por ciclista</dt><dd>R$ 290,00</dd></div>
+                </dl>
+                <a class="btn btn--primary" href="https://wa.me/5535997790123" data-whatsapp="Olá! Quero reservar o Passeio Noturno de E-Bike com a LocBike.">Reservar pelo WhatsApp</a>
               </div>
             </dialog>
           </article>
@@ -883,7 +933,7 @@
 
         <div class="grid grid--3">
           <article class="card route-card" id="fazenda-cafe-azeite-4x4">
-            <div class="card__media placeholder-media" aria-hidden="true"></div>
+            <img class="card__media" src="assets/img/passeios/4x4-cafe-e-azeite/01-800.webp" srcset="assets/img/passeios/4x4-cafe-e-azeite/01-800.webp 537w, assets/img/passeios/4x4-cafe-e-azeite/01-1600.webp 1073w" sizes="(min-width: 960px) 33vw, (min-width: 640px) 50vw, 100vw" width="537" height="800" alt="Caminhonete 4x4 amarela na Fazenda Irarema, com o olival ao fundo" loading="lazy" decoding="async">
             <div class="card__body">
               <h3 class="card__title">Fazenda de Café e Azeite</h3>
               <ul class="card__meta">
@@ -895,7 +945,11 @@
             </div>
 
             <dialog class="tour-dialog" id="dialog-fazenda-cafe-azeite-4x4" aria-labelledby="dialog-fazenda-cafe-azeite-4x4-title" tabindex="-1">
-              <div class="tour-gallery tour-gallery--empty placeholder-media"><p>Fotos em breve</p></div>
+              <div class="tour-gallery">
+                <ul class="tour-gallery__track" tabindex="0" aria-label="Foto do passeio Fazenda de Café e Azeite 4x4">
+                  <li><img src="assets/img/passeios/4x4-cafe-e-azeite/01-800.webp" srcset="assets/img/passeios/4x4-cafe-e-azeite/01-800.webp 537w, assets/img/passeios/4x4-cafe-e-azeite/01-1600.webp 1073w" sizes="(min-width: 960px) 45vw, 100vw" width="537" height="800" alt="Caminhonete 4x4 amarela na Fazenda Irarema, com o olival ao fundo" loading="lazy" decoding="async"></li>
+                </ul>
+              </div>
               <div class="tour-dialog__body">
                 <button class="tour-dialog__close" type="button" data-dialog-close aria-label="Fechar">&times;</button>
                 <p class="kicker">Passeios 4x4</p>
@@ -933,7 +987,7 @@
           </article>
 
           <article class="card route-card" id="pico-do-gaviao-4x4">
-            <div class="card__media placeholder-media" aria-hidden="true"></div>
+            <img class="card__media" src="assets/img/passeios/4x4-pico-do-gaviao/01-800.webp" srcset="assets/img/passeios/4x4-pico-do-gaviao/01-800.webp 450w, assets/img/passeios/4x4-pico-do-gaviao/01-1280.webp 720w" sizes="(min-width: 960px) 33vw, (min-width: 640px) 50vw, 100vw" width="450" height="800" alt="Caminhonete 4x4 amarela no Pico do Gavião, com parapentes sobre as montanhas" loading="lazy" decoding="async">
             <div class="card__body">
               <h3 class="card__title">Pico do Gavião</h3>
               <ul class="card__meta">
@@ -945,7 +999,11 @@
             </div>
 
             <dialog class="tour-dialog" id="dialog-pico-do-gaviao-4x4" aria-labelledby="dialog-pico-do-gaviao-4x4-title" tabindex="-1">
-              <div class="tour-gallery tour-gallery--empty placeholder-media"><p>Fotos em breve</p></div>
+              <div class="tour-gallery">
+                <ul class="tour-gallery__track" tabindex="0" aria-label="Foto do passeio Pico do Gavião 4x4">
+                  <li><img src="assets/img/passeios/4x4-pico-do-gaviao/01-800.webp" srcset="assets/img/passeios/4x4-pico-do-gaviao/01-800.webp 450w, assets/img/passeios/4x4-pico-do-gaviao/01-1280.webp 720w" sizes="(min-width: 960px) 45vw, 100vw" width="450" height="800" alt="Caminhonete 4x4 amarela no Pico do Gavião, com parapentes sobre as montanhas" loading="lazy" decoding="async"></li>
+                </ul>
+              </div>
               <div class="tour-dialog__body">
                 <button class="tour-dialog__close" type="button" data-dialog-close aria-label="Fechar">&times;</button>
                 <p class="kicker">Passeios 4x4</p>
@@ -984,7 +1042,7 @@
           </article>
 
           <article class="card route-card" id="vinicola-4x4">
-            <div class="card__media placeholder-media" aria-hidden="true"></div>
+            <img class="card__media" src="assets/img/passeios/4x4-vinicola/01-800.webp" srcset="assets/img/passeios/4x4-vinicola/01-800.webp 537w, assets/img/passeios/4x4-vinicola/01-1600.webp 1073w" sizes="(min-width: 960px) 33vw, (min-width: 640px) 50vw, 100vw" width="537" height="800" alt="Caminhonete 4x4 amarela na Vinícola Primeira Estrada, com os vinhedos ao fundo" loading="lazy" decoding="async">
             <div class="card__body">
               <h3 class="card__title">Vinícola Primeira Estrada</h3>
               <ul class="card__meta">
@@ -996,7 +1054,11 @@
             </div>
 
             <dialog class="tour-dialog" id="dialog-vinicola-4x4" aria-labelledby="dialog-vinicola-4x4-title" tabindex="-1">
-              <div class="tour-gallery tour-gallery--empty placeholder-media"><p>Fotos em breve</p></div>
+              <div class="tour-gallery">
+                <ul class="tour-gallery__track" tabindex="0" aria-label="Foto do passeio Vinícola Primeira Estrada 4x4">
+                  <li><img src="assets/img/passeios/4x4-vinicola/01-800.webp" srcset="assets/img/passeios/4x4-vinicola/01-800.webp 537w, assets/img/passeios/4x4-vinicola/01-1600.webp 1073w" sizes="(min-width: 960px) 45vw, 100vw" width="537" height="800" alt="Caminhonete 4x4 amarela na Vinícola Primeira Estrada, com os vinhedos ao fundo" loading="lazy" decoding="async"></li>
+                </ul>
+              </div>
               <div class="tour-dialog__body">
                 <button class="tour-dialog__close" type="button" data-dialog-close aria-label="Fechar">&times;</button>
                 <p class="kicker">Passeios 4x4</p>

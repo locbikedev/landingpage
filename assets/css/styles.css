@@ -582,6 +582,7 @@ main > .section:nth-of-type(4n)::after {
 
 /* Photos are mostly portrait, so tour cards crop them to a fixed band instead of an aspect ratio */
 .grid--3 .card__media,
+.grid--4 .route-card .card__media,
 .grid--5 .card__media {
   height: clamp(120px, 22vh, 220px);
   aspect-ratio: auto;
@@ -591,9 +592,18 @@ main > .section:nth-of-type(4n)::after {
   height: clamp(120px, 18vh, 200px); /* Caminho da Fé also carries its dates */
 }
 
+.grid--4 .route-card .card__media {
+  height: clamp(110px, 16vh, 180px); /* four across with a longer intro, so the photos give way */
+}
+
 img.card__media {
   width: 100%;
   object-fit: cover;
+}
+
+/* 4x4 photos: tall shots with the truck near the bottom, so the card's crop sits low */
+#passeios-4x4 img.card__media {
+  object-position: 50% 70%;
 }
 
 .card__body > .card__price {

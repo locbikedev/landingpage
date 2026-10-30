@@ -43,8 +43,10 @@ function initNav() {
 }
 
 // Tour details: "Ver detalhes" or a click anywhere on its card opens the tour's <dialog>;
-// the ×, a backdrop click or Escape close it
+// the ×, a backdrop click or Escape close it. A dialog can have more than one opener (the Noturno
+// teaser on Roteiros Bike opens its card's dialog too), so each dialog is wired once.
 function initTourDialogs() {
+  const wired = new Set();
   document.querySelectorAll("[data-dialog-open]").forEach((button) => {
     const dialog = document.getElementById(button.dataset.dialogOpen);
     if (!dialog) return;
@@ -62,6 +64,8 @@ function initTourDialogs() {
         openDialog(dialog);
       });
     }
+    if (wired.has(dialog)) return;
+    wired.add(dialog);
     dialog.addEventListener("click", (event) => {
       if (event.target === dialog || event.target.closest("[data-dialog-close]")) closeDialog(dialog);
     });
