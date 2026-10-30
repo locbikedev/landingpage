@@ -138,7 +138,6 @@ a {
 /* Pages: every section fills the screen below the header, and scrolling snaps page by page.
    scroll-padding keeps snapped sections (and anchor jumps) clear of the sticky header. */
 html {
-  scrollbar-gutter: stable; /* the page doesn't shift when an open dialog hides the scrollbar */
   scroll-snap-type: y mandatory;
   scroll-padding-top: calc(var(--header-height) + var(--road-height));
 }
@@ -613,10 +612,8 @@ img.card__media {
   margin-top: 0;
 }
 
-/* ---------- Tour detail dialog: gallery + full description, prices and WhatsApp CTA ---------- */
-html:has(.tour-dialog[open]) {
-  overflow: hidden; /* keeps the snapped page behind the dialog still */
-}
+/* ---------- Tour detail dialog: gallery + full description, prices and WhatsApp CTA ----------
+   main.js keeps the page behind still while it's open */
 
 .tour-dialog {
   width: 100%;
@@ -641,8 +638,7 @@ html:has(.tour-dialog[open]) {
 }
 
 .tour-dialog::backdrop {
-  background: rgb(15 35 87 / 0.7);
-  backdrop-filter: blur(4px);
+  background: rgb(15 35 87 / 0.78);
 }
 
 @media (min-width: 960px) {
@@ -657,84 +653,6 @@ html:has(.tour-dialog[open]) {
     grid-template-columns: 5fr 6fr;
     grid-template-rows: none;
   }
-}
-
-/* The card leaves its slot while its dialog is open: they're the same thing */
-.card:has(> .tour-dialog[open]) {
-  visibility: hidden;
-}
-
-.tour-dialog {
-  visibility: visible;
-}
-
-/* Card ⇄ dialog morph (View Transitions, main.js): the card's box, photo and title travel to the
-   dialog's. --morph-ms and --morph-easing come from main.js. */
-::view-transition-group(tour-box),
-::view-transition-group(tour-media),
-::view-transition-group(tour-title),
-::view-transition-old(root),
-::view-transition-new(root) {
-  animation-duration: var(--morph-ms, 400ms);
-  animation-timing-function: var(--morph-easing, ease);
-}
-
-/* Opening: the page behind isn't cross-faded from a snapshot (that doubles it, sharp over blurred);
-   it stays live and main.js fades the dialog's backdrop in, so the blur ramps up for real */
-html[data-morph="open"]::view-transition-old(root) {
-  display: none;
-}
-
-html[data-morph="open"]::view-transition-new(root) {
-  animation: none;
-}
-
-/* The box is solid, so it never turns see-through while one side fades out and the other in.
-   main.js animates its corners and shadow from the card's to the dialog's. */
-::view-transition-group(tour-box) {
-  overflow: hidden;
-  background: var(--color-bg);
-}
-
-::view-transition-image-pair(tour-media) {
-  overflow: hidden;
-}
-
-/* Box and title keep their natural size: the growing box reveals the dialog's text rather than
-   stretching it */
-::view-transition-old(tour-box),
-::view-transition-new(tour-box),
-::view-transition-old(tour-title),
-::view-transition-new(tour-title) {
-  inline-size: auto;
-  block-size: auto;
-  animation-duration: calc(var(--morph-ms, 400ms) * 0.5);
-}
-
-/* The box's contents fade through its solid background: the side being left goes early, the side
-   being reached arrives once the box is near its size, so neither sits stranded in a corner */
-::view-transition-old(tour-box) {
-  animation-duration: calc(var(--morph-ms, 400ms) * 0.3);
-}
-
-::view-transition-new(tour-box) {
-  animation-fill-mode: both;
-}
-
-html[data-morph="open"]::view-transition-new(tour-box) {
-  animation-delay: calc(var(--morph-ms, 400ms) * 0.15);
-}
-
-html[data-morph="close"]::view-transition-new(tour-box) {
-  animation-delay: calc(var(--morph-ms, 400ms) * 0.6);
-  animation-duration: calc(var(--morph-ms, 400ms) * 0.4);
-}
-
-/* The 16:9 card photo and the tall gallery fill the moving frame instead of stretching to it */
-::view-transition-old(tour-media),
-::view-transition-new(tour-media) {
-  block-size: 100%;
-  object-fit: cover;
 }
 
 .tour-dialog__close {
@@ -759,6 +677,15 @@ html[data-morph="close"]::view-transition-new(tour-box) {
   overflow-y: auto;
   overscroll-behavior: contain;
   padding: var(--space-5) var(--space-4);
+}
+
+/* The text column scrolls without a visible scrollbar */
+.tour-dialog__body {
+  scrollbar-width: none;
+}
+
+.tour-dialog__body::-webkit-scrollbar {
+  display: none;
 }
 
 @media (min-width: 960px) {
@@ -1540,7 +1467,16 @@ html[data-morph="close"]::view-transition-new(tour-box) {
 /* ---------- FAQ ---------- */
 .faq {
   display: grid;
+  align-items: start; /* an opened answer doesn't stretch the question beside it */
   gap: var(--space-2);
+}
+
+/* Wide screens: two columns, so all the questions fit on one page */
+@media (min-width: 960px) {
+  .faq {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-2) var(--space-3);
+  }
 }
 
 .faq__item {
@@ -2013,14 +1949,15 @@ main h3 {
       rotate: 1turn;
     }
 
-    /* Cards lean like a bike into a corner */
-    .card:hover {
+    /* Cards lean like a bike into a corner. Not while their dialog is open: it sits inside the card,
+       so pointing at it counts as hovering the card. */
+    .card:hover:not(:has(> .tour-dialog[open])) {
       transform: translateY(-4px);
       rotate: -0.8deg;
       box-shadow: 0 22px 40px -18px rgb(15 35 87 / 0.45);
     }
 
-    .card:nth-child(even):hover {
+    .card:nth-child(even):hover:not(:has(> .tour-dialog[open])) {
       rotate: 0.8deg;
     }
   }

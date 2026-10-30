@@ -50,7 +50,7 @@ function initTourDialogs() {
     if (!dialog) return;
     const card = button.closest(".card");
 
-    button.addEventListener("click", () => openDialog(dialog, card));
+    button.addEventListener("click", () => openDialog(dialog));
 
     // The button stays the keyboard target; the rest of the card is a bigger pointer target.
     // Skip clicks on other controls, inside the dialog (it lives in the card), or that end a text selection.
@@ -59,17 +59,17 @@ function initTourDialogs() {
       warmOnApproach(card, dialog);
       card.addEventListener("click", (event) => {
         if (event.target.closest("a, button, dialog") || String(window.getSelection())) return;
-        openDialog(dialog, card);
+        openDialog(dialog);
       });
     }
     dialog.addEventListener("click", (event) => {
-      if (event.target === dialog || event.target.closest("[data-dialog-close]")) closeDialog(dialog, card);
+      if (event.target === dialog || event.target.closest("[data-dialog-close]")) closeDialog(dialog);
     });
-    // Escape: animate too, unless the browser won't let the close be held back
+    // Escape: fade out too, unless the browser won't let the close be held back
     dialog.addEventListener("cancel", (event) => {
       if (!event.cancelable) return;
       event.preventDefault();
-      closeDialog(dialog, card);
+      closeDialog(dialog);
     });
     dialog.addEventListener("close", () => {
       dialog.querySelectorAll("video").forEach((video) => video.pause());
@@ -77,138 +77,50 @@ function initTourDialogs() {
   });
 }
 
-// The card and its dialog are one thing that grows and shrinks: a View Transition morphs the card's
-// box, photo and title into the dialog's while their contents cross-fade. Timing lives here and
-// reaches the CSS as --morph-ms / --morph-easing; without View Transitions (or with reduced motion)
-// it just opens. The easing starts gently so a slow first frame doesn't read as a jump.
-const MORPH_OPEN_MS = 420;
-const MORPH_CLOSE_MS = 320;
-const MORPH_EASING = "cubic-bezier(0.3, 0, 0, 1)";
+// The dialog fades in with a slight zoom and fades out on close; with reduced motion it just opens
+const DIALOG_OPEN_MS = 220;
+const DIALOG_CLOSE_MS = 160;
 const prefersStill = window.matchMedia("(prefers-reduced-motion: reduce)");
-let morphing = false;
 
-function openDialog(dialog, card) {
-  if (dialog.open || morphing) return;
-  const show = () => {
-    dialog.showModal();
-    dialog.focus(); // the dialog itself, so neither the close button nor the photo strip opens focused
+function fade(dialog, opening) {
+  const options = { duration: opening ? DIALOG_OPEN_MS : DIALOG_CLOSE_MS, easing: opening ? "ease-out" : "ease-in", fill: "forwards" };
+  const frames = [
+    { opacity: 0, transform: "scale(0.96)" },
+    { opacity: 1, transform: "none" },
+  ];
+  const box = dialog.animate(opening ? frames : frames.reverse(), options);
+  dialog.animate({ opacity: opening ? [0, 1] : [1, 0] }, { ...options, pseudoElement: "::backdrop" });
+  return box.finished;
+}
+
+function openDialog(dialog) {
+  if (dialog.open) return;
+  dialog.showModal();
+  dialog.focus(); // the dialog itself, so neither the close button nor the photo strip opens focused
+  if (!prefersStill.matches) fade(dialog, true).then(() => dialog.getAnimations().forEach((animation) => animation.cancel()));
+}
+
+function closeDialog(dialog) {
+  if (!dialog.open || dialog.dataset.closing !== undefined) return;
+  if (prefersStill.matches) return dialog.close();
+  dialog.dataset.closing = "";
+  const done = () => {
+    delete dialog.dataset.closing;
+    dialog.close();
+    dialog.getAnimations().forEach((animation) => animation.cancel());
   };
-  if (!card || prefersStill.matches || !document.startViewTransition) return show();
-  morph(dialog, card, true, () => {
-    show();
-    // On open the page behind isn't cross-faded (see the CSS), so the real backdrop blur fades in live
-    dialog.animate({ opacity: [0, 1] }, { duration: MORPH_OPEN_MS, easing: MORPH_EASING, pseudoElement: "::backdrop" });
-    return firstPhotoReady(dialog);
-  });
-}
-
-function closeDialog(dialog, card) {
-  if (!dialog.open || morphing) return;
-  if (!card || prefersStill.matches || !document.startViewTransition) return dialog.close();
-  morph(dialog, card, false, () => dialog.close());
-}
-
-// [name, card part, dialog part]; a pair is skipped when either side is missing
-function morphParts(dialog, card) {
-  return [
-    ["tour-box", card, dialog],
-    ["tour-media", card.querySelector(".card__media"), dialog.querySelector(".tour-gallery")],
-    ["tour-title", card.querySelector(".card__title"), dialog.querySelector("h3")],
-  ].filter(([, cardPart, dialogPart]) => cardPart && dialogPart);
-}
-
-// Names one side only: a name must be unique when the page is captured, and the dialog sits inside the card
-function nameParts(parts, side) {
-  for (const [name, cardPart, dialogPart] of parts) {
-    cardPart.style.viewTransitionName = side === "card" ? name : "";
-    dialogPart.style.viewTransitionName = side === "dialog" ? name : "";
-  }
-}
-
-// A part's snapshot loses the rounded clip of the box it sits in, so its corners are animated
-// instead: a part gets the box's radius on each corner it touches, square elsewhere. The box's
-// corners and shadow go on its group, which is solid and clips; the photo's on its image pair.
-const CORNERS = ["TopLeft", "TopRight", "BottomRight", "BottomLeft"];
-
-function cornerRadii(part, box) {
-  const p = part.getBoundingClientRect();
-  const b = box.getBoundingClientRect();
-  const style = getComputedStyle(box);
-  const near = (a, c) => Math.abs(a - c) < 8; // loose: a hovered card is slightly rotated
-  const touches = {
-    TopLeft: near(p.top, b.top) && near(p.left, b.left),
-    TopRight: near(p.top, b.top) && near(p.right, b.right),
-    BottomRight: near(p.bottom, b.bottom) && near(p.right, b.right),
-    BottomLeft: near(p.bottom, b.bottom) && near(p.left, b.left),
-  };
-  return Object.fromEntries(
-    CORNERS.map((corner) => [`border${corner}Radius`, touches[corner] ? style[`border${corner}Radius`] : "0px"])
-  );
-}
-
-function morphFrame(name, part, box) {
-  const frame = cornerRadii(part, box);
-  if (name === "tour-box") frame.boxShadow = getComputedStyle(box).boxShadow;
-  return frame;
-}
-
-function morph(dialog, card, opening, update) {
-  const parts = morphParts(dialog, card);
-  const rounded = parts.filter(([name]) => name !== "tour-title"); // the title isn't clipped by a corner
-  const ms = opening ? MORPH_OPEN_MS : MORPH_CLOSE_MS;
-  const root = document.documentElement;
-  const frames = (side) =>
-    rounded.map(([name, cardPart, dialogPart]) =>
-      side === "card" ? morphFrame(name, cardPart, card) : morphFrame(name, dialogPart, dialog)
-    );
-
-  morphing = true;
-  root.dataset.morph = opening ? "open" : "close";
-  root.style.setProperty("--morph-ms", `${ms}ms`);
-  root.style.setProperty("--morph-easing", MORPH_EASING);
-  nameParts(parts, opening ? "card" : "dialog");
-  const from = frames(opening ? "card" : "dialog");
-  let to;
-
-  const transition = document.startViewTransition(async () => {
-    nameParts(parts, opening ? "dialog" : "card");
-    await update();
-    to = frames(opening ? "dialog" : "card");
-  });
-
-  transition.ready
-    .then(() => {
-      rounded.forEach(([name], i) => {
-        root.animate([from[i], to[i]], {
-          duration: ms,
-          easing: MORPH_EASING,
-          pseudoElement: name === "tour-box" ? "::view-transition-group(tour-box)" : `::view-transition-image-pair(${name})`,
-        });
-      });
-    })
-    .catch(() => {});
-
-  transition.finished
-    .catch(() => {})
-    .then(() => {
-      nameParts(parts, null);
-      delete root.dataset.morph;
-      root.style.removeProperty("--morph-ms");
-      root.style.removeProperty("--morph-easing");
-      morphing = false;
-    });
+  fade(dialog, false).then(done, done);
 }
 
 // The first photo is lazy and its dialog is closed, so it wouldn't load until the dialog opens and
-// would then pop in mid-morph (or hold the morph back). Load and decode it ahead: when its card
-// comes near the screen, or is pointed at, touched or focused.
+// would pop in late. Load and decode it ahead: when its card comes near the screen, or is pointed
+// at, touched or focused.
 function warmFirstPhoto(dialog) {
   const img = dialog.querySelector(".tour-gallery img");
   if (img && img.loading !== "eager") {
     img.loading = "eager";
     img.decode().catch(() => {});
   }
-  return img;
 }
 
 function warmOnApproach(card, dialog) {
@@ -226,12 +138,35 @@ function warmOnApproach(card, dialog) {
   observer.observe(card);
 }
 
-// Last resort when it still isn't ready: wait a moment, but never hold the morph back for long
-function firstPhotoReady(dialog) {
-  const img = warmFirstPhoto(dialog);
-  if (!img || img.complete) return;
-  return Promise.race([img.decode().catch(() => {}), new Promise((resolve) => setTimeout(resolve, 100))]);
+// While a dialog is open the page behind stays put. Not with overflow: hidden on <html>: that drops the
+// page's scrollbar on the spot, a flash at the window's edge on macOS. Instead, scrolling that would
+// reach the page is ignored; the dialog's text column and photo strip still scroll (their
+// overscroll-behavior keeps them from spilling over onto the page).
+const SCROLL_KEYS = new Set([" ", "PageUp", "PageDown", "Home", "End", "ArrowUp", "ArrowDown"]);
+let touchStart = null;
+
+// Sideways: along the photo strip, not down the page
+function sideways(event) {
+  if (event.type === "wheel") return Math.abs(event.deltaX) > Math.abs(event.deltaY);
+  const touch = event.touches[0];
+  return touchStart && Math.abs(touch.clientX - touchStart.x) > Math.abs(touch.clientY - touchStart.y);
 }
+
+function holdPage(event) {
+  if (!document.querySelector(".tour-dialog[open]")) return;
+  const target = event.target instanceof Element ? event.target : null;
+  if (event.type === "keydown") {
+    if (!SCROLL_KEYS.has(event.key) || target?.closest("a, button, input, select, textarea")) return;
+  } else if (target?.closest(".tour-dialog__body")) {
+    return;
+  } else if (target?.closest(".tour-gallery__track") && sideways(event)) {
+    return;
+  }
+  event.preventDefault();
+}
+
+document.addEventListener("touchstart", (event) => (touchStart = { x: event.touches[0].clientX, y: event.touches[0].clientY }), { passive: true });
+for (const type of ["wheel", "touchmove", "keydown"]) document.addEventListener(type, holdPage, { passive: false });
 
 // Photo strips inside the dialogs: arrow buttons step one photo at a time
 function initGalleries() {
