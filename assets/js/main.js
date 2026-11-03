@@ -4,7 +4,7 @@
 const WHATSAPP_NUMBER = "5535997790123"; // (35) 9 9779-0123
 const WHATSAPP_MESSAGE = "Olá! Gostaria de saber mais sobre os passeios da LocBike.";
 
-// The page's text in the current language (things18n, assets/js/i18n-en.js); as written when the
+// The page's text in the current language (things18n, assets/js/i18n-en.js / i18n-es.js); as written when the
 // library didn't load or has no translation
 const tr = (text) => (window.things18n?.has(text) ? things18n.t(text) : text);
 

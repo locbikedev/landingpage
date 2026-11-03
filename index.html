@@ -22,9 +22,10 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap">
   <link rel="stylesheet" href="assets/css/styles.css">
   <script>document.documentElement.classList.add("js")</script>
-  <!-- English version: things18n (pinned commit) swaps the Portuguese text, marked data-t / data-t-attr -->
+  <!-- English and Spanish versions: things18n (pinned commit) swaps the Portuguese text, marked data-t / data-t-attr -->
   <script src="https://cdn.jsdelivr.net/gh/tetzgabriel/indiethings@868fb0c1b2ce3b699d9e2e6adadebb8f5fbe3374/things18n/things18n.js"></script>
   <script src="assets/js/i18n-en.js"></script>
+  <script src="assets/js/i18n-es.js"></script>
   <script src="assets/js/main.js" defer></script>
   <script src="assets/js/motion.js" defer></script>
 </head>
@@ -38,7 +39,7 @@
         <img class="logo__img" src="assets/img/logo.webp" alt="LocBikePocos — início" width="678" height="642" data-t-attr="alt">
       </a>
 
-      <!-- Language switch: things18n fills it with PT / EN buttons; empty (and hidden) without it -->
+      <!-- Language switch: things18n fills it with PT / EN / ES buttons; empty (and hidden) without it -->
       <div class="lang-switch" data-i18n-switch="short" role="group" aria-label="Idioma" data-t-attr="aria-label"></div>
 
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-nav-toggle>
@@ -206,7 +207,7 @@
           <article class="card route-card" id="recanto-japones-fonte-dos-amores">
             <div class="card__media placeholder-media" aria-hidden="true"></div>
             <div class="card__body">
-              <h3 class="card__title">Recanto Japonês e Fonte dos Amores</h3>
+              <h3 class="card__title" data-t>Recanto Japonês e Fonte dos Amores</h3>
               <ul class="card__meta">
                 <li data-icon="time" data-t>2 a 3 h</li>
                 <li data-icon="level" data-t>Fácil</li>
@@ -220,7 +221,7 @@
               <div class="tour-dialog__body">
                 <button class="tour-dialog__close" type="button" data-dialog-close aria-label="Fechar" data-t-attr="aria-label">&times;</button>
                 <p class="kicker" data-t>Roteiros urbanos</p>
-                <h3 id="dialog-recanto-japones-fonte-dos-amores-title">Recanto Japonês e Fonte dos Amores</h3>
+                <h3 id="dialog-recanto-japones-fonte-dos-amores-title" data-t>Recanto Japonês e Fonte dos Amores</h3>
                 <p class="tour-route" data-t>Centro · Fonte dos Amores · Recanto Japonês · Cristaleria São Marcos</p>
                 <dl class="tour-facts">
                   <div><dt data-t>Duração</dt><dd data-t>2 a 3 h</dd></div>

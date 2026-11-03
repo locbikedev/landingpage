@@ -1016,7 +1016,7 @@ img.card__media {
   background-size: 100% 2px;
 }
 
-/* Language switch (things18n fills it with PT / EN buttons). Phones: next to the menu toggle;
+/* Language switch (things18n fills it with PT / EN / ES buttons). Phones: next to the menu toggle;
    desktop: after Reservar. Empty, and so hidden, with JS off or if the library didn't load. */
 .lang-switch {
   display: flex;

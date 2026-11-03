@@ -87,6 +87,7 @@ Keep all paths relative (`assets/...`, not `/assets/...`). GitHub Pages serves p
 
 - **WhatsApp:** `WHATSAPP_NUMBER` (currently (35) 9 9779-0123) and the default `WHATSAPP_MESSAGE` are at the top of `assets/js/main.js`. They apply to every element with `data-whatsapp`. Every booking button sets its own prefilled message with `data-whatsapp="..."`, naming the tour or rental it books, so a new card's button needs one too. The `href` in the HTML is a plain `wa.me` fallback for when JS is off.
 - **Contacts:** WhatsApp and Instagram (`@locbikepocos`) only. There's no email on purpose.
+- **Languages:** Portuguese is written in the HTML; English (`assets/js/i18n-en.js`) and Spanish (`assets/js/i18n-es.js`) are things18n dictionaries keyed by that Portuguese text (elements marked `data-t`, attributes listed in `data-t-attr`). Visitors get their browser's language, or pick PT / EN / ES in the header; `?lang=es` forces one. New or changed text needs an entry in both files, or it shows in Portuguese. `?i18n=debug` outlines anything missing.
 - **Map:** the Contato page embeds Google Maps (no API key) for Av. Francisco Sales, 969.
 
 ## Local preview
